@@ -1,0 +1,182 @@
+---
+import HeaderLink from './HeaderLink.astro';
+
+---
+
+<header class="bg-black shadow" >
+  <div class="container mx-auto px-6 lg:px-8 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <img src="img/iconoTailwind.png" alt="Logo" class="w-8 h-8">
+      <span class="ml-2 text-lg font-semibold text-gray-800"></span>
+    </div>
+
+    <!-- Boton movil (menu) -->
+    <button id="menuButton" class="lg:hidden text-gray-800 focus:outline-none" aria-expanded="false" aria-controls="dropdownMenu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <!-- Menu nav -->
+    <nav id="menu" class="hidden lg:flex space-x-8 text-gray-800">
+      <div class="relative">
+        <button id="productButton" aria-expanded="false" aria-controls="productMenu" class="flex items-center text-sm font-medium  focus:outline-none">
+          Product
+          <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 01.02-1.06z" />
+          </svg>
+        </button>
+        <!-- Menu desplegables -->
+        <div id="productMenu" class="hidden absolute left-0 mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg">
+          <ul class="py-2">
+            <!-- Apartado Analytics -->
+            <li class="px-4 py-2 hover:bg-gray-50">
+              <div class="flex items-start space-x-2">
+                <span class="bg-gray-100 p-2 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-sm">Analytics</p>
+                  <p class="text-xs text-gray-500">Get a better understanding of your traffic</p>
+                </div>
+              </div>
+            </li>
+            <!-- Apartado Engagement -->
+            <li class="px-4 py-2 hover:bg-gray-50">
+              <div class="flex items-start space-x-2">
+                <span class="bg-gray-100 p-2 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-sm">Engagement</p>
+                  <p class="text-xs text-gray-500">Speak directly to your customers</p>
+                </div>
+              </div>
+            </li>
+            <!-- Apartado Security -->
+            <li class="px-4 py-2 hover:bg-gray-50">
+              <div class="flex items-start space-x-2">
+                <span class="bg-gray-100 p-2 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-sm">Security</p>
+                  <p class="text-xs text-gray-500">Your customers’ data will be safe</p>
+                </div>
+              </div>
+            </li>
+            <!-- Apartado Integrations -->
+            <li class="px-4 py-2 hover:bg-gray-50">
+              <div class="flex items-start space-x-2">
+                <span class="bg-gray-100 p-2 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21V3" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-sm">Integrations</p>
+                  <p class="text-xs text-gray-500">Connect with third-party tools</p>
+                </div>
+              </div>
+            </li>
+            <!-- Apartado Automations -->
+            <li class="px-4 py-2 hover:bg-gray-50">
+              <div class="flex items-start space-x-2">
+                <span class="bg-gray-100 p-2 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v18H3z" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="font-semibold text-sm">Automations</p>
+                  <p class="text-xs text-gray-500">Build strategic funnels</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- Botones final menu -->
+          <div class="bg-gray-100 flex  ">
+            <button class="flex-1 bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-200 py-2 rounded-md">
+              Watch demo
+            </button>
+            <button class="flex-1 bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-200 py-2 rounded-md">
+              Contact sales
+            </button>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="text-sm font-medium ">Features</a>
+      <a href="#" class="text-sm font-medium ">Marketplace</a>
+      <a href="#" class="text-sm font-medium ">Company</a>
+
+      
+    </nav>
+    <!-- Login boton -->
+    <a href="#" class="hidden lg:inline-block text-sm font-medium text-gray-800 ">Log in →</a>
+
+  </div>
+
+  
+
+ <!-- Menu desplegable movil -->
+<div id="dropdownMenu" class="hidden bg-white shadow-lg border-t border-gray-200 lg:hidden">
+<ul class="py-2 space-y-2 text-gray-800">
+  <!-- Menu desplegable movil (product) -->
+  <li class="relative">
+    <button id="productMobileButton" class="block px-4 py-2 text-sm font-medium hover:bg-gray-100 w-full text-left">
+      Product
+      <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-4 h-4 inline" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4 4a.75.75 0 01-1.06 0l-4-4a.75.75 0 01.02-1.06z" />
+      </svg>
+    </button>
+    <!-- menu desplegable product -->
+    <div id="productMobileMenu" class="hidden space-y-2 bg-gray-50 py-2 text-gray-800">
+      <div class="px-4 py-2 hover:bg-gray-100">
+        <p class="font-semibold text-sm">Analytics</p>
+        <p class="text-xs text-gray-500">Get a better understanding of your traffic</p>
+      </div>
+      <div class="px-4 py-2 hover:bg-gray-100">
+        <p class="font-semibold text-sm">Engagement</p>
+        <p class="text-xs text-gray-500">Speak directly to your customers</p>
+      </div>
+      <div class="px-4 py-2 hover:bg-gray-100">
+        <p class="font-semibold text-sm">Security</p>
+        <p class="text-xs text-gray-500">Your customers’ data will be safe</p>
+      </div>
+      <div class="px-4 py-2 hover:bg-gray-100">
+        <p class="font-semibold text-sm">Integrations</p>
+        <p class="text-xs text-gray-500">Connect with third-party tools</p>
+      </div>
+      <div class="px-4 py-2 hover:bg-gray-100">
+        <p class="font-semibold text-sm">Automations</p>
+        <p class="text-xs text-gray-500">Build strategic funnels</p>
+      </div>
+      <div class="px-4 py-2 hover:bg-gray-100">
+        <button class="w-full bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-200 py-2">
+          Watch demo
+        </button>
+      </div>
+      <div class="px-4 py-2 hover:bg-gray-100">
+        <button class="w-full bg-white border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-200 py-2">
+          Contact sales
+        </button>
+      </div>
+    </div>
+  </li>
+  <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Features</a></li>
+  <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Marketplace</a></li>
+  <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Company</a></li>
+</ul>
+<a href="#" class="block px-4 py-2 text-sm font-medium text-gray-800 hover:text-indigo-500">Log in →</a>
+</div>
+<script>
+  import '../scripts/menuToggle.ts';
+</script>
+</header>

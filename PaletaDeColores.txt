@@ -1,0 +1,10 @@
+Paleta de colores:
+Negro profundo (#000000) → bg-black (fondo principal)
+Verde oscuro (#064e3b) → to-green-900 (degradado de fondo)
+Verde brillante (#22c55e) → text-green-400 (títulos y detalles)
+Verde intenso (#16a34a) → bg-green-500 (botones primarios)
+Verde más oscuro (#15803d) → hover:bg-green-600 (hover en botones)
+Blanco puro (#ffffff) → text-white (texto principal)
+
+
+border-b-neutral-900
