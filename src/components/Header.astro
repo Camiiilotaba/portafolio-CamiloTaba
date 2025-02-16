@@ -2,68 +2,45 @@
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header class="bg-black shadow border-b border-b-emerald-950">
-  <div
-    class="container mx-auto px-2 lg:px-0 py-4 flex justify-between items-center"
-  >
+<header class="bg-black shadow">
+  <div class="container mx-auto px-2 lg:px-0 py-4 flex justify-between items-center">
     <!-- Logo -->
     <div class="flex items-center">
       <img src="/img/logooo.png" alt="Logo" class="h-20 w-25 object-contain" />
       <span class="ml-2 text-lg font-semibold text-white"></span>
     </div>
 
-    <!-- Boton movil (menu) -->
-    <button
-      id="menuButton"
-      class="lg:hidden text-white focus:outline-none"
-      aria-expanded="false"
-      aria-controls="dropdownMenu"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
-    </button>
-
-    <!-- Menu nav -->
-    <nav id="menu" class="hidden lg:flex space-x-8 text-white ">
-      <a href="/" class="text-lg font-medium">Inicio</a>
-
-
-      <a href="/proyectos" class="text-lg font-medium">Proyectos</a>
-      <a href="/contacto" class="text-lg font-medium">Contacto</a>
-    </nav>
-
-    <!-- Selector de idioma y Modo Oscuro -->
     <div class="flex items-center space-x-4">
       <!-- Selector de idioma -->
-      <select
-        id="language-select"
-        class="bg-gray-800 text-white px-4 py-2 rounded cursor-pointer"
-      >
-        <option value="#" selected>Español 🇪🇸</option>
-        <option value="english.html">English 🇬🇧</option>
-      </select>
+      <form class="max-w-sm mx-auto">
+        <label for="underline_select" class="sr-only">Underline select</label>
+        <select
+          id="language-select"
+          class="block py-2.5 px-0 w-full text-sm text-gray-100 bg-black border-0 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+        >
+          <option value="" selected>Spanish 🇪🇸</option>
+          <option value="EN">English 🇬🇧</option>
+        </select>
+      </form>
 
-      <!-- Botón de modo oscuro/claro -->
+      <!-- Botón de modo oscuro/claro (visible en pantallas pequeñas y medianas) -->
       <button
         id="theme-toggle"
-        class="bg-gray-800 text-white px-4 py-2 rounded transition"
+        class="bg-transparent text-white font-bold uppercase text-sm md:text-base tracking-wide rounded-md px-6 py-4 shadow-lg transition-all duration-300 ease-in-out hover:bg-blue-800 hover:shadow-2xl hover:-translate-y-2 xl:hidden 2xl:hidden"
       >
         🌙
       </button>
     </div>
   </div>
 </header>
+
+<!-- Botón de modo oscuro/claro para pantallas grandes (xl y 2xl) -->
+<button
+  id="theme-toggle-xl"
+  class="hidden xl:block 2xl:block xl:fixed 2xl:fixed xl:bottom-10 2xl:bottom-10 xl:right-10 2xl:right-10 bg-transparent text-white font-bold uppercase text-sm md:text-base tracking-wide rounded-md px-6 py-4 shadow-lg transition-all duration-300 ease-in-out hover:bg-blue-800 hover:shadow-2xl hover:-translate-y-2"
+>
+  🌙
+</button>
 
 <!-- Cargar scripts externos -->
 <script>

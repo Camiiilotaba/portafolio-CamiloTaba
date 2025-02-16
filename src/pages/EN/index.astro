@@ -1,0 +1,38 @@
+---
+import Header from "../../components/EN/Header.astro";
+import Footer from "../../components/EN/Footer.astro";
+import Layout from "../../layouts/EN/Layout.astro";
+import "../../styles/global.css";
+
+import Projects from "../../components/EN/Projects.astro";
+import About from "../../components/EN/About.astro";
+import Home from "../../components/EN/Home.astro";
+
+---
+
+<Layout>
+  <Header />
+
+  <main class="text-white">
+    <section id="home" class="bg-gradient-to-b from-black via-emerald-950 to-black py-8 flex items-center  w-full px-4 pb-10 lg:pb-0 ">
+        
+      <Home/>
+      
+          
+    </section>
+
+    <section
+      id="projects"
+      class="bg-gradient-to-b from-black via-emerald-950 to-black "
+    >
+      <Projects />
+    </section>
+  
+    <section id="about" class="bg-gradient-to-b from-black via-emerald-950 to-black py-20 w-full px-4 pt-10 lg:pt-12 2xl:pt-30 ">
+      <About />
+    </section>
+  </main>
+  
+
+  <Footer />
+</Layout>

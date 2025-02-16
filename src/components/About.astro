@@ -1,59 +1,30 @@
-<section id="about" class="container mx-auto px-8 py-16">
-  <h2 class="text-3xl font-bold text-green-500 mb-8 text-center">Sobre Mí</h2>
-
-  <div class="flex flex-col md:flex-row items-center">
-    <img src="/img/fotoprueba.jpg" alt="Foto de perfil"
-      class="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full border-4 border-green-500 shadow-lg object-cover mb-6 md:mb-0 md:mr-8"/>
-
-    <div class="text-left max-w-3xl">
-      <p class="text-gray-300 text-lg leading-relaxed">
-        Soy un desarrollador web junior con experiencia en la creación de interfaces modernas y funcionales.  
-        Me especializo en <strong>Astro, Angular y Laravel</strong>, utilizando <strong>Tailwind CSS</strong> para el diseño eficiente de interfaces.  
-        Disfruto de la optimización del rendimiento web y el desarrollo de aplicaciones interactivas.
-      </p>
-      <p class="mt-4 text-gray-300 text-lg leading-relaxed">
-        Me encanta seguir aprendiendo y trabajar en proyectos desafiantes. Mi enfoque está en crear experiencias atractivas 
-        para los usuarios, priorizando la accesibilidad y la eficiencia en cada proyecto.
-      </p>
-    </div>
-  </div>
 
   <!-- Habilidades -->
-  <div class="mt-12">
-    <h3 class="text-2xl font-bold text-green-500 text-center mb-6">Habilidades</h3>
-    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 justify-items-center">
-      <div class="flex flex-col items-center">
-        <img src="/img/icons/html-5.png" alt= "html icon" class="w-12 h-12">
-        <span class="text-gray-300 mt-2">HTML</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <img src="/img/icons/css-3.png" alt="CSS icon" class="w-12 h-12">
-        <span class="text-gray-300 mt-2">CSS</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <img src="/img/icons/js.png" alt="JavaScript" class="w-12 h-12">
-        <span class="text-gray-300 mt-2">JavaScript</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <img src="/img/icons/astro.png" alt="Astro" class="w-12 h-12">
-        <span class="text-gray-300 mt-2">Astro</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <img src="/img/icons/tailwind.png" alt="Tailwind CSS" class="w-12 h-12">
-        <span class="text-gray-300 mt-2">Tailwind CSS</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <img src="/img/icons/angular.png" alt="React" class="w-12 h-12">
-        <span class="text-gray-300 mt-2">Angular</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <img src="/img/icons/laravel.png" alt="Laravel icon" class="w-12 h-12">
-        <span class="text-gray-300 mt-2">Laravel</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <img src="/img/icons/git.png" alt="Git" class="w-12 h-12">
-        <span class="text-gray-300 mt-2">Git</span>
-      </div>
+  <div class="mt-0 lg:mt-0 pb-30">
+    <h3 class="text-4xl font-bold text-white text-center mb-40">Habilidades</h3>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-5 gap-10 justify-items-center">
+      {[
+        { name: "HTML", img: "/img/icons/html-5.png", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+        { name: "CSS", img: "/img/icons/css-3.png", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+        { name: "JavaScript", img: "/img/icons/js.png", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+        { name: "Astro", img: "/img/icons/astro.png", link: "https://docs.astro.build/" },
+        { name: "Tailwind CSS", img: "/img/icons/tailwind.png", link: "https://tailwindcss.com/docs/" },
+        { name: "Angular", img: "/img/icons/angular.png", link: "https://angular.io/docs" },
+        { name: "Laravel", img: "/img/icons/laravel.png", link: "https://laravel.com/docs" },
+        { name: "Git", img: "/img/icons/git.png", link: "https://git-scm.com/doc" },
+        { name: "PHP", img: "/img/icons/php.png", link: "https://www.php.net/docs.php" },
+        { name: "TypeScript", img: "/img/icons/typescript.png", link: "https://www.typescriptlang.org/docs/" },
+        { name: "Docker", img: "/img/icons/docker.png", link: "https://docs.docker.com/" },
+        { name: "SQL", img: "/img/icons/sql.png", link: "https://www.w3schools.com/sql/" },
+        { name: "Node.js", img: "/img/icons/node.png", link: "https://nodejs.org/en/docs" },
+        { name: "Java", img: "/img/icons/java.png", link: "https://docs.oracle.com/en/java/" },
+        { name: "AWS", img: "/img/icons/aws.png", link: "https://aws.amazon.com/documentation/" }
+      ].map(({ name, img, link }) => (
+        <a href={link} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center group">
+          <img src={img} alt={`${name} icon`} class="w-12 h-12 transition-transform transform group-hover:scale-110 group-hover:rotate-6" />
+          <span class="text-gray-300 mt-2 group-hover:text-green-400">{name}</span>
+        </a>
+      ))}
     </div>
   </div>
-</section>
+

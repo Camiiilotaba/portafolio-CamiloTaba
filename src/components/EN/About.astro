@@ -1,0 +1,30 @@
+
+  <!-- Habilidades -->
+  <div class="mt-0 lg:mt-0 pb-30">
+    <h3 class="text-4xl font-bold text-white text-center mb-40">Habilidades</h3>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-5 gap-10 justify-items-center">
+      {[
+        { name: "HTML", img: "/img/icons/html-5.png", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+        { name: "CSS", img: "/img/icons/css-3.png", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+        { name: "JavaScript", img: "/img/icons/js.png", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+        { name: "Astro", img: "/img/icons/astro.png", link: "https://docs.astro.build/" },
+        { name: "Tailwind CSS", img: "/img/icons/tailwind.png", link: "https://tailwindcss.com/docs/" },
+        { name: "Angular", img: "/img/icons/angular.png", link: "https://angular.io/docs" },
+        { name: "Laravel", img: "/img/icons/laravel.png", link: "https://laravel.com/docs" },
+        { name: "Git", img: "/img/icons/git.png", link: "https://git-scm.com/doc" },
+        { name: "PHP", img: "/img/icons/php.png", link: "https://www.php.net/docs.php" },
+        { name: "TypeScript", img: "/img/icons/typescript.png", link: "https://www.typescriptlang.org/docs/" },
+        { name: "Docker", img: "/img/icons/docker.png", link: "https://docs.docker.com/" },
+        { name: "SQL", img: "/img/icons/sql.png", link: "https://www.w3schools.com/sql/" },
+        { name: "Node.js", img: "/img/icons/node.png", link: "https://nodejs.org/en/docs" },
+        { name: "Java", img: "/img/icons/java.png", link: "https://docs.oracle.com/en/java/" },
+        { name: "AWS", img: "/img/icons/aws.png", link: "https://aws.amazon.com/documentation/" }
+      ].map(({ name, img, link }) => (
+        <a href={link} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center group">
+          <img src={img} alt={`${name} icon`} class="w-12 h-12 transition-transform transform group-hover:scale-110 group-hover:rotate-6" />
+          <span class="text-gray-300 mt-2 group-hover:text-green-400">{name}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+
