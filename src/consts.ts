@@ -4,6 +4,8 @@
 export const SITE_TITLE = 'Camilo Taba';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
 
+export const GIT = "https://github.com/Camiiilotaba/portafolio-CamiloTaba";
+
   
   export const IconKeys = {
     html: "html",
@@ -84,6 +86,8 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
     },
   ];
   
+ 
+
   export const projects = [
     {
       img: "/img/web/TiendaBoxeo.png",
