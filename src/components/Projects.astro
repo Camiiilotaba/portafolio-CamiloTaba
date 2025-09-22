@@ -1,41 +1,166 @@
 ---
 import { projects } from "../consts";
 import { getIconComponent } from "../icons/IconAll.astro";
-import {GIT} from "../consts";
-
+import { GIT } from "../consts";
 ---
 
-<div id="projects" class="container mx-auto px-8 py-16">
-  <h2 class="text-3xl font-bold text-white mb-8 2xl:mb-15 text-center">Proyectos</h2>
-  
-  <div class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 md:justify-center lg:justify-center ">
-    {projects.map(({ description, img, link, technologies, title }) => (
-      <div class="relative bg-gray-900 p-6 rounded-lg shadow-lg flex flex-col transition-transform transform hover:-translate-y-2 border border-gray-700 shadow-slate-700">
-        <img src={img} alt={title} class="w-full h-48 object-cover rounded-md" loading="lazy" />
-        <h3 class="text-2xl font-semibold text-white mt-4">{title}</h3>
-        <p class="text-gray-300 flex-grow line-clamp-3">{description}</p>
-        <p class="text-green-300 mt-4">Tecnologías usadas:</p>
-        <div class="flex gap-4 flex-wrap mt-2 text-white">
-          {technologies.map(({ icon }) => {
-            const IconComponent = getIconComponent(icon);
-            return IconComponent && <i class="text-2xl">{<IconComponent />}</i>;
-          })}
-        </div>
-        <div class="flex gap-4 mt-4">
-        <div class="mt-4 inline-block bg-gray-700 text-white px-2 py-2 rounded-md transition-colors hover:bg-green-500 w-25 text-center">
-        <a href={link} target="_blank">
-          Ver más
+<section id="projects" class="bg-gradient-to-b from-black via-emerald-950 to-black py-20">
+  <div class="container mx-auto px-8 pt-25">
+    <!-- Header Section -->
+    <header class="text-center mb-12 2xl:mb-20">
+      <h2 id="projects-heading" class="text-4xl md:text-5xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent">
+          Proyectos
+        </span>
+      </h2>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+        Una selección de mis trabajos más destacados, desarrollados con diferentes tecnologías y enfoques innovadores.
+      </p>
+      
+      <!-- Decorative Line -->
+      <div class="flex justify-center mt-6 mb-5">
+        <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"></div>
+      </div>
+    </header>
+    
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center mb-16">
+      {projects.map(({ description, img, link, technologies, title }, index) => (
+        <article 
+          class="project-card group relative bg-gradient-to-br from-gray-900/90 to-black/70 backdrop-blur-sm p-6 rounded-2xl shadow-2xl flex flex-col transition-all duration-500 border border-gray-800/50 hover:border-green-500/50 shadow-black/50 hover:shadow-green-500/20 overflow-hidden max-w-md w-full"
+          data-project-index={index}
+        >
+          
+          {/* Gradient overlay effect */}
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
+          
+          {/* Image container with overlay */}
+          <div class="relative overflow-hidden rounded-xl mb-4">
+            <img 
+              src={img || "/placeholder.svg"} 
+              alt={`Captura de pantalla del proyecto ${title}`}
+              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
+              loading="lazy"
+              width="400"
+              height="192"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
+            
+          </div>
+
+          {/* Content */}
+          <div class="relative z-10 flex flex-col flex-grow">
+            <header class="mb-4">
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
+                {title}
+              </h3>
+              
+              <p class="text-gray-300 flex-grow line-clamp-3 leading-relaxed text-sm">
+                {description}
+              </p>
+            </header>
+            
+            <div class="mb-6">
+              <h4 class="text-green-400 font-semibold mb-3 text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                </svg>
+                Tecnologías utilizadas
+              </h4>
+              
+              {/* Technologies icons */}
+              <ul class="flex gap-3 flex-wrap" role="list" aria-label="Tecnologías del proyecto">
+                {technologies.map(({ icon }) => {
+                  const IconComponent = getIconComponent(icon);
+                  return IconComponent && (
+                    <li class="tech-icon bg-gray-800/50 p-2 rounded-lg border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 hover:bg-gray-700/50 hover:scale-110">
+                      <span class="sr-only">{icon}</span>
+                      <i class="text-xl text-green-400 hover:text-green-300 transition-colors" aria-hidden="true">
+                        <IconComponent />
+                      </i>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            {/* Action buttons */}
+            <footer class="flex gap-3 mt-auto">
+              {link && (
+                <a 
+                  href={link} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 bg-green-500 hover:bg-green-600 text-black font-semibold py-3 px-4 rounded-lg transition-all duration-300 text-center text-sm hover:shadow-lg hover:shadow-green-500/25 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 inline-flex items-center justify-center gap-2 group/btn"
+                  aria-label={`Ver proyecto ${title} en vivo`}
+                >
+                  <span>Ver proyecto</span>
+                  <svg class="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                  <span class="sr-only"> (se abre en nueva ventana)</span>
+                </a>
+              )}
+              <a 
+                href={GIT} 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 text-center border border-gray-700 hover:border-green-500/50 text-sm hover:shadow-lg hover:shadow-gray-500/25 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900 inline-flex items-center justify-center gap-2 group/btn"
+                aria-label={`Ver código fuente del proyecto ${title} en GitHub`}
+              >
+                <span>Ver código</span>
+                <svg class="w-4 h-4 transition-transform group-hover/btn:scale-110" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only"> (se abre en nueva ventana)</span>
+              </a>
+            </footer>
+          </div>
+
+          {/* Bottom accent line */}
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" aria-hidden="true"></div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="text-center space-y-6">
+      <div class="max-w-2xl mx-auto space-y-4 pt-10">
+        <h3 class="text-2xl lg:text-3xl font-bold text-white">
+          ¿Tienes un proyecto en mente?
+        </h3>
+        <p class="text-gray-300 text-lg">
+          Colaboremos para crear algo extraordinario juntos.
+        </p>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href="mailto:juliancamilo0204@gmail.com"
+          class="bg-green-500 hover:bg-green-600 text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25 inline-flex items-center gap-2 group"
+        >
+          <span>Trabajemos juntos</span>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
         </a>
-        </div>
-        <div class="mt-4 inline-block bg-gray-700 text-white px-2 py-2 rounded-md transition-colors hover:bg-green-500 w-25 text-center">
-        <a href={GIT} target="_blank">
-          Ver codigo
+        
+        <a
+          href={GIT}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-green-500 text-green-500 hover:bg-green-500 hover:text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 inline-flex items-center gap-2 group"
+        >
+          <span>Ver más proyectos</span>
+          <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/>
+          </svg>
         </a>
-        </div>
-        <div class="absolute bottom-0 left-0 w-full h-1 bg-black opacity-30 transition-all duration-300 group-hover:h-full"></div>
       </div>
     </div>
-    ))}
   </div>
-</div>
+</section>
+
+<script src="/scripts/projects.js" defer></script>
+
 

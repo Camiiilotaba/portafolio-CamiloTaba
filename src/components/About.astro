@@ -1,30 +1,98 @@
+---
+// Datos organizados para mejor mantenimiento
+const skills = [
+  { name: "HTML", img: "/img/icons/html-5.png", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+  { name: "CSS", img: "/img/icons/css-3.png", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+  { name: "JavaScript", img: "/img/icons/js.png", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { name: "TypeScript", img: "/img/icons/typescript.png", link: "https://www.typescriptlang.org/docs/" },
+  { name: "PHP", img: "/img/icons/php.png", link: "https://www.php.net/docs.php" },
+  { name: "SQL", img: "/img/icons/sql.png", link: "https://www.w3schools.com/sql/" },
+  { name: "Laravel", img: "/img/icons/laravel.png", link: "https://laravel.com/docs" },
+  { name: "Astro", img: "/img/icons/astro.png", link: "https://docs.astro.build/" },
+  { name: "Tailwind CSS", img: "/img/icons/tailwind.png", link: "https://tailwindcss.com/docs/" },
+  { name: "Angular", img: "/img/icons/angular.png", link: "https://angular.io/docs" },
+  { name: "Docker", img: "/img/icons/docker.png", link: "https://docs.docker.com/" },
+  { name: "Git", img: "/img/icons/git.png", link: "https://git-scm.com/doc" },
+  { name: "Figma", img: "/img/icons/figma.png", link: "https://help.figma.com/hc/en-us" }
+];
 
-  <!-- Habilidades -->
-  <div class="mt-0 lg:mt-0 pb-30 2xl:pt-40">
-    <h3 class="text-4xl font-bold text-white text-center mb-40">Habilidades</h3>
-    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-5 gap-10 justify-items-center">
-      {[
-        { name: "HTML", img: "/img/icons/html-5.png", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
-        { name: "CSS", img: "/img/icons/css-3.png", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-        { name: "JavaScript", img: "/img/icons/js.png", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-        { name: "Astro", img: "/img/icons/astro.png", link: "https://docs.astro.build/" },
-        { name: "Tailwind CSS", img: "/img/icons/tailwind.png", link: "https://tailwindcss.com/docs/" },
-        { name: "Angular", img: "/img/icons/angular.png", link: "https://angular.io/docs" },
-        { name: "Laravel", img: "/img/icons/laravel.png", link: "https://laravel.com/docs" },
-        { name: "Git", img: "/img/icons/git.png", link: "https://git-scm.com/doc" },
-        { name: "PHP", img: "/img/icons/php.png", link: "https://www.php.net/docs.php" },
-        { name: "TypeScript", img: "/img/icons/typescript.png", link: "https://www.typescriptlang.org/docs/" },
-        { name: "Docker", img: "/img/icons/docker.png", link: "https://docs.docker.com/" },
-        { name: "SQL", img: "/img/icons/sql.png", link: "https://www.w3schools.com/sql/" },
-        { name: "Node.js", img: "/img/icons/node.png", link: "https://nodejs.org/en/docs" },
-        { name: "Java", img: "/img/icons/java.png", link: "https://docs.oracle.com/en/java/" },
-        { name: "AWS", img: "/img/icons/aws.png", link: "https://aws.amazon.com/documentation/" }
-      ].map(({ name, img, link }) => (
-        <a href={link} target="_blank" rel="noopener noreferrer" class="flex flex-col items-center group">
-          <img src={img} alt={`${name} icon`} class="w-12 h-12 transition-transform transform group-hover:scale-110 group-hover:rotate-6" />
-          <span class="text-gray-300 mt-2 group-hover:text-green-400">{name}</span>
-        </a>
-      ))}
+
+const stats = [
+  { number: "3", label: "Stack principales: Laravel, Tailwind, JS", color: "text-green-600" },
+  { number: "10+", label: "Proyectos desarrollados", color: "text-green-500" },
+  { number: "100%", label: "Compromiso profesional", color: "text-green-600" },
+];
+
+---
+
+<!-- Habilidades -->
+<section class="container mx-auto px-8 py-16" aria-labelledby="skills-heading">
+  <header class="text-center mb-12 mt-10 2xl:mb-16">
+    <h2 id="skills-heading" class="text-4xl md:text-5xl font-bold text-green-500 mb-4">
+      Habilidades
+    </h2>
+    <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+      Tecnologías y herramientas que domino para crear soluciones innovadoras y experiencias web excepcionales
+    </p>
+    
+    <!-- Línea decorativa sutil -->
+    <div class="flex justify-center mt-6">
+      <div class="w-20 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
     </div>
+  </header>
+
+  <!-- Grid de habilidades -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-6 justify-items-center mb-16">
+    {skills.map(({ name, img, link }, index) => (
+      <div 
+        class="skill-card group relative w-full max-w-[120px]"
+        data-skill-index={index}
+      >
+        <a 
+          href={link} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="flex flex-col items-center p-4 rounded-2xl bg-gradient-to-br from-gray-900/90 to-black/70 backdrop-blur-sm border border-gray-800/50 hover:border-green-500/50 transition-all duration-500 shadow-2xl shadow-black/50 hover:shadow-green-500/20 hover:-translate-y-2  w-full"
+          aria-label={`Aprender más sobre ${name}`}
+        >
+          <!-- Gradient overlay effect -->
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl" aria-hidden="true"></div>
+          
+          <div class="relative mb-3 z-10">
+            <img 
+              src={img || "/placeholder.svg?height=48&width=48"} 
+              alt={`${name} icon`} 
+              class="w-12 h-12 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 filter group-hover:drop-shadow-lg" 
+              loading="lazy"
+              width="48"
+              height="48"
+            />
+          </div>
+          
+          <span class="text-gray-300 font-medium text-center group-hover:text-green-400 transition-colors duration-300 text-sm relative z-10">
+            {name}
+          </span>
+          
+          <!-- Bottom accent line -->
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-2xl" aria-hidden="true"></div>
+        </a>
+      </div>
+    ))}
   </div>
+
+  <!-- Estadísticas adicionales -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+    {stats.map(({ number, label, color }, index) => (
+      <div class="stat-card group relative" data-stat-index={index}>
+        <div class="bg-gradient-to-br from-gray-900/90 to-black/70 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-green-500/50 transition-all duration-300 shadow-2xl shadow-black/50 hover:shadow-green-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl" aria-hidden="true"></div>
+          <div class={`text-3xl font-bold ${color} mb-2 relative z-10`}>{number}</div>
+          <div class="text-gray-300 relative z-10">{label}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script src="/scripts/about.js" type="module"></script>
 

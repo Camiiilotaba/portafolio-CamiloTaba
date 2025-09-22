@@ -2,31 +2,60 @@
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header class="bg-black shadow">
-  <div class="container mx-auto px-2 lg:px-0 py-4 flex justify-between items-center">
+<header class="header">
+  <div class="header-container">
     <!-- Logo -->
-    <div class="flex items-center">
-      <img src="/img/logooo.png" alt="Logo" class="h-20 w-25 object-contain" />
-      <span class="ml-2 text-lg font-semibold text-white"></span>
+    <div class="logo-section">
+      <img src="/img/logooo.png" alt="Logo" class="logo-img" />
+      <span class="logo-text"></span>
     </div>
 
-    <div class="flex items-center space-x-4">
-      <!-- Selector de idioma -->
-      <form class="max-w-sm mx-auto">
-        <label for="underline_select" class="sr-only">Underline select</label>
-        <select
-          id="language-select"
-          class="block py-2.5 px-0 w-full text-sm text-gray-100 bg-black border-0 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-        >
-          <option value="" selected>Spanish 🇪🇸</option>
-          <option value="EN">English 🇬🇧</option>
-        </select>
-      </form>
+    <!-- Navigation and Controls -->
+    <div class="nav-controls">
+      <!-- Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <HeaderLink href="#" class="nav-link">Inicio</HeaderLink>
 
-    
+        <HeaderLink href="#projects" class="nav-link">Proyectos</HeaderLink>
+        <HeaderLink href="#about" class="nav-link">Habilidades</HeaderLink>
+      </nav>
+
+      <!-- Language Selector -->
+      <div class="language-selector">
+        <label for="language-select" class="sr-only">Seleccionar idioma</label>
+        <select id="language-select" class="language-select">
+          <option value="ES" selected>🇪🇸 ES</option>
+          <option value="EN">🇬🇧 EN</option>
+        </select>
+        <div class="select-arrow">
+          <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-nav">
+      <HeaderLink href="#home" class="mobile-nav-link">Inicio</HeaderLink>
+      <HeaderLink href="#projects" class="mobile-nav-link">Proyectos</HeaderLink>
+      <HeaderLink href="#about" class="mobile-nav-link">Habilidades</HeaderLink>
+    </nav>
+  </div>
+
+  <!-- Header accent line -->
+  <div class="header-accent"></div>
 </header>
+
 
 <!-- Cargar scripts externos -->
 <script>
