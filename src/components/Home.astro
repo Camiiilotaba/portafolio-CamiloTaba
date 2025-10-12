@@ -1,52 +1,114 @@
 <section
-  class="hero-section flex items-center justify-center pt-6 pb-10 md:pb-16"
+  class="hero-section relative flex items-center justify-center pt-6 pb-10 md:pb-16 overflow-hidden"
 >
+  <!-- Animated background effects -->
+  <div
+    class="absolute inset-0 overflow-hidden pointer-events-none"
+    aria-hidden="true"
+  >
+    <div
+      class="absolute top-1/3 left-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-pulse"
+    >
+    </div>
+    <div
+      class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl animate-pulse"
+      style="animation-delay: 1.5s;"
+    >
+    </div>
+    <div
+      class="absolute top-1/2 left-1/2 w-72 h-72 bg-green-400/10 rounded-full blur-3xl animate-pulse"
+      style="animation-delay: 3s;"
+    >
+    </div>
+  </div>
+
   <!-- Main Content -->
-  <div class="container mx-auto px-8 pt-30">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+  <div
+    class="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-30 relative z-10"
+  >
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-16"
+    >
       <!-- Text Content -->
-      <div class="text-left max-w-3xl">
-        <h1 class="text-4xl md:text-6xl font-bold text-green-500">
+      <div class="text-left max-w-3xl space-y-5 sm:space-y-6">
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-green-500 animate-fade-in"
+        >
           Camilo Taba
         </h1>
 
-        <h2 class="text-2xl md:text-4xl font-extrabold mt-5 text-white">
-          Web & <span class="text-green-500">Fullstack</span> Developer
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white animate-fade-in"
+          style="animation-delay: 0.2s;"
+        >
+          Web & <span
+            class="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent"
+            >Fullstack</span
+          > Developer
         </h2>
 
         <p
-          class="mt-5 text-lg md:text-xl 2xl:text-2xl leading-relaxed text-justify font-light text-gray-300"
+          class="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-justify font-light text-gray-300 animate-fade-in"
+          style="animation-delay: 0.4s;"
         >
-          Desarrollador especializado en <strong class="text-green-500"
-            >Astro</strong
-          >, <strong class="text-green-500">Laravel</strong> y tecnologías modernas.
-          Creo experiencias web de alto rendimiento con <strong
-            class="text-white">SEO técnico</strong
+          Desarrollador especializado en <strong
+            class="text-green-400 font-semibold">Astro</strong
+          >, <strong class="text-green-400 font-semibold">Laravel</strong> y tecnologías
+          modernas. Creo experiencias web de alto rendimiento con <strong
+            class="text-white font-semibold">SEO técnico</strong
           >, aplicaciones responsives y optimización avanzada. Con conocimientos
-          en <strong class="text-white">WebSockets</strong>,
-          <strong class="text-white">Tailwind CSS</strong> y <strong
-            class="text-white">TypeScript</strong
+          en <strong class="text-white font-semibold">WebSockets</strong>,
+          <strong class="text-white font-semibold">Tailwind CSS</strong> y <strong
+            class="text-white font-semibold">TypeScript</strong
           >.
         </p>
 
-        <div class="flex flex-wrap gap-3 mt-6">
-          <span class="tech-pill">Astro</span>
-          <span class="tech-pill">Laravel</span>
-          <span class="tech-pill">Tailwind CSS</span>
-          <span class="tech-pill">Websockets</span>
-          <span class="tech-pill">JavaScript</span>
-          <span class="tech-pill">PHP</span>
+        <!-- Tech Pills -->
+        <div
+          class="flex flex-wrap gap-2 sm:gap-3 animate-fade-in"
+          style="animation-delay: 0.6s;"
+        >
+          <span
+            class="tech-pill backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 hover:bg-white/10 text-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20"
+            >Astro</span
+          >
+          <span
+            class="tech-pill backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 hover:bg-white/10 text-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20"
+            >Laravel</span
+          >
+          <span
+            class="tech-pill backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 hover:bg-white/10 text-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20"
+            >Tailwind CSS</span
+          >
+          <span
+            class="tech-pill backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 hover:bg-white/10 text-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20"
+            >Websockets</span
+          >
+          <span
+            class="tech-pill backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 hover:bg-white/10 text-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20"
+            >JavaScript</span
+          >
+          <span
+            class="tech-pill backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 hover:bg-white/10 text-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/20"
+            >PHP</span
+          >
         </div>
 
-        <div class="mt-9 flex flex-col sm:flex-row gap-4 pt-2">
+        <!-- CTA Buttons -->
+        <div
+          class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 animate-fade-in"
+          style="animation-delay: 0.8s;"
+        >
+          <!-- Botón principal de contacto con fallback -->
           <a
-            href="mailto:juliancamilo0204@gmail.com"
-            class="btn-primary group"
+            href="mailto:camilotaba.dev@gmail.com?subject=Contacto%20desde%20tu%20portafolio&body=Hola%20Camilo,%20he%20visto%20tu%20portafolio%20y..."
+            onclick="if(!window.navigator.mailtoSupported){ window.open('https://mail.google.com/mail/?view=cm&fs=1&to=camilotaba.dev@gmail.com', '_blank'); return false; }"
+            class="btn-primary group bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 text-center text-sm sm:text-base hover:shadow-lg hover:shadow-green-500/50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black inline-flex items-center justify-center hover:scale-105"
             aria-label="Contactar a Camilo Taba por email"
           >
             <span>Hablemos</span>
             <svg
-              class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
+              class="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -59,16 +121,17 @@
             </svg>
           </a>
 
+          <!-- Botón de Curriculum -->
           <a
-            href="./Curriculum-CamiloTaba.pdf"
+            href="./_JCamiloTaba-Curriculum.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-secondary group"
+            class="btn-secondary group backdrop-blur-md bg-white/5 hover:bg-white/10 border border-white/10 hover:border-green-500/50 text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 text-center text-sm sm:text-base hover:shadow-lg hover:shadow-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black inline-flex items-center justify-center hover:scale-105"
             aria-label="Descargar curriculum de Camilo Taba"
           >
             <span>Ver Curriculum</span>
             <svg
-              class="w-4 h-4 ml-2 transition-transform group-hover:translate-y-[-2px]"
+              class="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-y-[-2px]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -83,55 +146,129 @@
           </a>
         </div>
 
-        <div class="flex gap-6 mt-10">
+        <!-- Social Links -->
+        <div
+          class="flex gap-4 sm:gap-6 animate-fade-in"
+          style="animation-delay: 1s;"
+        >
           <a
             href="https://github.com/Camiiilotaba"
             target="_blank"
             rel="noopener noreferrer"
-            class="social-link"
+            class="social-link backdrop-blur-md bg-white/5 hover:bg-white/10 border border-white/10 hover:border-green-500/50 p-3 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 group"
             aria-label="GitHub Camilo Taba"
           >
             <svg
               viewBox="0 0 16 16"
               aria-hidden="true"
-              width="32"
-              height="32"
+              width="28"
+              height="28"
+              class="sm:w-8 sm:h-8 text-gray-300 group-hover:text-green-400 transition-colors duration-300"
               fill="currentColor"
             >
-              <path d="M8 0C3.58 0 0 3.58 0 8..."></path>
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              ></path>
             </svg>
           </a>
           <a
             href="https://www.linkedin.com/in/julian-camilo-blandon-taba-9b5210294/"
             target="_blank"
             rel="noopener noreferrer"
-            class="social-link"
+            class="social-link backdrop-blur-md bg-white/5 hover:bg-white/10 border border-white/10 hover:border-green-500/50 p-3 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 group"
             aria-label="LinkedIn Camilo Taba"
           >
             <svg
               viewBox="0 0 16 16"
               aria-hidden="true"
-              width="32"
-              height="32"
+              width="28"
+              height="28"
+              class="sm:w-8 sm:h-8 text-gray-300 group-hover:text-green-400 transition-colors duration-300"
               fill="currentColor"
             >
-              <path d="M0 1.146C0 .513.526 0 1.175 0..."></path>
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+              ></path>
             </svg>
           </a>
         </div>
       </div>
 
-      <!-- Imagen perfil -->
-      <div class="img-profile hidden xl:block">
-        <img
-          src="/img/fotoperfil3.jpg"
-          alt="Camilo Taba - Web & Fullstack Developer"
-          class="w-48 h-48 xl:w-64 xl:h-64 2xl:w-80 2xl:h-80 rounded-full border-4 border-green-500 shadow-lg object-cover scale-95 hover:scale-100 transition-transform duration-300"
-          loading="lazy"
-        />
+      <!-- Profile Image -->
+      <div
+        class="img-profile hidden xl:block animate-fade-in"
+        style="animation-delay: 1.2s;"
+      >
+        <div class="relative group">
+          <!-- Glow effect -->
+          <div
+            class="absolute -inset-4 bg-gradient-to-r from-green-500/30 to-emerald-500/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          >
+          </div>
+
+          <!-- Image container with glassmorphism -->
+          <div
+            class="relative backdrop-blur-sm bg-white/5 p-2 rounded-full border border-white/10 group-hover:border-green-500/50 transition-all duration-500"
+          >
+            <img
+              src="/img/fotoperfil3.jpg"
+              alt="Camilo Taba - Web & Fullstack Developer"
+              class="w-56 h-56 xl:w-64 xl:h-64 2xl:w-80 2xl:h-80 rounded-full object-cover transition-all duration-500 group-hover:scale-105 shadow-2xl shadow-black/50"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Animated ring -->
+          <div
+            class="absolute inset-0 rounded-full border-2 border-green-500/20 animate-ping-slow"
+          >
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Script externo -->
 <script src="/scripts/hero-animations.js" defer></script>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ping-slow {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-ping-slow {
+    animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: auto;
+    }
+  }
+</style>
