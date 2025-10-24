@@ -1,25 +1,135 @@
+---
+import Analytics from '@vercel/analytics/astro'
+import SpeedInsights from '@vercel/speed-insights/astro'
+
+const {
+  title = 'Camilo Taba – Desarrollador Fullstack | Proyectos Web en España',
+  description = 'Desarrollador web fullstack freelance especializado en desarrollo web profesional, diseño UX/UI, Laravel, Astro y React. Proyectos web personalizados en toda España y remoto.',
+  image = '/og-image.jpg',
+  type = 'website',
+  canonical = Astro.url.pathname
+} = Astro.props
+
+const siteUrl = Astro.site || 'https://camilotaba.com'
+const canonicalURL = new URL(canonical, siteUrl)
+const ogImageURL = new URL(image, siteUrl)
+
+// Datos estructurados JSON-LD para SEO
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Camilo Taba',
+  jobTitle: 'Desarrollador Web Fullstack',
+  url: siteUrl,
+  image: ogImageURL.toString(),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Orihuela',
+    addressRegion: 'Alicante',
+    addressCountry: 'ES'
+  },
+  sameAs: [
+    'https://github.com/Camiiilotaba',
+    'https://www.linkedin.com/in/julian-camilo-blandon-taba-9b5210294/',
+  ],
+  knowsAbout: [
+    'Desarrollo Web',
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'Laravel',
+    'Astro',
+    'Tailwind CSS',
+    'Diseño UX/UI',
+    'Desarrollo Fullstack',
+    'APIs REST',
+    'WebSockets'
+  ],
+  description: description,
+  workLocation: [
+    {
+      '@type': 'Place',
+      name: 'Remoto'
+    },
+    {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Orihuela',
+        addressRegion: 'Alicante',
+        addressCountry: 'ES'
+      }
+    }
+  ],
+  areaServed: [
+    {
+      '@type': 'Country',
+      name: 'España'
+    },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Comunidad Valenciana'
+    },
+    {
+      '@type': 'AdministrativeArea', 
+      name: 'Región de Murcia'
+    }
+  ]
+}
+---
+
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Camilo Taba – Portafolio </title>
-		<meta
-			name="description"
-			content="Portafolio web de Camilo Taba, desarrollador web y diseñador UX/UI."
-		/>
-		<meta name="author" content="Camilo Taba" />
-		<meta property="og:title" content="Camilo Taba – Portafolio" />
-		<meta
-			property="og:description"
-			content="Portafolio web de Camilo Taba, desarrollador web y diseñador UX/UI."
-		/>
-		<meta property="og:type" content="website" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Meta tags básicos -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Camilo Taba" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Keywords amplias y específicas -->
+    <meta name="keywords" content="desarrollador web España, programador freelance, desarrollador fullstack, desarrollo web profesional, diseñador UX/UI, desarrollo web remoto, programador Laravel, desarrollador React, Astro framework, Tailwind CSS, TypeScript, WebSockets, desarrollador web Alicante, desarrollador web Murcia, programador Comunidad Valenciana" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Camilo Taba - Desarrollador Fullstack" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    
+    <!-- Geo tags flexibles - base en Orihuela pero sin limitarse -->
+    <meta name="geo.region" content="ES-VC" />
+    <meta name="geo.placename" content="Orihuela, Alicante" />
+    <meta name="geo.position" content="38.0858;-0.9429" />
+    <meta name="ICBM" content="38.0858, -0.9429" />
+    
+    <!-- Datos estructurados JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    
+    <!-- Preconnect para mejorar rendimiento -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
 
-	</head>
-	<body>
-		<slot />
-	</body>
+  <body>
+    <slot />
+
+    <!-- Analytics de Vercel -->
+    <Analytics />
+    <SpeedInsights />
+  </body>
 </html>
