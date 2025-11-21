@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://camilotaba.dev',
+  
   integrations: [
     sitemap({
       changefreq: 'weekly',
@@ -13,24 +14,14 @@ export default defineConfig({
       lastmod: new Date(),
     })
   ],
+  
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-    build: {
-      cssMinify: true,
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-      },
-    },
+    plugins: [tailwindcss()],
   },
+  
   compressHTML: true,
+  
   build: {
     inlineStylesheets: 'auto',
-    assets: '_assets',
   },
 });
