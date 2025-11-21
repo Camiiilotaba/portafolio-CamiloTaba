@@ -6,7 +6,16 @@ import HeaderLink from "./HeaderLink.astro";
   <div class="header-container">
     <!-- Logo -->
     <div class="logo-section">
-      <img src="/img/logooo.png" alt="Logo" class="logo-img" />
+      <img 
+        src="/img/logooo.png" 
+        alt="Camilo Taba - Logo del portafolio" 
+        class="logo-img"
+        width="180"
+        height="72"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
       <span class="logo-text"></span>
     </div>
 
@@ -18,6 +27,7 @@ import HeaderLink from "./HeaderLink.astro";
 
         <HeaderLink href="#projects" class="nav-link">Proyectos</HeaderLink>
         <HeaderLink href="#about" class="nav-link">Habilidades</HeaderLink>
+        <HeaderLink href="#contact" class="nav-link">Contacto</HeaderLink>
       </nav>
 
   <!-- Header accent line -->
@@ -25,7 +35,7 @@ import HeaderLink from "./HeaderLink.astro";
 </header>
 
 
-<!-- Cargar scripts externos -->
+<!-- Scripts optimizados -->
 <script>
   import "../scripts/menuToggle.ts";
   import "../scripts/toggleTheme.js";

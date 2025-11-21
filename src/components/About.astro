@@ -29,7 +29,7 @@ const stats = [
 
 <!-- Habilidades -->
 <section class="container mx-auto px-8 py-16" aria-labelledby="skills-heading">
-  <header class="text-center mb-12 mt-10 2xl:mb-16">
+  <header class="text-center mb-12 mt-10 2xl:mb-0">
     <h2 id="skills-heading" class="text-4xl md:text-5xl font-bold text-green-500 mb-4">
       Habilidades
     </h2>
@@ -68,6 +68,8 @@ const stats = [
               loading="lazy"
               width="48"
               height="48"
+              decoding="async"
+              fetchpriority="low"
             />
           </div>
           
@@ -96,5 +98,57 @@ const stats = [
   </div>
 </section>
 
-<script src="/scripts/about.js" type="module"></script>
+<!-- Script optimizado inline para mejor rendimiento -->
+<script is:inline>
+  (function() {
+    if (typeof window === 'undefined') return;
+    
+    function initAbout() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            // Desconectar después de animar para mejor rendimiento
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.skill-card, .stat-card').forEach((card) => {
+        observer.observe(card);
+      });
+
+      // Mejorar navegación por teclado
+      document.querySelectorAll('.skill-card a').forEach((link, index) => {
+        link.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            link.click();
+          }
+
+          const links = document.querySelectorAll('.skill-card a');
+          if (e.key === 'ArrowRight' && links[index + 1]) {
+            e.preventDefault();
+            links[index + 1].focus();
+          }
+          if (e.key === 'ArrowLeft' && links[index - 1]) {
+            e.preventDefault();
+            links[index - 1].focus();
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAbout);
+    } else {
+      initAbout();
+    }
+  })();
+</script>
 

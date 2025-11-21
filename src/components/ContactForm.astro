@@ -1,0 +1,189 @@
+---
+// Componente de isla para el formulario de contacto
+// Se hidrata solo cuando es visible (client:visible)
+---
+
+<!-- Animated background effects -->
+<div
+  class="absolute inset-0 overflow-hidden pointer-events-none"
+  aria-hidden="true"
+>
+  <div
+    class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"
+  ></div>
+  <div
+    class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"
+    style="animation-delay: 2s;"
+  ></div>
+</div>
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <!-- Header Section -->
+  <header class="text-center mb-12 lg:mb-16">
+    <h2
+      class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4"
+    >
+      <span
+        class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent"
+      >
+        Contacto
+      </span>
+    </h2>
+    <p
+      class="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-4"
+    >
+      ¿Quieres colaborar en un proyecto o simplemente saludar? Envíame un mensaje y
+      estaré encantado de responderte.
+    </p>
+
+    <!-- Decorative Line -->
+    <div class="flex justify-center mt-6">
+      <div
+        class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"
+      ></div>
+    </div>
+  </header>
+
+  <!-- Contact Form -->
+  <form
+    id="contact-form"
+    class="max-w-lg mx-auto backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/30 p-6 sm:p-8 rounded-2xl shadow-2xl transition-all duration-300"
+    method="POST"
+    action="https://formspree.io/f/xnnllzpo"
+  >
+    <!-- Name Field -->
+    <div class="mb-6">
+      <label
+        class="block text-gray-300 text-base sm:text-lg font-semibold mb-2"
+        for="name"
+      >
+        Nombre
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full p-3 sm:p-4 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 focus:border-green-500/50 focus:bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-all duration-300"
+        placeholder="Tu nombre"
+      />
+    </div>
+
+    <!-- Email Field -->
+    <div class="mb-6">
+      <label
+        class="block text-gray-300 text-base sm:text-lg font-semibold mb-2"
+        for="email"
+      >
+        Correo Electrónico
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full p-3 sm:p-4 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 focus:border-green-500/50 focus:bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-all duration-300"
+        placeholder="tu@email.com"
+      />
+    </div>
+
+    <!-- Message Field -->
+    <div class="mb-6">
+      <label
+        class="block text-gray-300 text-base sm:text-lg font-semibold mb-2"
+        for="message"
+      >
+        Mensaje
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        required
+        class="w-full p-3 sm:p-4 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 focus:border-green-500/50 focus:bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-all duration-300 resize-none"
+        placeholder="Escribe tu mensaje aquí..."></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      id="submit-btn"
+      class="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-bold px-6 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 inline-flex items-center justify-center gap-2 group"
+    >
+      <span id="submit-text">Enviar Mensaje</span>
+      <span id="submit-loading" class="hidden">Enviando...</span>
+      <svg
+        class="w-5 h-5 transition-transform group-hover:translate-x-1"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </button>
+
+    <!-- Form Message -->
+    <div id="form-message" class="mt-4 text-center hidden"></div>
+  </form>
+</div>
+
+<!-- Isla: Script solo se carga cuando el formulario es visible -->
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const submitText = document.getElementById("submit-text");
+  const submitLoading = document.getElementById("submit-loading");
+  const formMessage = document.getElementById("form-message");
+
+  if (form && submitBtn) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Deshabilitar botón
+      submitBtn.disabled = true;
+      submitText?.classList.add("hidden");
+      submitLoading?.classList.remove("hidden");
+      formMessage?.classList.add("hidden");
+
+      const formData = new FormData(form);
+
+      try {
+        // Aquí puedes usar Formspree, EmailJS, o tu propio endpoint
+        const response = await fetch(form.action || "/api/contact", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          if (formMessage) {
+            formMessage.textContent =
+              "¡Mensaje enviado con éxito! Te responderé pronto.";
+            formMessage.className = "mt-4 text-center text-green-400 font-medium";
+            formMessage.classList.remove("hidden");
+          }
+          form.reset();
+        } else {
+          throw new Error("Error al enviar");
+        }
+      } catch (error) {
+        if (formMessage) {
+          formMessage.textContent =
+            "Error al enviar el mensaje. Por favor, intenta de nuevo o envía un email directamente.";
+          formMessage.className = "mt-4 text-center text-red-400 font-medium";
+          formMessage.classList.remove("hidden");
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitText?.classList.remove("hidden");
+        submitLoading?.classList.add("hidden");
+      }
+    });
+  }
+</script>

@@ -1,0 +1,391 @@
+---
+import { Image } from "astro:assets";
+import { getIconComponent } from "../icons/IconAll.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  img: string;
+  link?: string;
+  technologies: Array<{ icon: string }>;
+  index: number;
+}
+
+const { title, description, img, link, technologies, index } = Astro.props;
+
+// Convertir la ruta de imagen pública a un objeto de imagen
+let imageSrc: ImageMetadata | string = img;
+if (img.startsWith('/')) {
+  // Para imágenes en public/, usar la ruta directamente
+  imageSrc = img;
+}
+---
+
+<article
+  class="project-card group relative backdrop-blur-xl bg-white/5 p-5 sm:p-6 rounded-3xl flex flex-col border border-white/10 hover:border-green-500/50 hover:bg-white/10 shadow-xl hover:shadow-2xl hover:shadow-green-500/20 overflow-hidden h-full will-change-transform"
+  data-project-index={index}
+  data-card-id={`project-card-${index}`}
+>
+  {/* Glassmorphism gradient overlay */}
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-3xl"
+    aria-hidden="true"
+  />
+
+  {/* Shimmer effect - optimizado */}
+  <div
+    class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+    aria-hidden="true"
+  >
+    <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+  </div>
+
+  {/* Image container */}
+  <div class="relative overflow-hidden rounded-2xl mb-4 shadow-lg image-container">
+    {typeof imageSrc === 'string' ? (
+      <img
+        src={imageSrc || "/placeholder.svg"}
+        alt={`Captura de pantalla del proyecto ${title}`}
+        class="w-full h-40 sm:h-48 object-cover transition-transform duration-500 ease-out will-change-transform"
+        loading={index === 0 ? "eager" : "lazy"}
+        width="400"
+        height="192"
+        decoding="async"
+        fetchpriority={index === 0 ? "high" : "low"}
+      />
+    ) : (
+      <Image
+        src={imageSrc}
+        alt={`Captura de pantalla del proyecto ${title}`}
+        class="w-full h-40 sm:h-48 object-cover transition-transform duration-500 ease-out will-change-transform"
+        loading={index === 0 ? "eager" : "lazy"}
+        width={400}
+        height={192}
+        quality={85}
+      />
+    )}
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"
+      aria-hidden="true"
+    />
+  </div>
+
+  {/* Content */}
+  <div class="relative z-10 flex flex-col flex-grow">
+    <header class="mb-4">
+      <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300 leading-tight">
+        {title}
+      </h3>
+
+      {/* Short description - always visible */}
+      <p class="description-short text-gray-300 text-sm sm:text-base leading-relaxed line-clamp-2">
+        {description}
+      </p>
+
+      {/* Full description - hidden by default con animación */}
+      <div class="description-full description-collapsed mt-3 text-gray-300 text-sm sm:text-base leading-relaxed">
+        <p class="mb-3">{description}</p>
+      </div>
+
+      {/* Toggle button - Isla interactiva */}
+      <button
+        class="toggle-description mt-2 text-green-400 hover:text-green-300 text-xs sm:text-sm font-medium transition-colors duration-300 flex items-center gap-1 group/btn"
+        aria-expanded="false"
+        aria-label="Ver detalles del proyecto"
+        data-project-title={title}
+        data-card-id={`project-card-${index}`}
+      >
+        <span class="toggle-text">Ver detalles</span>
+        <svg
+          class="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-0.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+    </header>
+
+    <div class="mb-6 flex-grow">
+      <h4 class="text-green-400 font-semibold mb-3 text-xs sm:text-sm flex items-center gap-2">
+        <svg
+          class="w-4 h-4"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+        </svg>
+        Tecnologías
+      </h4>
+
+      {/* Technologies icons */}
+      <ul
+        class="flex gap-2 sm:gap-3 flex-wrap"
+        role="list"
+        aria-label="Tecnologías del proyecto"
+      >
+        {technologies.map(({ icon }) => {
+          const IconComponent = getIconComponent(icon);
+          return (
+            IconComponent && (
+              <li class="tech-icon backdrop-blur-md bg-white/5 p-2 rounded-xl border border-white/10 hover:border-green-500/50 hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+                <span class="sr-only">{icon}</span>
+                <i
+                  class="text-base sm:text-xl text-green-400 hover:text-green-300 transition-colors"
+                  aria-hidden="true"
+                >
+                  <IconComponent />
+                </i>
+              </li>
+            )
+          );
+        })}
+      </ul>
+    </div>
+
+    {/* Action buttons */}
+    <footer class="flex flex-col sm:flex-row gap-3 mt-auto">
+      {link && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-semibold py-2.5 sm:py-3 px-4 rounded-xl transition-all duration-300 text-center text-sm hover:shadow-lg hover:shadow-green-500/50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black inline-flex items-center justify-center gap-2 group/btn hover:scale-105"
+          aria-label={`Ver proyecto ${title} en vivo`}
+        >
+          <span>Ver proyecto</span>
+          <svg
+            class="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+          <span class="sr-only"> (se abre en nueva ventana)</span>
+        </a>
+      )}
+    </footer>
+  </div>
+
+  {/* Bottom accent line */}
+  <div
+    class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"
+    aria-hidden="true"
+  />
+</article>
+
+<!-- Script optimizado para el toggle - delegación de eventos -->
+<script>
+  // Usar delegación de eventos para mejor rendimiento
+  (function() {
+    function handleToggleClick(e: Event) {
+      const target = e.target as HTMLElement;
+      if (!target) return;
+      
+      const toggleBtn = target.closest('.toggle-description') as HTMLButtonElement;
+      if (!toggleBtn) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const card = toggleBtn.closest('.project-card');
+      if (!card) return;
+
+      const shortDesc = card.querySelector('.description-short');
+      const fullDesc = card.querySelector('.description-full');
+      const toggleText = toggleBtn.querySelector('.toggle-text');
+
+      if (!shortDesc || !fullDesc) return;
+
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+
+      // Usar requestAnimationFrame para animaciones más fluidas
+      requestAnimationFrame(() => {
+        if (isExpanded) {
+          // Cerrar con animación
+          fullDesc.classList.add('description-collapsing');
+          fullDesc.classList.remove('description-expanded');
+          
+          setTimeout(() => {
+            fullDesc.classList.add('description-collapsed');
+            fullDesc.classList.remove('description-collapsing');
+            shortDesc.classList.remove('hidden');
+          }, 600);
+          
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          if (toggleText) toggleText.textContent = 'Ver detalles';
+        } else {
+          // Abrir con animación - secuencia mejorada
+          shortDesc.classList.add('hidden');
+          
+          // Primero remover collapsed para preparar la animación
+          fullDesc.classList.remove('description-collapsed');
+          
+          // Pequeño delay para que el navegador procese el cambio
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              // Ahora aplicar expanding y luego expanded
+              fullDesc.classList.add('description-expanding');
+              
+              // Pequeño delay antes de expandir completamente
+              setTimeout(() => {
+                fullDesc.classList.add('description-expanded');
+                fullDesc.classList.remove('description-expanding');
+              }, 10);
+            });
+          });
+          
+          toggleBtn.setAttribute('aria-expanded', 'true');
+          if (toggleText) toggleText.textContent = 'Ocultar detalles';
+        }
+      });
+    }
+
+    // Usar delegación de eventos en el documento
+    function initToggles() {
+      document.addEventListener('click', handleToggleClick);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initToggles);
+    } else {
+      initToggles();
+    }
+  })();
+</script>
+
+<style>
+  /* Optimizaciones de rendimiento para animaciones */
+  .project-card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px) translateZ(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.3s ease,
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
+  }
+
+  .image-container img,
+  .image-container :global(img) {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .project-card:hover .image-container img,
+  .project-card:hover .image-container :global(img) {
+    transform: scale(1.05) translateZ(0);
+  }
+
+  /* Optimización para el shimmer */
+  .project-card .group-hover\:translate-x-full {
+    will-change: transform;
+  }
+
+  /* Smooth transitions */
+  .toggle-description {
+    will-change: transform;
+  }
+
+  .toggle-description svg {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center;
+  }
+  
+  .toggle-description[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+
+  /* Animaciones para el toggle de descripción - Optimizadas para fluidez */
+  .description-full {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    /* Transiciones separadas para mejor control */
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s ease-out 0.1s,
+                margin-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: max-height, opacity;
+  }
+
+  .description-full.description-collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: max-height 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19),
+                opacity 0.3s ease-in,
+                margin-top 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  }
+
+  .description-full.description-expanding {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    /* Preparar para expansión */
+  }
+
+  .description-full.description-expanded {
+    max-height: 1000px; /* Valor alto para contenido largo */
+    opacity: 1;
+    margin-top: 0.75rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    /* Transición suave al abrir */
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s ease-out 0.1s,
+                margin-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .description-full.description-collapsing {
+    max-height: 1000px; /* Mantener altura para animación de cierre */
+    opacity: 1;
+    margin-top: 0.75rem;
+    /* Transición suave al cerrar */
+    transition: max-height 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19),
+                opacity 0.3s ease-in,
+                margin-top 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  }
+
+  /* Reducir animaciones en dispositivos con preferencia de movimiento reducido */
+  @media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card:hover,
+    .image-container img,
+    .image-container :global(img),
+    .description-full {
+      transform: none !important;
+      transition: none !important;
+      max-height: none !important;
+    }
+    
+    .description-full.description-collapsed {
+      display: none;
+    }
+    
+    .description-full.description-expanded {
+      display: block;
+    }
+  }
+</style>
+

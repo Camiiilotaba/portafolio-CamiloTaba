@@ -1,6 +1,30 @@
 /* global.css */
 @import "tailwindcss";
 
+/* Skip link para accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
 
 .btn-primary {
     @apply inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:from-green-600 hover:to-green-700 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500/50;
@@ -67,35 +91,33 @@
   overflow: hidden;
 }
 
-/* Backdrop blur */
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
+/* Backdrop blur - utility class (ya está en Tailwind, pero mantenemos para compatibilidad) */
 
-/* Project card base animation */
+/* Project card base animation - optimizado para mejor rendimiento */
 .project-card {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(20px) translateZ(0);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
 }
 
 .project-card.animate-in {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
 }
 
 /* Staggered delays */
 .project-card[data-project-index="0"] { transition-delay: 0ms; }
-.project-card[data-project-index="1"] { transition-delay: 150ms; }
-.project-card[data-project-index="2"] { transition-delay: 300ms; }
-.project-card[data-project-index="3"] { transition-delay: 450ms; }
-.project-card[data-project-index="4"] { transition-delay: 600ms; }
-.project-card[data-project-index="5"] { transition-delay: 750ms; }
+.project-card[data-project-index="1"] { transition-delay: 100ms; }
+.project-card[data-project-index="2"] { transition-delay: 200ms; }
+.project-card[data-project-index="3"] { transition-delay: 300ms; }
+.project-card[data-project-index="4"] { transition-delay: 400ms; }
+.project-card[data-project-index="5"] { transition-delay: 500ms; }
 
-/* Hover animation */
+/* Hover animation - optimizado */
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px) translateZ(0);
 }
 
 /* Tech icon */
@@ -157,11 +179,6 @@
   }
 }
 /* ─────────────── 📂 About Section ─────────────── */
-
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
 
 .skill-card,
 .stat-card {

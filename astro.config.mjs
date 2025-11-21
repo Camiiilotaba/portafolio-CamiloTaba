@@ -7,11 +7,30 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: 'https://camilotaba.dev',
   integrations: [
-    sitemap()
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    })
   ],
   vite: {
     plugins: [
       tailwindcss(),
     ],
+    build: {
+      cssMinify: true,
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
+    },
+  },
+  compressHTML: true,
+  build: {
+    inlineStylesheets: 'auto',
+    assets: '_assets',
   },
 });

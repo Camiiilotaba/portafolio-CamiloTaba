@@ -8,6 +8,7 @@ import Home from "../components/Home.astro";
 import Projects from "../components/Projects.astro";
 import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
 <Layout
@@ -19,8 +20,8 @@ import Contact from "../components/Contact.astro";
 
   <main class="text-white">
     <!-- Hero/Home Section -->
-    <section 
-      id="home" 
+    <section
+      id="home"
       class="bg-gradient-to-b from-black via-emerald-950 to-black py-8 flex items-center w-full px-4 pb-10 lg:pb-0"
       aria-label="Inicio - Presentación"
     >
@@ -30,19 +31,26 @@ import Contact from "../components/Contact.astro";
     <!-- Projects Section -->
     <section
       id="projects"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black"
+      class="bg-gradient-to-b from-black via-emerald-950 to-black "
       aria-label="Proyectos de desarrollo web"
     >
       <Projects />
     </section>
-  
+
     <!-- About Section -->
-    <section 
-      id="about" 
+    <section
+      id="about"
       class="bg-gradient-to-b from-black via-emerald-950 to-black py-20 w-full px-4 pt-10 lg:pt-12 2xl:pt-30"
       aria-label="Sobre mí - Habilidades y experiencia"
     >
       <About />
+    </section>
+
+    <section
+      id="contact"
+      class="bg-gradient-to-b from-black via-emerald-950 to-black py-20 w-full px-4 pt-10 lg:pt-12 2xl:pt-30"
+    >
+      <ContactForm />
     </section>
   </main>
 

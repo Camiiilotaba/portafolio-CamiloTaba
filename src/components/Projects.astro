@@ -1,7 +1,6 @@
 ---
 import { projects } from "../consts";
-import { getIconComponent } from "../icons/IconAll.astro";
-import { GIT } from "../consts";
+import ProjectCard from "./ProjectCard.astro";
 ---
 
 <section
@@ -60,160 +59,53 @@ import { GIT } from "../consts";
       {
         projects.map(
           ({ description, img, link, technologies, title }, index) => (
-            <article
-              class="project-card group relative backdrop-blur-xl bg-white/5 p-5 sm:p-6 rounded-3xl flex flex-col transition-all duration-500 border border-white/10 hover:border-green-500/50 hover:bg-white/10 shadow-xl hover:shadow-2xl hover:shadow-green-500/20 overflow-hidden h-full"
-              data-project-index={index}
-            >
-              {/* Glassmorphism gradient overlay */}
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-3xl"
-                aria-hidden="true"
-              />
-
-              {/* Shimmer effect */}
-              <div
-                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"
-                aria-hidden="true"
-              >
-                <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-              </div>
-
-              {/* Image container */}
-              <div class="relative overflow-hidden rounded-2xl mb-4 shadow-lg">
-                <img
-                  src={img || "/placeholder.svg"}
-                  alt={`Captura de pantalla del proyecto ${title}`}
-                  class="w-full h-40 sm:h-48 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                  loading="lazy"
-                  width="400"
-                  height="192"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"
-                  aria-hidden="true"
-                />
-              </div>
-
-              {/* Content */}
-              <div class="relative z-10 flex flex-col flex-grow">
-                <header class="mb-4">
-                  <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300 leading-tight">
-                    {title}
-                  </h3>
-
-                  {/* Short description - always visible */}
-                  <p class="description-short text-gray-300 text-sm sm:text-base leading-relaxed line-clamp-2">
-                    {description}
-                  </p>
-
-                  {/* Full description - hidden by default */}
-                  <div class="description-full hidden mt-3 text-gray-300 text-sm sm:text-base leading-relaxed">
-                    <p class="mb-3">{description}</p>
-                  </div>
-
-                  {/* Toggle button */}
-                  <button
-                    class="toggle-description mt-2 text-green-400 hover:text-green-300 text-xs sm:text-sm font-medium transition-colors duration-300 flex items-center gap-1 group/btn"
-                    aria-expanded="false"
-                    aria-label="Ver detalles del proyecto"
-                  >
-                    <span class="toggle-text">Ver detalles</span>
-                    <svg
-                      class="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-                </header>
-
-                <div class="mb-6 flex-grow">
-                  <h4 class="text-green-400 font-semibold mb-3 text-xs sm:text-sm flex items-center gap-2">
-                    <svg
-                      class="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-                    </svg>
-                    Tecnologías
-                  </h4>
-
-                  {/* Technologies icons */}
-                  <ul
-                    class="flex gap-2 sm:gap-3 flex-wrap"
-                    role="list"
-                    aria-label="Tecnologías del proyecto"
-                  >
-                    {technologies.map(({ icon }) => {
-                      const IconComponent = getIconComponent(icon);
-                      return (
-                        IconComponent && (
-                          <li class="tech-icon backdrop-blur-md bg-white/5 p-2 rounded-xl border border-white/10 hover:border-green-500/50 hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-                            <span class="sr-only">{icon}</span>
-                            <i
-                              class="text-base sm:text-xl text-green-400 hover:text-green-300 transition-colors"
-                              aria-hidden="true"
-                            >
-                              <IconComponent />
-                            </i>
-                          </li>
-                        )
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                {/* Action buttons */}
-                <footer class="flex flex-col sm:flex-row gap-3 mt-auto">
-                  {link && (
-                    <a
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-semibold py-2.5 sm:py-3 px-4 rounded-xl transition-all duration-300 text-center text-sm hover:shadow-lg hover:shadow-green-500/50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black inline-flex items-center justify-center gap-2 group/btn hover:scale-105"
-                      aria-label={`Ver proyecto ${title} en vivo`}
-                    >
-                      <span>Ver proyecto</span>
-                      <svg
-                        class="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                      <span class="sr-only"> (se abre en nueva ventana)</span>
-                    </a>
-                  )}
-                </footer>
-              </div>
-
-              {/* Bottom accent line */}
-              <div
-                class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"
-                aria-hidden="true"
-              />
-            </article>
-          ),
+            <ProjectCard
+              title={title}
+              description={description}
+              img={img}
+              link={link}
+              technologies={technologies}
+              index={index}
+            />
+          )
         )
       }
     </div>
 
+    <!-- Script optimizado: Intersection Observer solo para animaciones -->
+    <script>
+      // Este script se ejecuta solo una vez para todas las tarjetas
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            // Desconectar después de animar para mejor rendimiento
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observar todas las tarjetas de proyecto cuando el DOM esté listo
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('.project-card').forEach((card) => {
+            observer.observe(card);
+          });
+        });
+      } else {
+        document.querySelectorAll('.project-card').forEach((card) => {
+          observer.observe(card);
+        });
+      }
+    </script>
+
     <!-- Call to Action Section -->
-    <div class="text-center space-y-6 sm:space-y-8">
+    <div class="text-center pb-5 space-y-6 sm:space-y-8">
       <div class="max-w-2xl mx-auto space-y-4 pt-10 px-4">
         <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
           ¿Tienes un proyecto en mente?
@@ -250,5 +142,3 @@ import { GIT } from "../consts";
     </div>
   </div>
 </section>
-
-<script src="/scripts/projects.js" defer></script>
