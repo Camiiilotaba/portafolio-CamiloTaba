@@ -1,0 +1,73 @@
+{
+  "site": {
+    "title": "Camilo Taba – Fullstack Developer in Spain | Web Portfolio",
+    "description": "Fullstack freelance web developer in Spain. Specialized in building modern web applications with Astro, React, Laravel and UX/UI design. Professional web projects."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "home": {
+    "role": "Web & <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Fullstack</span> Developer",
+    "description": "Developer specialized in <strong class=\"text-green-400 font-semibold\">Astro</strong>, <strong class=\"text-green-400 font-semibold\">Laravel</strong> and modern technologies. I build high-performance web experiences with <strong class=\"text-white font-semibold\">technical SEO</strong>, responsive applications and advanced optimization. Skilled in <strong class=\"text-white font-semibold\">WebSockets</strong>, <strong class=\"text-white font-semibold\">Tailwind CSS</strong> and <strong class=\"text-white font-semibold\">TypeScript</strong>.",
+    "cta_contact": "Let's talk",
+    "cta_cv": "View Resume",
+    "mailto_subject": "Contact from your portfolio",
+    "mailto_body": "Hi Camilo, I've seen your portfolio and...",
+    "aria_contact": "Contact Camilo Taba for web projects",
+    "aria_cv": "View Camilo Taba's resume in a new tab",
+    "aria_github": "View Camilo Taba's GitHub profile",
+    "aria_linkedin": "View Camilo Taba's LinkedIn profile",
+    "aria_technologies": "Main technologies",
+    "aria_social": "Social media links",
+    "aria_section": "Home - Introduction"
+  },
+  "projects": {
+    "heading": "Projects",
+    "subtitle": "A selection of my most outstanding works, built with different technologies and innovative approaches.",
+    "view_details": "View details",
+    "hide_details": "Hide details",
+    "view_project": "View project",
+    "technologies_label": "Technologies",
+    "cta_heading": "Have a project in mind?",
+    "cta_subtitle": "Let's collaborate to create something extraordinary together.",
+    "cta_button": "Let's work together",
+    "aria_section": "Web development projects",
+    "aria_cta_email": "Contact Camilo Taba by email",
+    "truekapp_desc": "Truekapp is a full-featured web application built with Laravel that allows users to exchange items through a real-time bartering system. It includes offer management, instant chat with WebSockets, and an admin panel for content moderation. The project was developed collaboratively with other developers, where I specialized in the real-time messaging system integration and notification logic.",
+    "valorant_desc": "One of my first projects working with external APIs. I developed a website that consumes the Valorant API, where users can browse characters along with their abilities, and I added a theme toggle button (light/dark mode) to enhance the visual experience.",
+    "managepoint_desc": "ManagePoint is a professional web platform built for salon and staff management, optimizing internal processes and facilitating historical tracking and reporting. For privacy reasons, all names and data shown in this video are fictional. It includes an admin panel, user management, version control, and PDF report generation, all fully developed and functional."
+  },
+  "about": {
+    "heading": "Skills",
+    "subtitle": "Technologies and tools I master to create innovative solutions and exceptional web experiences",
+    "aria_learn_more": "Learn more about {name}",
+    "aria_section": "About me - Skills and experience",
+    "stat_technologies": "Core technologies: Laravel, Astro, Tailwind",
+    "stat_projects": "Projects developed",
+    "stat_commitment": "Professional commitment"
+  },
+  "contact": {
+    "heading": "Contact",
+    "subtitle": "Want to collaborate on a project or just say hi? Send me a message and I'll be happy to get back to you.",
+    "name_label": "Name",
+    "name_placeholder": "Your name",
+    "email_label": "Email",
+    "email_placeholder": "your@email.com",
+    "message_label": "Message",
+    "message_placeholder": "Write your message here...",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully! I'll get back to you soon.",
+    "error": "Error sending message. Please try again or send an email directly."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "aria_github": "Visit Camilo Taba's GitHub profile",
+    "aria_linkedin": "Visit Camilo Taba's LinkedIn profile",
+    "sr_github": "Go to Camilo Taba's GitHub repositories",
+    "sr_linkedin": "Follow Camilo on LinkedIn"
+  }
+}

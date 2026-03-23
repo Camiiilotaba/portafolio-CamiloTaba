@@ -1,0 +1,73 @@
+{
+  "site": {
+    "title": "Camilo Taba – Desarrollador Fullstack en Alicante | Portafolio Web",
+    "description": "Desarrollador web fullstack freelance en Alicante. Especializado en crear aplicaciones web modernas con Astro, React, Laravel y diseño UX/UI. Proyectos web profesionales."
+  },
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "home": {
+    "role": "Web & <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Fullstack</span> Developer",
+    "description": "Desarrollador especializado en <strong class=\"text-green-400 font-semibold\">Astro</strong>, <strong class=\"text-green-400 font-semibold\">Laravel</strong> y tecnologías modernas. Creo experiencias web de alto rendimiento con <strong class=\"text-white font-semibold\">SEO técnico</strong>, aplicaciones responsive y optimización avanzada. Con conocimientos en <strong class=\"text-white font-semibold\">WebSockets</strong>, <strong class=\"text-white font-semibold\">Tailwind CSS</strong> y <strong class=\"text-white font-semibold\">TypeScript</strong>.",
+    "cta_contact": "Hablemos",
+    "cta_cv": "Ver Curriculum",
+    "mailto_subject": "Contacto desde tu portafolio",
+    "mailto_body": "Hola Camilo, he visto tu portafolio y...",
+    "aria_contact": "Contactar a Camilo Taba para proyectos web",
+    "aria_cv": "Ver CV de Camilo Taba en nueva pestaña",
+    "aria_github": "Ver perfil de GitHub de Camilo Taba",
+    "aria_linkedin": "Ver perfil de LinkedIn de Camilo Taba",
+    "aria_technologies": "Tecnologías principales",
+    "aria_social": "Enlaces a redes sociales",
+    "aria_section": "Inicio - Presentación"
+  },
+  "projects": {
+    "heading": "Proyectos",
+    "subtitle": "Una selección de mis trabajos más destacados, desarrollados con diferentes tecnologías y enfoques innovadores.",
+    "view_details": "Ver detalles",
+    "hide_details": "Ocultar detalles",
+    "view_project": "Ver proyecto",
+    "technologies_label": "Tecnologías",
+    "cta_heading": "¿Tienes un proyecto en mente?",
+    "cta_subtitle": "Colaboremos para crear algo extraordinario juntos.",
+    "cta_button": "Trabajemos juntos",
+    "aria_section": "Proyectos de desarrollo web",
+    "aria_cta_email": "Contactar a Camilo Taba por email",
+    "truekapp_desc": "Truekapp es una aplicación web completa desarrollada con Laravel que permite a los usuarios intercambiar objetos mediante un sistema de trueques en tiempo real. Incluye gestión de ofertas, chat instantáneo con WebSockets y un panel de administración para el control de publicaciones. El proyecto fue desarrollado en colaboración con otros programadores, donde me especialicé en la integración del sistema de mensajería en tiempo real y la lógica de notificaciones.",
+    "valorant_desc": "Uno de mis primeros proyectos trabajando con APIs externas. Desarrollé una página web que consume la API de Valorant, donde el usuario puede ver los personajes junto a sus habilidades, e incorporé un botón de cambio de tema (modo claro/oscuro) para mejorar la experiencia visual.",
+    "managepoint_desc": "ManagePoint es una plataforma web profesional desarrollada para la gestión de salones y personal, optimizando procesos internos y facilitando el seguimiento de históricos y reportes. Por motivos de privacidad, todos los nombres y datos mostrados en este video son ficticios. Incluye panel administrativo, gestión de usuarios, control de versiones y generación de informes PDF, todo desarrollado de forma completa y funcional."
+  },
+  "about": {
+    "heading": "Habilidades",
+    "subtitle": "Tecnologías y herramientas que domino para crear soluciones innovadoras y experiencias web excepcionales",
+    "aria_learn_more": "Aprender más sobre {name}",
+    "aria_section": "Sobre mí - Habilidades y experiencia",
+    "stat_technologies": "Tecnologías principales: Laravel, Astro, Tailwind",
+    "stat_projects": "Proyectos desarrollados",
+    "stat_commitment": "Compromiso profesional"
+  },
+  "contact": {
+    "heading": "Contacto",
+    "subtitle": "¿Quieres colaborar en un proyecto o simplemente saludar? Envíame un mensaje y estaré encantado de responderte.",
+    "name_label": "Nombre",
+    "name_placeholder": "Tu nombre",
+    "email_label": "Correo Electrónico",
+    "email_placeholder": "tu@email.com",
+    "message_label": "Mensaje",
+    "message_placeholder": "Escribe tu mensaje aquí...",
+    "submit": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado con éxito! Te responderé pronto.",
+    "error": "Error al enviar el mensaje. Por favor, intenta de nuevo o envía un email directamente."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "aria_github": "Visitar perfil de GitHub de Camilo Taba",
+    "aria_linkedin": "Visitar perfil de LinkedIn de Camilo Taba",
+    "sr_github": "Ir al repositorio de Camilo Taba en GitHub",
+    "sr_linkedin": "Seguir a Camilo en LinkedIn"
+  }
+}

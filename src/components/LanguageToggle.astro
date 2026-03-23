@@ -1,0 +1,35 @@
+---
+import type { Lang } from "../i18n/utils";
+import { getLocalePath } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="flex items-center backdrop-blur-md bg-white/5 border border-white/10 rounded-full p-0.5 text-sm font-medium">
+  <a
+    href={getLocalePath('en')}
+    class:list={[
+      'px-3 py-1.5 rounded-full transition-all duration-300',
+      lang === 'en' ? 'bg-green-500 text-black font-bold' : 'text-gray-300 hover:text-white',
+    ]}
+    aria-label="Switch to English"
+    aria-current={lang === 'en' ? 'page' : undefined}
+  >
+    EN
+  </a>
+  <a
+    href={getLocalePath('es')}
+    class:list={[
+      'px-3 py-1.5 rounded-full transition-all duration-300',
+      lang === 'es' ? 'bg-green-500 text-black font-bold' : 'text-gray-300 hover:text-white',
+    ]}
+    aria-label="Cambiar a Español"
+    aria-current={lang === 'es' ? 'page' : undefined}
+  >
+    ES
+  </a>
+</div>

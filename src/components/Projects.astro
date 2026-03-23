@@ -1,141 +1,81 @@
 ---
-import { projects } from "../consts";
+import { projects } from "../data/projects";
+import { t } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
 import ProjectCard from "./ProjectCard.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
 ---
 
 <section
   id="projects"
   class="relative bg-gradient-to-b from-black via-emerald-950 to-black py-20 overflow-hidden"
 >
-  <!-- Animated background effects -->
-  <div
-    class="absolute inset-0 overflow-hidden pointer-events-none"
-    aria-hidden="true"
-  >
-    <div
-      class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"
-    >
-    </div>
-    <div
-      class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"
-      style="animation-delay: 2s;"
-    >
-    </div>
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
   </div>
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-25 relative z-10">
-    <!-- Header Section -->
     <header class="text-center mb-12 lg:mb-16 xl:mb-20">
-      <h2
-        id="projects-heading"
-        class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4"
-      >
-        <span
-          class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent"
-        >
-          Proyectos
+      <h2 id="projects-heading" class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent">
+          {t(lang, 'projects.heading')}
         </span>
       </h2>
-      <p
-        class="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-4"
-      >
-        Una selección de mis trabajos más destacados, desarrollados con
-        diferentes tecnologías y enfoques innovadores.
+      <p class="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-4">
+        {t(lang, 'projects.subtitle')}
       </p>
-
-      <!-- Decorative Line -->
       <div class="flex justify-center mt-6 mb-5">
-        <div
-          class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"
-        >
-        </div>
+        <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"></div>
       </div>
     </header>
 
-    <!-- Projects Grid -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-16"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-16">
       {
         projects.map(
-          ({ description, img, link, technologies, title }, index) => (
+          ({ descriptionKey, img, link, technologies, title }, index) => (
             <ProjectCard
               title={title}
-              description={description}
+              description={t(lang, descriptionKey)}
               img={img}
               link={link}
               technologies={technologies}
               index={index}
+              lang={lang}
             />
           )
         )
       }
     </div>
 
-    <!-- Script optimizado: Intersection Observer solo para animaciones -->
     <script>
-      // Este script se ejecuta solo una vez para todas las tarjetas
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            // Desconectar después de animar para mejor rendimiento
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      // Observar todas las tarjetas de proyecto cuando el DOM esté listo
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-          document.querySelectorAll('.project-card').forEach((card) => {
-            observer.observe(card);
-          });
-        });
-      } else {
-        document.querySelectorAll('.project-card').forEach((card) => {
-          observer.observe(card);
-        });
-      }
+      import "../scripts/project-observer.ts";
     </script>
 
-    <!-- Call to Action Section -->
     <div class="text-center pb-5 space-y-6 sm:space-y-8">
       <div class="max-w-2xl mx-auto space-y-4 pt-10 px-4">
         <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-          ¿Tienes un proyecto en mente?
+          {t(lang, 'projects.cta_heading')}
         </h3>
         <p class="text-gray-300 text-base sm:text-lg lg:text-xl">
-          Colaboremos para crear algo extraordinario juntos.
+          {t(lang, 'projects.cta_subtitle')}
         </p>
       </div>
 
-      <div
-        class="flex flex-col sm:flex-row gap-4 justify-center items-center px-4"
-      >
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
         <a
           href="mailto:camilotaba.dev@gmail.com"
-          onclick="if(!window.navigator.mailtoSupported){ window.open('https://mail.google.com/mail/?view=cm&fs=1&to=camilotaba.dev@gmail.com', '_blank'); return false; }"
           class="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 inline-flex items-center justify-center gap-2 group hover:scale-105"
-          aria-label="Contactar a Camilo Taba por email"
+          aria-label={t(lang, 'projects.aria_cta_email')}
         >
-          <span class="text-sm sm:text-base">Trabajemos juntos</span>
-          <svg
-            class="w-5 h-5 transition-transform group-hover:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          <span class="text-sm sm:text-base">{t(lang, 'projects.cta_button')}</span>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
         </a>
       </div>

@@ -1,43 +1,47 @@
 ---
+import type { Lang } from "../i18n/utils";
+import { t, getLocalePath } from "../i18n/utils";
 import HeaderLink from "./HeaderLink.astro";
+import LanguageToggle from "./LanguageToggle.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
 ---
 
 <header class="header">
   <div class="header-container">
-    <!-- Logo -->
     <div class="logo-section">
-      <img 
-        src="/img/logooo.png" 
-        alt="Camilo Taba - Logo del portafolio" 
-        class="logo-img"
-        width="180"
-        height="72"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
-      <span class="logo-text"></span>
+      <a href={getLocalePath(lang)}>
+        <img
+          src="/img/logooo.png"
+          alt="Camilo Taba"
+          class="logo-img"
+          width="180"
+          height="72"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </a>
     </div>
 
-    <!-- Navigation and Controls -->
     <div class="nav-controls">
-      <!-- Navigation Menu -->
       <nav class="nav-menu" id="nav-menu">
-        <HeaderLink href="#" class="nav-link">Inicio</HeaderLink>
-
-        <HeaderLink href="#projects" class="nav-link">Proyectos</HeaderLink>
-        <HeaderLink href="#about" class="nav-link">Habilidades</HeaderLink>
-        <HeaderLink href="#contact" class="nav-link">Contacto</HeaderLink>
+        <HeaderLink href="#" class="nav-link">{t(lang, 'nav.home')}</HeaderLink>
+        <HeaderLink href="#projects" class="nav-link">{t(lang, 'nav.projects')}</HeaderLink>
+        <HeaderLink href="#about" class="nav-link">{t(lang, 'nav.skills')}</HeaderLink>
+        <HeaderLink href="#contact" class="nav-link">{t(lang, 'nav.contact')}</HeaderLink>
       </nav>
+      <LanguageToggle lang={lang} />
+    </div>
+  </div>
 
-  <!-- Header accent line -->
   <div class="header-accent"></div>
 </header>
 
-
-<!-- Scripts optimizados -->
 <script>
   import "../scripts/menuToggle.ts";
-  import "../scripts/toggleTheme.js";
-  import "../scripts/changeLanguage.js";
 </script>

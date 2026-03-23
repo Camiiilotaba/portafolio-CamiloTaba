@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import { getIconComponent } from "../icons/IconAll.astro";
+import "../styles/project-card.css";
+import type { Lang } from "../i18n/utils";
+import { t } from "../i18n/utils";
 
 interface Props {
   title: string;
@@ -9,9 +12,10 @@ interface Props {
   link?: string;
   technologies: Array<{ icon: string }>;
   index: number;
+  lang: Lang;
 }
 
-const { title, description, img, link, technologies, index } = Astro.props;
+const { title, description, img, link, technologies, index, lang } = Astro.props;
 
 // Convertir la ruta de imagen pública a un objeto de imagen
 let imageSrc: ImageMetadata | string = img;
@@ -91,11 +95,13 @@ if (img.startsWith('/')) {
       <button
         class="toggle-description mt-2 text-green-400 hover:text-green-300 text-xs sm:text-sm font-medium transition-colors duration-300 flex items-center gap-1 group/btn"
         aria-expanded="false"
-        aria-label="Ver detalles del proyecto"
+        aria-label={t(lang, 'projects.view_details')}
         data-project-title={title}
         data-card-id={`project-card-${index}`}
+        data-show-text={t(lang, 'projects.view_details')}
+        data-hide-text={t(lang, 'projects.hide_details')}
       >
-        <span class="toggle-text">Ver detalles</span>
+        <span class="toggle-text">{t(lang, 'projects.view_details')}</span>
         <svg
           class="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-0.5"
           fill="none"
@@ -121,7 +127,7 @@ if (img.startsWith('/')) {
         >
           <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
         </svg>
-        Tecnologías
+        {t(lang, 'projects.technologies_label')}
       </h4>
 
       {/* Technologies icons */}
@@ -157,9 +163,9 @@ if (img.startsWith('/')) {
           target="_blank"
           rel="noopener noreferrer"
           class="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-semibold py-2.5 sm:py-3 px-4 rounded-xl transition-all duration-300 text-center text-sm hover:shadow-lg hover:shadow-green-500/50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black inline-flex items-center justify-center gap-2 group/btn hover:scale-105"
-          aria-label={`Ver proyecto ${title} en vivo`}
+          aria-label={`${t(lang, 'projects.view_project')} ${title}`}
         >
-          <span>Ver proyecto</span>
+          <span>{t(lang, 'projects.view_project')}</span>
           <svg
             class="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1"
             fill="none"
@@ -186,206 +192,8 @@ if (img.startsWith('/')) {
   />
 </article>
 
-<!-- Script optimizado para el toggle - delegación de eventos -->
 <script>
-  // Usar delegación de eventos para mejor rendimiento
-  (function() {
-    function handleToggleClick(e: Event) {
-      const target = e.target as HTMLElement;
-      if (!target) return;
-      
-      const toggleBtn = target.closest('.toggle-description') as HTMLButtonElement;
-      if (!toggleBtn) return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      const card = toggleBtn.closest('.project-card');
-      if (!card) return;
-
-      const shortDesc = card.querySelector('.description-short');
-      const fullDesc = card.querySelector('.description-full');
-      const toggleText = toggleBtn.querySelector('.toggle-text');
-
-      if (!shortDesc || !fullDesc) return;
-
-      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-
-      // Usar requestAnimationFrame para animaciones más fluidas
-      requestAnimationFrame(() => {
-        if (isExpanded) {
-          // Cerrar con animación
-          fullDesc.classList.add('description-collapsing');
-          fullDesc.classList.remove('description-expanded');
-          
-          setTimeout(() => {
-            fullDesc.classList.add('description-collapsed');
-            fullDesc.classList.remove('description-collapsing');
-            shortDesc.classList.remove('hidden');
-          }, 600);
-          
-          toggleBtn.setAttribute('aria-expanded', 'false');
-          if (toggleText) toggleText.textContent = 'Ver detalles';
-        } else {
-          // Abrir con animación - secuencia mejorada
-          shortDesc.classList.add('hidden');
-          
-          // Primero remover collapsed para preparar la animación
-          fullDesc.classList.remove('description-collapsed');
-          
-          // Pequeño delay para que el navegador procese el cambio
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              // Ahora aplicar expanding y luego expanded
-              fullDesc.classList.add('description-expanding');
-              
-              // Pequeño delay antes de expandir completamente
-              setTimeout(() => {
-                fullDesc.classList.add('description-expanded');
-                fullDesc.classList.remove('description-expanding');
-              }, 10);
-            });
-          });
-          
-          toggleBtn.setAttribute('aria-expanded', 'true');
-          if (toggleText) toggleText.textContent = 'Ocultar detalles';
-        }
-      });
-    }
-
-    // Usar delegación de eventos en el documento
-    function initToggles() {
-      document.addEventListener('click', handleToggleClick);
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initToggles);
-    } else {
-      initToggles();
-    }
-  })();
+  import "../scripts/project-card-toggle.ts";
 </script>
 
-<style>
-  /* Optimizaciones de rendimiento para animaciones */
-  .project-card {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
-
-  .project-card:hover {
-    transform: translateY(-4px) translateZ(0);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                border-color 0.3s ease,
-                background-color 0.3s ease,
-                box-shadow 0.3s ease;
-  }
-
-  .image-container img,
-  .image-container :global(img) {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  .project-card:hover .image-container img,
-  .project-card:hover .image-container :global(img) {
-    transform: scale(1.05) translateZ(0);
-  }
-
-  /* Optimización para el shimmer */
-  .project-card .group-hover\:translate-x-full {
-    will-change: transform;
-  }
-
-  /* Smooth transitions */
-  .toggle-description {
-    will-change: transform;
-  }
-
-  .toggle-description svg {
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform-origin: center;
-  }
-  
-  .toggle-description[aria-expanded="true"] svg {
-    transform: rotate(180deg);
-  }
-
-  /* Animaciones para el toggle de descripción - Optimizadas para fluidez */
-  .description-full {
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    /* Transiciones separadas para mejor control */
-    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.4s ease-out 0.1s,
-                margin-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: max-height, opacity;
-  }
-
-  .description-full.description-collapsed {
-    max-height: 0 !important;
-    opacity: 0;
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    transition: max-height 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19),
-                opacity 0.3s ease-in,
-                margin-top 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-  }
-
-  .description-full.description-expanding {
-    max-height: 0;
-    opacity: 0;
-    margin-top: 0;
-    /* Preparar para expansión */
-  }
-
-  .description-full.description-expanded {
-    max-height: 1000px; /* Valor alto para contenido largo */
-    opacity: 1;
-    margin-top: 0.75rem;
-    padding-top: 0;
-    padding-bottom: 0;
-    /* Transición suave al abrir */
-    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.4s ease-out 0.1s,
-                margin-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .description-full.description-collapsing {
-    max-height: 1000px; /* Mantener altura para animación de cierre */
-    opacity: 1;
-    margin-top: 0.75rem;
-    /* Transición suave al cerrar */
-    transition: max-height 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19),
-                opacity 0.3s ease-in,
-                margin-top 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-  }
-
-  /* Reducir animaciones en dispositivos con preferencia de movimiento reducido */
-  @media (prefers-reduced-motion: reduce) {
-    .project-card,
-    .project-card:hover,
-    .image-container img,
-    .image-container :global(img),
-    .description-full {
-      transform: none !important;
-      transition: none !important;
-      max-height: none !important;
-    }
-    
-    .description-full.description-collapsed {
-      display: none;
-    }
-    
-    .description-full.description-expanded {
-      display: block;
-    }
-  }
-</style>
 
