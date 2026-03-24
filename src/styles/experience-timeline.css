@@ -1,0 +1,98 @@
+/* Experience card entrance animation */
+.experience-card {
+  opacity: 0;
+  transform: translateY(30px) translateZ(0);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.experience-card.animate-in {
+  opacity: 1;
+  transform: translateY(0) translateZ(0);
+}
+
+/* Staggered delays */
+.experience-card[data-experience-index="0"] { transition-delay: 0ms; }
+.experience-card[data-experience-index="1"] { transition-delay: 150ms; }
+.experience-card[data-experience-index="2"] { transition-delay: 300ms; }
+.experience-card[data-experience-index="3"] { transition-delay: 450ms; }
+.experience-card[data-experience-index="4"] { transition-delay: 600ms; }
+
+/* Timeline line growth */
+.timeline-line {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-line.animate-in {
+  transform: scaleY(1);
+}
+
+/* Timeline dot pop-in */
+.timeline-dot {
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.experience-card.animate-in .timeline-dot {
+  transform: scale(1);
+}
+
+/* Zigzag layout on desktop */
+@media (min-width: 768px) {
+  .experience-card:nth-child(even) .experience-card-inner {
+    flex-direction: row-reverse;
+  }
+
+  .experience-card:nth-child(even) .experience-card-content {
+    text-align: left;
+  }
+}
+
+/* Scroll anchor offset for sticky header */
+#experience {
+  scroll-margin-top: 5rem;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .experience-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .timeline-line {
+    transform: scaleY(1);
+    transition: none;
+  }
+
+  .timeline-dot {
+    transform: scale(1);
+    transition: none;
+  }
+}
+
+/* High contrast */
+@media (prefers-contrast: high) {
+  .experience-card-body {
+    border-width: 2px;
+    border-color: #374151;
+  }
+}
+
+/* Print */
+@media print {
+  .experience-card {
+    break-inside: avoid;
+    opacity: 1;
+    transform: none;
+  }
+
+  .timeline-line,
+  .timeline-dot {
+    display: none;
+  }
+}

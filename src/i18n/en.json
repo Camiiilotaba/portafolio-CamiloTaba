@@ -6,12 +6,13 @@
   "nav": {
     "home": "Home",
     "projects": "Projects",
-    "skills": "Skills",
+    "skills": "How I Work",
+    "experience": "Experience",
     "contact": "Contact"
   },
   "home": {
-    "role": "Web & <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Fullstack</span> Developer",
-    "description": "Developer specialized in <strong class=\"text-green-400 font-semibold\">Astro</strong>, <strong class=\"text-green-400 font-semibold\">Laravel</strong> and modern technologies. I build high-performance web experiences with <strong class=\"text-white font-semibold\">technical SEO</strong>, responsive applications and advanced optimization. Skilled in <strong class=\"text-white font-semibold\">WebSockets</strong>, <strong class=\"text-white font-semibold\">Tailwind CSS</strong> and <strong class=\"text-white font-semibold\">TypeScript</strong>.",
+    "role": "PHP & <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Laravel</span> Developer",
+    "description": "Fullstack developer specialized in <strong class=\"text-green-400 font-semibold\">PHP</strong> and <strong class=\"text-green-400 font-semibold\">Laravel</strong>, building enterprise applications with <strong class=\"text-white font-semibold\">clean architecture</strong> — Services, DTOs, and SOLID principles. Also experienced in <strong class=\"text-white font-semibold\">mobile development</strong> with Flutter and Firebase. Focused on writing <strong class=\"text-white font-semibold\">production-ready code</strong> that scales.",
     "cta_contact": "Let's talk",
     "cta_cv": "View Resume",
     "mailto_subject": "Contact from your portfolio",
@@ -40,14 +41,69 @@
     "valorant_desc": "One of my first projects working with external APIs. I developed a website that consumes the Valorant API, where users can browse characters along with their abilities, and I added a theme toggle button (light/dark mode) to enhance the visual experience.",
     "managepoint_desc": "ManagePoint is a professional web platform built for salon and staff management, optimizing internal processes and facilitating historical tracking and reporting. For privacy reasons, all names and data shown in this video are fictional. It includes an admin panel, user management, version control, and PDF report generation, all fully developed and functional."
   },
-  "about": {
-    "heading": "Skills",
-    "subtitle": "Technologies and tools I master to create innovative solutions and exceptional web experiences",
-    "aria_learn_more": "Learn more about {name}",
-    "aria_section": "About me - Skills and experience",
-    "stat_technologies": "Core technologies: Laravel, Astro, Tailwind",
-    "stat_projects": "Projects developed",
-    "stat_commitment": "Professional commitment"
+  "experience": {
+    "heading": "Experience",
+    "subtitle": "Real production applications, not hobby projects. Building software that companies depend on every day.",
+    "aria_section": "Professional work experience",
+    "current_badge": "Current",
+    "frakt24": {
+      "role": "Full-Stack Developer",
+      "location": "Norway (Remote from Spain)",
+      "period": "January 2026 — Present",
+      "description": "Enterprise cloud-based TMS (Transport Management System) for Norwegian transport companies. Multi-module SaaS platform serving clients from small fleets to hundreds of vehicles.",
+      "highlight1": "Full-stack development on enterprise SaaS platform serving real transport companies in production",
+      "highlight2": "Multi-tenant architecture with complex business logic across transport, invoicing, and fleet modules",
+      "highlight3": "Progressive migration of legacy codebase to modern Laravel architecture with strict typing and tests",
+      "highlight4": "HR module, advanced transport order management, and dynamic PDF document generation"
+    },
+    "gesa": {
+      "role": "Flutter Developer",
+      "location": "Murcia, Spain",
+      "period": "September 2025 — November 2025",
+      "description": "Mobile nutrition app with AI-powered analysis capabilities built with Flutter and Firebase.",
+      "highlight1": "AI-powered nutritional analysis via image and PDF document recognition",
+      "highlight2": "Real-time data synchronization with Firebase Firestore",
+      "highlight3": "Dynamic nutritional profiles and personalized diet management system"
+    },
+    "truekapp": {
+      "role": "Full-Stack Developer",
+      "location": "Spain (Remote)",
+      "period": "January 2025 — June 2025",
+      "description": "Web platform for bartering and exchanging items between users with real-time communication.",
+      "highlight1": "Real-time messaging system with WebSockets and private channels via Laravel Reverb",
+      "highlight2": "Complete CRUD system for exchange management with offer workflows",
+      "highlight3": "Modern responsive interface with Tailwind CSS and real-time notifications"
+    },
+    "managepoint": {
+      "role": "Full-Stack Developer",
+      "location": "Murcia, Spain",
+      "period": "February 2025 — June 2025",
+      "description": "Internal web application for gaming venue and staff management, optimizing business operations.",
+      "highlight1": "Admin panel with role-based access control (RBAC) and user management",
+      "highlight2": "Automated PDF report generation for business operations and historical tracking",
+      "highlight3": "Relational database design with Laravel migrations and query optimization"
+    },
+    "ticarum": {
+      "role": "IT Technician (Internship)",
+      "location": "Murcia, Spain",
+      "period": "March 2023 — June 2023",
+      "description": "IT support and systems maintenance at a technology company.",
+      "highlight1": "Preventive and corrective maintenance of hardware and enterprise systems",
+      "highlight2": "Linux server administration, OS installation, and network troubleshooting"
+    }
+  },
+  "howIWork": {
+    "heading": "How I Work",
+    "subtitle": "Beyond code — architecture, practices, and professional standards I bring to every project.",
+    "aria_section": "How I work - Stack, architecture and tools",
+    "stack_title": "Stack",
+    "stack_backend_label": "Backend",
+    "stack_frontend_label": "Frontend",
+    "stack_mobile_label": "Mobile",
+    "architecture_title": "Architecture & Practices",
+    "architecture_subtitle": "Transforming legacy monoliths into modern service-based architectures.",
+    "workflow_title": "Workflow & Tools",
+    "workflow_subtitle": "Professional development environment and agile methodology."
   },
   "contact": {
     "heading": "Contact",

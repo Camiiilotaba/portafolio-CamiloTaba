@@ -1,0 +1,193 @@
+---
+import type { Lang } from "../i18n/utils";
+import { t } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const stackData = {
+  backend: ["PHP 8.3", "Laravel", "Eloquent ORM", "MySQL", "Blade Templates"],
+  frontend: ["Tailwind CSS", "JavaScript", "TypeScript", "Bootstrap"],
+  mobile: ["Flutter", "Firebase", "Dart"],
+};
+
+const architecturePills = [
+  "MVC + Services + DTOs",
+  "Form Requests",
+  "DRY · KISS · YAGNI",
+  "PHPStan + Laravel Pint",
+  "Feature Tests (PHPUnit)",
+  "Structured Logging",
+  "Multi-tenant Architecture",
+  "Legacy Migration",
+  "Eloquent over Raw Queries",
+];
+
+const workflowPills = [
+  "Git (branching, PRs)",
+  "Scrum / Kanban",
+  "Postman",
+  "Docker",
+  "Composer / npm",
+  "Vercel",
+  "Figma",
+  "Jira / Notion",
+];
+---
+
+<section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16" aria-labelledby="howIWork-heading">
+  <header class="text-center mb-12 lg:mb-16">
+    <h2 id="howIWork-heading" class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+      <span class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent">
+        {t(lang, 'howIWork.heading')}
+      </span>
+    </h2>
+    <p class="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-4">
+      {t(lang, 'howIWork.subtitle')}
+    </p>
+    <div class="flex justify-center mt-6">
+      <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"></div>
+    </div>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+
+    <!-- Card 1: Stack -->
+    <div class="skill-card group relative" data-skill-index="0">
+      <div class="relative backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10 h-full">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" aria-hidden="true"></div>
+
+        <div class="relative z-10">
+          <!-- Layers icon -->
+          <div class="w-12 h-12 mb-5 flex items-center justify-center rounded-xl bg-green-500/10 border border-green-500/20">
+            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-5 group-hover:text-green-400 transition-colors duration-300">
+            {t(lang, 'howIWork.stack_title')}
+          </h3>
+
+          <!-- Backend -->
+          <div class="mb-4">
+            <span class="text-green-400 text-xs font-semibold uppercase tracking-wider mb-2 block">
+              {t(lang, 'howIWork.stack_backend_label')}
+            </span>
+            <div class="flex flex-wrap gap-2">
+              {stackData.backend.map((tech) => (
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div class="mb-4">
+            <span class="text-green-400 text-xs font-semibold uppercase tracking-wider mb-2 block">
+              {t(lang, 'howIWork.stack_frontend_label')}
+            </span>
+            <div class="flex flex-wrap gap-2">
+              {stackData.frontend.map((tech) => (
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Mobile -->
+          <div>
+            <span class="text-green-400 text-xs font-semibold uppercase tracking-wider mb-2 block">
+              {t(lang, 'howIWork.stack_mobile_label')}
+            </span>
+            <div class="flex flex-wrap gap-2">
+              {stackData.mobile.map((tech) => (
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left rounded-b-2xl" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Card 2: Architecture & Practices -->
+    <div class="skill-card group relative" data-skill-index="1">
+      <div class="relative backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10 h-full">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" aria-hidden="true"></div>
+
+        <div class="relative z-10">
+          <!-- Blueprint icon -->
+          <div class="w-12 h-12 mb-5 flex items-center justify-center rounded-xl bg-green-500/10 border border-green-500/20">
+            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+            </svg>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors duration-300">
+            {t(lang, 'howIWork.architecture_title')}
+          </h3>
+          <p class="text-gray-400 text-xs sm:text-sm mb-5 leading-relaxed">
+            {t(lang, 'howIWork.architecture_subtitle')}
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            {architecturePills.map((pill) => (
+              <span class="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                {pill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left rounded-b-2xl" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Card 3: Workflow & Tools -->
+    <div class="skill-card group relative" data-skill-index="2">
+      <div class="relative backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10 h-full">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" aria-hidden="true"></div>
+
+        <div class="relative z-10">
+          <!-- Bolt icon -->
+          <div class="w-12 h-12 mb-5 flex items-center justify-center rounded-xl bg-green-500/10 border border-green-500/20">
+            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors duration-300">
+            {t(lang, 'howIWork.workflow_title')}
+          </h3>
+          <p class="text-gray-400 text-xs sm:text-sm mb-5 leading-relaxed">
+            {t(lang, 'howIWork.workflow_subtitle')}
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            {workflowPills.map((pill) => (
+              <span class="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                {pill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left rounded-b-2xl" aria-hidden="true"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import "../scripts/about-animations.ts";
+</script>

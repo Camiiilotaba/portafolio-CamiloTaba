@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/home-animations.css";
 import type { Lang } from "../i18n/utils";
 import { t } from "../i18n/utils";
@@ -11,11 +12,11 @@ const { lang } = Astro.props;
 
 const mailtoSubject = encodeURIComponent(t(lang, 'home.mailto_subject'));
 const mailtoBody = encodeURIComponent(t(lang, 'home.mailto_body'));
-const techPills = ["Astro", "Laravel", "Tailwind CSS", "WebSockets", "JavaScript", "PHP"];
+const techPills = ["PHP", "Laravel", "MySQL", "Flutter", "Tailwind CSS", "Clean Architecture"];
 ---
 
 <section
-  class="hero-section relative flex items-center justify-center pt-6 pb-10 md:pb-16 overflow-hidden"
+  class="hero-section relative w-full pt-6 pb-10 md:pb-16 overflow-hidden"
 >
   <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
     <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -24,8 +25,8 @@ const techPills = ["Astro", "Laravel", "Tailwind CSS", "WebSockets", "JavaScript
   </div>
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-30 relative z-10">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-16">
-      <div class="text-left max-w-3xl space-y-5 sm:space-y-6">
+    <div class="flex flex-col xl:flex-row items-center xl:items-center xl:justify-between gap-8 xl:gap-12">
+      <div class="text-left xl:max-w-[55%] space-y-5 sm:space-y-6">
         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-green-500 animate-fade-in">
           Camilo Taba
         </h1>
@@ -116,19 +117,19 @@ const techPills = ["Astro", "Laravel", "Tailwind CSS", "WebSockets", "JavaScript
         </div>
       </div>
 
-      <div class="img-profile hidden xl:block animate-fade-in" style="animation-delay: 1.2s;">
+      <div class="img-profile hidden xl:block flex-shrink-0 animate-fade-in" style="animation-delay: 1.2s;">
         <div class="relative group">
           <div class="absolute -inset-4 bg-gradient-to-r from-green-500/30 to-emerald-500/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div class="relative backdrop-blur-sm bg-white/5 p-2 rounded-full border border-white/10 group-hover:border-green-500/50 transition-all duration-500">
-            <img
+            <Image
               src="/img/fotoperfil3.jpg"
               alt="Camilo Taba - Fullstack Web Developer"
               class="w-56 h-56 xl:w-64 xl:h-64 2xl:w-80 2xl:h-80 rounded-full object-cover transition-all duration-500 group-hover:scale-105 shadow-2xl shadow-black/50"
-              width="320"
-              height="320"
+              width={320}
+              height={320}
               loading="eager"
-              fetchpriority="high"
-              decoding="async"
+              format="webp"
+              quality={85}
             />
           </div>
           <div class="absolute inset-0 rounded-full border-2 border-green-500/20 animate-ping-slow" aria-hidden="true"></div>

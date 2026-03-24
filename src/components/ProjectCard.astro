@@ -16,13 +16,6 @@ interface Props {
 }
 
 const { title, description, img, link, technologies, index, lang } = Astro.props;
-
-// Convertir la ruta de imagen pública a un objeto de imagen
-let imageSrc: ImageMetadata | string = img;
-if (img.startsWith('/')) {
-  // Para imágenes en public/, usar la ruta directamente
-  imageSrc = img;
-}
 ---
 
 <article
@@ -46,28 +39,16 @@ if (img.startsWith('/')) {
 
   {/* Image container */}
   <div class="relative overflow-hidden rounded-2xl mb-4 shadow-lg image-container">
-    {typeof imageSrc === 'string' ? (
-      <img
-        src={imageSrc || "/placeholder.svg"}
-        alt={`Captura de pantalla del proyecto ${title}`}
-        class="w-full h-40 sm:h-48 object-cover transition-transform duration-500 ease-out will-change-transform"
-        loading={index === 0 ? "eager" : "lazy"}
-        width="400"
-        height="192"
-        decoding="async"
-        fetchpriority={index === 0 ? "high" : "low"}
-      />
-    ) : (
-      <Image
-        src={imageSrc}
-        alt={`Captura de pantalla del proyecto ${title}`}
-        class="w-full h-40 sm:h-48 object-cover transition-transform duration-500 ease-out will-change-transform"
-        loading={index === 0 ? "eager" : "lazy"}
-        width={400}
-        height={192}
-        quality={85}
-      />
-    )}
+    <Image
+      src={img}
+      alt={`${title} - project screenshot`}
+      class="w-full h-40 sm:h-48 object-cover transition-transform duration-500 ease-out will-change-transform"
+      loading="lazy"
+      width={400}
+      height={192}
+      format="webp"
+      quality={80}
+    />
     <div
       class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"
       aria-hidden="true"

@@ -6,12 +6,13 @@
   "nav": {
     "home": "Inicio",
     "projects": "Proyectos",
-    "skills": "Habilidades",
+    "skills": "Cómo Trabajo",
+    "experience": "Experiencia",
     "contact": "Contacto"
   },
   "home": {
-    "role": "Web & <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Fullstack</span> Developer",
-    "description": "Desarrollador especializado en <strong class=\"text-green-400 font-semibold\">Astro</strong>, <strong class=\"text-green-400 font-semibold\">Laravel</strong> y tecnologías modernas. Creo experiencias web de alto rendimiento con <strong class=\"text-white font-semibold\">SEO técnico</strong>, aplicaciones responsive y optimización avanzada. Con conocimientos en <strong class=\"text-white font-semibold\">WebSockets</strong>, <strong class=\"text-white font-semibold\">Tailwind CSS</strong> y <strong class=\"text-white font-semibold\">TypeScript</strong>.",
+    "role": "PHP & <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Laravel</span> Developer",
+    "description": "Desarrollador fullstack especializado en <strong class=\"text-green-400 font-semibold\">PHP</strong> y <strong class=\"text-green-400 font-semibold\">Laravel</strong>, construyendo aplicaciones empresariales con <strong class=\"text-white font-semibold\">arquitectura limpia</strong> — Services, DTOs y principios SOLID. También con experiencia en <strong class=\"text-white font-semibold\">desarrollo móvil</strong> con Flutter y Firebase. Enfocado en escribir <strong class=\"text-white font-semibold\">código de producción</strong> que escala.",
     "cta_contact": "Hablemos",
     "cta_cv": "Ver Curriculum",
     "mailto_subject": "Contacto desde tu portafolio",
@@ -40,14 +41,69 @@
     "valorant_desc": "Uno de mis primeros proyectos trabajando con APIs externas. Desarrollé una página web que consume la API de Valorant, donde el usuario puede ver los personajes junto a sus habilidades, e incorporé un botón de cambio de tema (modo claro/oscuro) para mejorar la experiencia visual.",
     "managepoint_desc": "ManagePoint es una plataforma web profesional desarrollada para la gestión de salones y personal, optimizando procesos internos y facilitando el seguimiento de históricos y reportes. Por motivos de privacidad, todos los nombres y datos mostrados en este video son ficticios. Incluye panel administrativo, gestión de usuarios, control de versiones y generación de informes PDF, todo desarrollado de forma completa y funcional."
   },
-  "about": {
-    "heading": "Habilidades",
-    "subtitle": "Tecnologías y herramientas que domino para crear soluciones innovadoras y experiencias web excepcionales",
-    "aria_learn_more": "Aprender más sobre {name}",
-    "aria_section": "Sobre mí - Habilidades y experiencia",
-    "stat_technologies": "Tecnologías principales: Laravel, Astro, Tailwind",
-    "stat_projects": "Proyectos desarrollados",
-    "stat_commitment": "Compromiso profesional"
+  "experience": {
+    "heading": "Experiencia",
+    "subtitle": "Aplicaciones reales en producción, no proyectos de hobby. Construyendo software del que las empresas dependen cada día.",
+    "aria_section": "Experiencia profesional laboral",
+    "current_badge": "Actual",
+    "frakt24": {
+      "role": "Desarrollador Full-Stack",
+      "location": "Noruega (Remoto desde España)",
+      "period": "Enero 2026 — Presente",
+      "description": "TMS empresarial en la nube (Sistema de Gestión de Transporte) para empresas de transporte noruegas. Plataforma SaaS multimódulo que atiende desde pequeñas flotas hasta cientos de vehículos.",
+      "highlight1": "Desarrollo full-stack en plataforma SaaS empresarial utilizada por empresas de transporte reales en producción",
+      "highlight2": "Arquitectura multi-tenant con lógica de negocio compleja en módulos de transporte, facturación y flota",
+      "highlight3": "Migración progresiva de código legacy a arquitectura Laravel moderna con tipado estricto y tests",
+      "highlight4": "Módulo RRHH, gestión avanzada de órdenes de transporte y generación dinámica de documentos PDF"
+    },
+    "gesa": {
+      "role": "Desarrollador Flutter",
+      "location": "Murcia, España",
+      "period": "Septiembre 2025 — Noviembre 2025",
+      "description": "Aplicación móvil de nutrición con capacidades de análisis impulsadas por IA, desarrollada con Flutter y Firebase.",
+      "highlight1": "Análisis nutricional con IA mediante reconocimiento de imágenes y documentos PDF",
+      "highlight2": "Sincronización de datos en tiempo real con Firebase Firestore",
+      "highlight3": "Perfiles nutricionales dinámicos y sistema personalizado de gestión de dietas"
+    },
+    "truekapp": {
+      "role": "Desarrollador Full-Stack",
+      "location": "España (Remoto)",
+      "period": "Enero 2025 — Junio 2025",
+      "description": "Plataforma web para trueque e intercambio de artículos entre usuarios con comunicación en tiempo real.",
+      "highlight1": "Sistema de mensajería en tiempo real con WebSockets y canales privados mediante Laravel Reverb",
+      "highlight2": "Sistema CRUD completo para gestión de intercambios con flujos de ofertas",
+      "highlight3": "Interfaz moderna y responsive con Tailwind CSS y notificaciones en tiempo real"
+    },
+    "managepoint": {
+      "role": "Desarrollador Full-Stack",
+      "location": "Murcia, España",
+      "period": "Febrero 2025 — Junio 2025",
+      "description": "Aplicación web interna para gestión de salones de juego y personal, optimizando operaciones del negocio.",
+      "highlight1": "Panel de administración con control de acceso basado en roles (RBAC) y gestión de usuarios",
+      "highlight2": "Generación automatizada de informes PDF para operaciones del negocio y seguimiento histórico",
+      "highlight3": "Diseño de base de datos relacional con migraciones de Laravel y optimización de consultas"
+    },
+    "ticarum": {
+      "role": "Técnico IT (Prácticas)",
+      "location": "Murcia, España",
+      "period": "Marzo 2023 — Junio 2023",
+      "description": "Soporte IT y mantenimiento de sistemas en empresa tecnológica.",
+      "highlight1": "Mantenimiento preventivo y correctivo de hardware y sistemas empresariales",
+      "highlight2": "Administración de servidores Linux, instalación de sistemas operativos y resolución de problemas de red"
+    }
+  },
+  "howIWork": {
+    "heading": "Cómo Trabajo",
+    "subtitle": "Más allá del código — arquitectura, prácticas y estándares profesionales que aporto a cada proyecto.",
+    "aria_section": "Cómo trabajo - Stack, arquitectura y herramientas",
+    "stack_title": "Stack",
+    "stack_backend_label": "Backend",
+    "stack_frontend_label": "Frontend",
+    "stack_mobile_label": "Mobile",
+    "architecture_title": "Arquitectura y Prácticas",
+    "architecture_subtitle": "Transformando monolitos heredados en arquitecturas modernas basadas en servicios.",
+    "workflow_title": "Workflow y Herramientas",
+    "workflow_subtitle": "Entorno de desarrollo profesional y metodología ágil."
   },
   "contact": {
     "heading": "Contacto",
