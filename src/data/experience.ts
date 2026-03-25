@@ -6,6 +6,7 @@ export interface TechWithIcon {
 export interface ExperienceEntry {
   id: string;
   company: string;
+  companyUrl?: string;
   roleKey: string;
   locationKey: string;
   periodKey: string;
@@ -20,6 +21,7 @@ export const experiences: ExperienceEntry[] = [
   {
     id: 'frakt24',
     company: 'Frakt24 / FleetX',
+    companyUrl: 'https://frakt24.no',
     roleKey: 'experience.frakt24.role',
     locationKey: 'experience.frakt24.location',
     periodKey: 'experience.frakt24.period',
@@ -35,7 +37,7 @@ export const experiences: ExperienceEntry[] = [
       { name: 'PHP 8.3', icon: 'php' },
       { name: 'MySQL', icon: 'mysql' },
       { name: 'JavaScript', icon: 'javaScript' },
-      { name: 'Tailwind CSS', icon: 'tailwind' },
+      { name: 'Bootstrap' },
     ],
     isCurrent: true,
     type: 'full',

@@ -2,13 +2,16 @@
 import { projects } from "../data/projects";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
-import ProjectCard from "./ProjectCard.astro";
+import FeaturedProject from "./FeaturedProject.astro";
+import CompactProjectCard from "./CompactProjectCard.astro";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
+const featured = projects.find((p) => p.featured);
+const secondary = projects.filter((p) => !p.featured);
 ---
 
 <section
@@ -22,7 +25,7 @@ const { lang } = Astro.props;
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-25 relative z-10">
     <header class="text-center mb-12 lg:mb-16 xl:mb-20">
-      <h2 id="projects-heading" class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
         <span class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent">
           {t(lang, 'projects.heading')}
         </span>
@@ -35,50 +38,19 @@ const { lang } = Astro.props;
       </div>
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-16">
-      {
-        projects.map(
-          ({ descriptionKey, img, link, technologies, title }, index) => (
-            <ProjectCard
-              title={title}
-              description={t(lang, descriptionKey)}
-              img={img}
-              link={link}
-              technologies={technologies}
-              index={index}
-              lang={lang}
-            />
-          )
-        )
-      }
-    </div>
-
-    <script>
-      import "../scripts/project-observer.ts";
-    </script>
-
-    <div class="text-center pb-5 space-y-6 sm:space-y-8">
-      <div class="max-w-2xl mx-auto space-y-4 pt-10 px-4">
-        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-          {t(lang, 'projects.cta_heading')}
-        </h3>
-        <p class="text-gray-300 text-base sm:text-lg lg:text-xl">
-          {t(lang, 'projects.cta_subtitle')}
-        </p>
+    <!-- Featured Case Study -->
+    {featured && (
+      <div class="mb-8 lg:mb-12">
+        <FeaturedProject project={featured} lang={lang} />
       </div>
+    )}
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-        <a
-          href="mailto:camilotaba.dev@gmail.com"
-          class="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 inline-flex items-center justify-center gap-2 group hover:scale-105"
-          aria-label={t(lang, 'projects.aria_cta_email')}
-        >
-          <span class="text-sm sm:text-base">{t(lang, 'projects.cta_button')}</span>
-          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-      </div>
+    <!-- Secondary Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {secondary.map((project, index) => (
+        <CompactProjectCard project={project} lang={lang} index={index + 1} />
+      ))}
     </div>
   </div>
+
 </section>

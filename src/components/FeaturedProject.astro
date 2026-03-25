@@ -1,0 +1,115 @@
+---
+import { Image } from "astro:assets";
+import { getIconComponent } from "../icons/IconAll.astro";
+import type { Lang } from "../i18n/utils";
+import { t } from "../i18n/utils";
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  lang: Lang;
+}
+
+const { project, lang } = Astro.props;
+---
+
+<article
+  class="project-card group relative backdrop-blur-md bg-white/5 border-l-4 border-l-green-500 border border-white/10 hover:border-green-500/30 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10"
+  data-project-index="0"
+>
+  <div class="flex flex-col lg:flex-row">
+    <!-- Image -->
+    <div class="relative lg:w-[45%] overflow-hidden">
+      <Image
+        src={project.img}
+        alt={`${project.title} - case study`}
+        class="w-full h-56 sm:h-64 lg:h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        width={600}
+        height={400}
+        format="webp"
+        quality={85}
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/60 lg:block hidden" aria-hidden="true"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:hidden" aria-hidden="true"></div>
+
+      <!-- Category badge -->
+      <span class="absolute top-4 left-4 px-3 py-1 text-xs font-bold rounded-full bg-green-500/20 text-green-400 border border-green-500/30 backdrop-blur-sm">
+        {t(lang, project.categoryKey)}
+      </span>
+    </div>
+
+    <!-- Content -->
+    <div class="lg:w-[55%] p-6 sm:p-8 flex flex-col justify-center">
+      <h3 class="text-2xl sm:text-3xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300">
+        {project.title}
+      </h3>
+      <p class="text-gray-400 text-sm sm:text-base mb-5">
+        {t(lang, project.headlineKey)}
+      </p>
+
+      <!-- Problem -->
+      <div class="mb-4">
+        <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">
+          {t(lang, 'projects.problem_label')}
+        </span>
+        <p class="text-gray-300 text-sm sm:text-base mt-1 leading-relaxed">
+          {t(lang, project.problemKey)}
+        </p>
+      </div>
+
+      <!-- Solution -->
+      <div class="mb-5">
+        <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">
+          {t(lang, 'projects.solution_label')}
+        </span>
+        <p class="text-gray-300 text-sm sm:text-base mt-1 leading-relaxed">
+          {t(lang, project.solutionKey)}
+        </p>
+      </div>
+
+      <!-- Impact tags -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        {project.impactTags.map((tag) => (
+          <span class="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <!-- Tech pills + CTA -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
+          {project.technologies.map(({ name, icon }) => {
+            const IconComponent = icon ? getIconComponent(icon) : null;
+            return (
+              <span class="tech-pill inline-flex items-center gap-1.5 backdrop-blur-md bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-full text-xs font-medium">
+                {IconComponent && (
+                  <span class="flex-shrink-0 [&_i]:flex [&_i]:items-center [&_svg]:w-3.5 [&_svg]:h-3.5" aria-hidden="true">
+                    <IconComponent />
+                  </span>
+                )}
+                {name}
+              </span>
+            );
+          })}
+        </div>
+
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-semibold py-2.5 px-5 rounded-xl transition-all duration-300 text-sm hover:shadow-lg hover:shadow-green-500/50 hover:scale-105 whitespace-nowrap"
+            aria-label={`${t(lang, 'projects.view_case_study')} - ${project.title}`}
+          >
+            {t(lang, 'projects.view_case_study')}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</article>

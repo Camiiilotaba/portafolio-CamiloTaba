@@ -1,7 +1,6 @@
 ---
 import type { Lang } from "../i18n/utils";
 import { t, getLocalePath } from "../i18n/utils";
-import HeaderLink from "./HeaderLink.astro";
 import LanguageToggle from "./LanguageToggle.astro";
 
 interface Props {
@@ -9,6 +8,14 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+
+const navLinks = [
+  { href: '#home', key: 'nav.home' },
+  { href: '#projects', key: 'nav.projects' },
+  { href: '#experience', key: 'nav.experience' },
+  { href: '#about', key: 'nav.skills' },
+  { href: '#contact', key: 'nav.contact' },
+];
 ---
 
 <header class="header">
@@ -29,20 +36,112 @@ const { lang } = Astro.props;
     </div>
 
     <div class="nav-controls">
-      <nav class="nav-menu" id="nav-menu">
-        <HeaderLink href="#home" class="nav-link">{t(lang, 'nav.home')}</HeaderLink>
-        <HeaderLink href="#projects" class="nav-link">{t(lang, 'nav.projects')}</HeaderLink>
-        <HeaderLink href="#experience" class="nav-link">{t(lang, 'nav.experience')}</HeaderLink>
-        <HeaderLink href="#about" class="nav-link">{t(lang, 'nav.skills')}</HeaderLink>
-        <HeaderLink href="#contact" class="nav-link">{t(lang, 'nav.contact')}</HeaderLink>
+      <!-- Desktop nav -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+        {navLinks.map(({ href, key }) => (
+          <a href={href} class="nav-link">{t(lang, key)}</a>
+        ))}
       </nav>
+
       <LanguageToggle lang={lang} />
+
+      <!-- Mobile hamburger -->
+      <button
+        class="mobile-toggle"
+        id="mobile-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile dropdown menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <div class="mobile-nav">
+      {navLinks.map(({ href, key }) => (
+        <a href={href} class="mobile-nav-link">{t(lang, key)}</a>
+      ))}
+    </div>
+  </nav>
 
   <div class="header-accent"></div>
 </header>
 
 <script>
-  import "../scripts/menuToggle.ts";
+  function initHeader(): void {
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('show');
+      menu.classList.toggle('show');
+      toggle.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+
+    // Close menu when clicking a link
+    menu.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close menu on resize to desktop
+    const mql = window.matchMedia('(min-width: 768px)');
+    mql.addEventListener('change', (e) => {
+      if (e.matches) {
+        menu.classList.remove('show');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // Active nav link highlighting on scroll
+  function initActiveNav(): void {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach((link) => {
+            const href = link.getAttribute('href');
+            if (href === `#${id}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  function init(): void {
+    initHeader();
+    initActiveNav();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 </script>

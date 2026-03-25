@@ -11,10 +11,10 @@
     "contact": "Contact"
   },
   "home": {
-    "role": "PHP & <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Laravel</span> Developer",
+    "role": "Software <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Developer</span>",
     "description": "Fullstack developer specialized in <strong class=\"text-green-400 font-semibold\">PHP</strong> and <strong class=\"text-green-400 font-semibold\">Laravel</strong>, building enterprise applications with <strong class=\"text-white font-semibold\">clean architecture</strong> — Services, DTOs, and SOLID principles. Also experienced in <strong class=\"text-white font-semibold\">mobile development</strong> with Flutter and Firebase. Focused on writing <strong class=\"text-white font-semibold\">production-ready code</strong> that scales.",
-    "cta_contact": "Let's talk",
-    "cta_cv": "View Resume",
+    "cta_contact": "Start a Project",
+    "cta_cv": "Download CV",
     "mailto_subject": "Contact from your portfolio",
     "mailto_body": "Hi Camilo, I've seen your portfolio and...",
     "aria_contact": "Contact Camilo Taba for web projects",
@@ -27,19 +27,30 @@
   },
   "projects": {
     "heading": "Projects",
-    "subtitle": "A selection of my most outstanding works, built with different technologies and innovative approaches.",
-    "view_details": "View details",
-    "hide_details": "Hide details",
-    "view_project": "View project",
-    "technologies_label": "Technologies",
-    "cta_heading": "Have a project in mind?",
-    "cta_subtitle": "Let's collaborate to create something extraordinary together.",
-    "cta_button": "Let's work together",
+    "subtitle": "Real problems. Production solutions. Measurable impact.",
     "aria_section": "Web development projects",
-    "aria_cta_email": "Contact Camilo Taba by email",
-    "truekapp_desc": "Truekapp is a full-featured web application built with Laravel that allows users to exchange items through a real-time bartering system. It includes offer management, instant chat with WebSockets, and an admin panel for content moderation. The project was developed collaboratively with other developers, where I specialized in the real-time messaging system integration and notification logic.",
-    "valorant_desc": "One of my first projects working with external APIs. I developed a website that consumes the Valorant API, where users can browse characters along with their abilities, and I added a theme toggle button (light/dark mode) to enhance the visual experience.",
-    "managepoint_desc": "ManagePoint is a professional web platform built for salon and staff management, optimizing internal processes and facilitating historical tracking and reporting. For privacy reasons, all names and data shown in this video are fictional. It includes an admin panel, user management, version control, and PDF report generation, all fully developed and functional."
+    "view_case_study": "View Project",
+    "view_project": "View Project",
+    "problem_label": "Challenge",
+    "solution_label": "Solution",
+    "truekapp": {
+      "category": "Real-time Platform",
+      "headline": "Real-time bartering platform with WebSocket-powered messaging",
+      "problem": "Users needed to negotiate item exchanges instantly without page refreshes or delays.",
+      "solution": "Built a complete Laravel platform with real-time private messaging via WebSockets, offer management workflows, and an admin moderation panel for content control."
+    },
+    "managepoint": {
+      "category": "Enterprise Management",
+      "headline": "Internal management platform with automated reporting",
+      "problem": "Gaming venue operations relied on manual processes and scattered data across multiple systems.",
+      "solution": "Developed a full-stack management system with role-based access control, automated PDF report generation, and optimized database queries via Laravel migrations."
+    },
+    "valorant": {
+      "category": "API Integration",
+      "headline": "Character browser with external REST API consumption",
+      "problem": "Valorant players wanted a fast, visual way to browse characters and their abilities.",
+      "solution": "Built a responsive web app consuming the Valorant REST API with dynamic content rendering and light/dark theme switching."
+    }
   },
   "experience": {
     "heading": "Experience",
@@ -48,7 +59,7 @@
     "current_badge": "Current",
     "frakt24": {
       "role": "Full-Stack Developer",
-      "location": "Norway (Remote from Spain)",
+      "location": "Orihuela Costa, Spain — Norwegian company",
       "period": "January 2026 — Present",
       "description": "Enterprise cloud-based TMS (Transport Management System) for Norwegian transport companies. Multi-module SaaS platform serving clients from small fleets to hundreds of vehicles.",
       "highlight1": "Full-stack development on enterprise SaaS platform serving real transport companies in production",
@@ -106,8 +117,8 @@
     "workflow_subtitle": "Professional development environment and agile methodology."
   },
   "contact": {
-    "heading": "Contact",
-    "subtitle": "Want to collaborate on a project or just say hi? Send me a message and I'll be happy to get back to you.",
+    "heading": "Let's Build Something",
+    "subtitle": "Have a project idea? Send me a message and I'll get back to you within 24 hours.",
     "name_label": "Name",
     "name_placeholder": "Your name",
     "email_label": "Email",
@@ -121,6 +132,7 @@
   },
   "footer": {
     "rights": "All rights reserved.",
+    "tagline": "Building production software since 2023.",
     "aria_github": "Visit Camilo Taba's GitHub profile",
     "aria_linkedin": "Visit Camilo Taba's LinkedIn profile",
     "sr_github": "Go to Camilo Taba's GitHub repositories",

@@ -11,10 +11,10 @@
     "contact": "Contacto"
   },
   "home": {
-    "role": "PHP & <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Laravel</span> Developer",
+    "role": "Software <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Developer</span>",
     "description": "Desarrollador fullstack especializado en <strong class=\"text-green-400 font-semibold\">PHP</strong> y <strong class=\"text-green-400 font-semibold\">Laravel</strong>, construyendo aplicaciones empresariales con <strong class=\"text-white font-semibold\">arquitectura limpia</strong> — Services, DTOs y principios SOLID. También con experiencia en <strong class=\"text-white font-semibold\">desarrollo móvil</strong> con Flutter y Firebase. Enfocado en escribir <strong class=\"text-white font-semibold\">código de producción</strong> que escala.",
-    "cta_contact": "Hablemos",
-    "cta_cv": "Ver Curriculum",
+    "cta_contact": "Iniciar Proyecto",
+    "cta_cv": "Descargar CV",
     "mailto_subject": "Contacto desde tu portafolio",
     "mailto_body": "Hola Camilo, he visto tu portafolio y...",
     "aria_contact": "Contactar a Camilo Taba para proyectos web",
@@ -27,19 +27,30 @@
   },
   "projects": {
     "heading": "Proyectos",
-    "subtitle": "Una selección de mis trabajos más destacados, desarrollados con diferentes tecnologías y enfoques innovadores.",
-    "view_details": "Ver detalles",
-    "hide_details": "Ocultar detalles",
-    "view_project": "Ver proyecto",
-    "technologies_label": "Tecnologías",
-    "cta_heading": "¿Tienes un proyecto en mente?",
-    "cta_subtitle": "Colaboremos para crear algo extraordinario juntos.",
-    "cta_button": "Trabajemos juntos",
+    "subtitle": "Problemas reales. Soluciones en producción. Impacto medible.",
     "aria_section": "Proyectos de desarrollo web",
-    "aria_cta_email": "Contactar a Camilo Taba por email",
-    "truekapp_desc": "Truekapp es una aplicación web completa desarrollada con Laravel que permite a los usuarios intercambiar objetos mediante un sistema de trueques en tiempo real. Incluye gestión de ofertas, chat instantáneo con WebSockets y un panel de administración para el control de publicaciones. El proyecto fue desarrollado en colaboración con otros programadores, donde me especialicé en la integración del sistema de mensajería en tiempo real y la lógica de notificaciones.",
-    "valorant_desc": "Uno de mis primeros proyectos trabajando con APIs externas. Desarrollé una página web que consume la API de Valorant, donde el usuario puede ver los personajes junto a sus habilidades, e incorporé un botón de cambio de tema (modo claro/oscuro) para mejorar la experiencia visual.",
-    "managepoint_desc": "ManagePoint es una plataforma web profesional desarrollada para la gestión de salones y personal, optimizando procesos internos y facilitando el seguimiento de históricos y reportes. Por motivos de privacidad, todos los nombres y datos mostrados en este video son ficticios. Incluye panel administrativo, gestión de usuarios, control de versiones y generación de informes PDF, todo desarrollado de forma completa y funcional."
+    "view_case_study": "Ver Proyecto",
+    "view_project": "Ver Proyecto",
+    "problem_label": "Desafío",
+    "solution_label": "Solución",
+    "truekapp": {
+      "category": "Plataforma en Tiempo Real",
+      "headline": "Plataforma de trueques en tiempo real con mensajería por WebSockets",
+      "problem": "Los usuarios necesitaban negociar intercambios de artículos de forma instantánea sin recargas de página.",
+      "solution": "Desarrollé una plataforma completa en Laravel con mensajería privada en tiempo real vía WebSockets, flujos de gestión de ofertas y un panel de moderación para control de contenido."
+    },
+    "managepoint": {
+      "category": "Gestión Empresarial",
+      "headline": "Plataforma de gestión interna con reportes automatizados",
+      "problem": "Las operaciones de los salones dependían de procesos manuales y datos dispersos en múltiples sistemas.",
+      "solution": "Desarrollé un sistema de gestión full-stack con control de acceso basado en roles, generación automatizada de informes PDF y optimización de consultas mediante migraciones de Laravel."
+    },
+    "valorant": {
+      "category": "Integración API",
+      "headline": "Explorador de personajes con consumo de API REST externa",
+      "problem": "Los jugadores de Valorant querían una forma rápida y visual de explorar personajes y habilidades.",
+      "solution": "Construí una aplicación web responsive que consume la API REST de Valorant con renderizado dinámico de contenido y cambio de tema claro/oscuro."
+    }
   },
   "experience": {
     "heading": "Experiencia",
@@ -48,7 +59,7 @@
     "current_badge": "Actual",
     "frakt24": {
       "role": "Desarrollador Full-Stack",
-      "location": "Noruega (Remoto desde España)",
+      "location": "Orihuela Costa, España — Empresa noruega",
       "period": "Enero 2026 — Presente",
       "description": "TMS empresarial en la nube (Sistema de Gestión de Transporte) para empresas de transporte noruegas. Plataforma SaaS multimódulo que atiende desde pequeñas flotas hasta cientos de vehículos.",
       "highlight1": "Desarrollo full-stack en plataforma SaaS empresarial utilizada por empresas de transporte reales en producción",
@@ -106,8 +117,8 @@
     "workflow_subtitle": "Entorno de desarrollo profesional y metodología ágil."
   },
   "contact": {
-    "heading": "Contacto",
-    "subtitle": "¿Quieres colaborar en un proyecto o simplemente saludar? Envíame un mensaje y estaré encantado de responderte.",
+    "heading": "Construyamos Algo",
+    "subtitle": "¿Tienes una idea de proyecto? Envíame un mensaje y te respondo en menos de 24 horas.",
     "name_label": "Nombre",
     "name_placeholder": "Tu nombre",
     "email_label": "Correo Electrónico",
@@ -121,6 +132,7 @@
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
+    "tagline": "Construyendo software en producción desde 2023.",
     "aria_github": "Visitar perfil de GitHub de Camilo Taba",
     "aria_linkedin": "Visitar perfil de LinkedIn de Camilo Taba",
     "sr_github": "Ir al repositorio de Camilo Taba en GitHub",

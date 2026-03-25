@@ -51,11 +51,6 @@
   }
 }
 
-/* Scroll anchor offset for sticky header */
-#experience {
-  scroll-margin-top: 5rem;
-}
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .experience-card {
