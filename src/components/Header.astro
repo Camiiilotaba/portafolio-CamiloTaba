@@ -13,7 +13,6 @@ const navLinks = [
   { href: '#home', key: 'nav.home' },
   { href: '#projects', key: 'nav.projects' },
   { href: '#experience', key: 'nav.experience' },
-  { href: '#about', key: 'nav.skills' },
   { href: '#contact', key: 'nav.contact' },
 ];
 ---
@@ -115,23 +114,39 @@ const navLinks = [
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach((link) => {
-            const href = link.getAttribute('href');
-            if (href === `#${id}`) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
+    function updateActiveLink(): void {
+      const scrollY = window.scrollY + 120;
+
+      let currentId = '';
+      sections.forEach((section) => {
+        const el = section as HTMLElement;
+        if (el.offsetTop <= scrollY) {
+          currentId = el.id;
         }
       });
-    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
 
-    sections.forEach((section) => observer.observe(section));
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateActiveLink();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    updateActiveLink();
   }
 
   function init(): void {

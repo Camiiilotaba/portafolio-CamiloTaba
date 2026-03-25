@@ -5,7 +5,6 @@ import Footer from "../components/Footer.astro";
 import Home from "../components/Home.astro";
 import Projects from "../components/Projects.astro";
 import Experience from "../components/Experience.astro";
-import HowIWork from "../components/HowIWork.astro";
 import ContactForm from "../components/ContactForm.astro";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
@@ -19,7 +18,7 @@ const lang: Lang = 'en';
   <main class="text-white">
     <section
       id="home"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black py-8 w-full pb-10 lg:pb-0"
+      class="bg-gradient-to-b from-black via-emerald-950 to-black min-h-[calc(100vh-4.5rem)] flex items-center w-full"
       aria-label={t(lang, 'home.aria_section')}
     >
       <Home lang={lang} />
@@ -35,23 +34,15 @@ const lang: Lang = 'en';
 
     <section
       id="experience"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black py-20 overflow-hidden"
+      class="bg-gradient-to-b from-black via-emerald-950 to-black pt-4 pb-12 overflow-hidden"
       aria-label={t(lang, 'experience.aria_section')}
     >
       <Experience lang={lang} />
     </section>
 
     <section
-      id="about"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black py-20 w-full px-4 pt-10 lg:pt-12 2xl:pt-30"
-      aria-label={t(lang, 'howIWork.aria_section')}
-    >
-      <HowIWork lang={lang} />
-    </section>
-
-    <section
       id="contact"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black py-20 w-full px-4 pt-10 lg:pt-12 2xl:pt-30"
+      class="bg-gradient-to-b from-black via-emerald-950 to-black py-12 w-full px-4"
     >
       <ContactForm lang={lang} />
     </section>

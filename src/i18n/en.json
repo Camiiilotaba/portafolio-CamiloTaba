@@ -11,8 +11,7 @@
     "contact": "Contact"
   },
   "home": {
-    "role": "Software <span class=\"bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent\">Developer</span>",
-    "description": "Fullstack developer specialized in <strong class=\"text-green-400 font-semibold\">PHP</strong> and <strong class=\"text-green-400 font-semibold\">Laravel</strong>, building enterprise applications with <strong class=\"text-white font-semibold\">clean architecture</strong> — Services, DTOs, and SOLID principles. Also experienced in <strong class=\"text-white font-semibold\">mobile development</strong> with Flutter and Firebase. Focused on writing <strong class=\"text-white font-semibold\">production-ready code</strong> that scales.",
+    "description": "Specialized in <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> building enterprise architectures. Frontend with <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Astro</mark> and <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Tailwind</mark>. Mobile apps with <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark>. Focused on clean architecture, SOLID principles, and production-ready code.",
     "cta_contact": "Start a Project",
     "cta_cv": "Download CV",
     "mailto_subject": "Contact from your portfolio",
