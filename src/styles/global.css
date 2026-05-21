@@ -75,7 +75,7 @@ section[id] {
   }
   
   .tech-pill {
-    @apply px-4 py-2 bg-slate-800/50 border border-green-400/30 text-green-400 text-sm font-medium rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-green-400/10 hover:border-green-400/50 hover:scale-105;
+    @apply px-4 py-2 bg-slate-800/70 border border-green-400/30 text-green-400 text-sm font-medium rounded-full transition-all duration-300 hover:bg-green-400/10 hover:border-green-400/50 hover:scale-105;
   }
   
   .social-link {
@@ -136,15 +136,14 @@ section[id] {
 /* Project card base animation - optimizado para mejor rendimiento */
 .project-card {
   opacity: 0;
-  transform: translateY(20px) translateZ(0);
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+  transform: translateY(20px);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform;
 }
 
 .project-card.animate-in {
   opacity: 1;
-  transform: translateY(0) translateZ(0);
+  transform: translateY(0);
 }
 
 /* Staggered delays */
@@ -155,9 +154,9 @@ section[id] {
 .project-card[data-project-index="4"] { transition-delay: 400ms; }
 .project-card[data-project-index="5"] { transition-delay: 500ms; }
 
-/* Hover animation - optimizado */
+/* Hover animation */
 .project-card:hover {
-  transform: translateY(-4px) translateZ(0);
+  transform: translateY(-4px);
 }
 
 /* Tech icon */

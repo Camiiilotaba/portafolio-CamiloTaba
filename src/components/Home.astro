@@ -45,23 +45,16 @@ const alsoTech = ["Flutter", "Astro", "Tailwind CSS", "TypeScript"];
           </h1>
         </div>
 
-        <!-- Subheadline -->
-        <p
-          class="animate-fade-in text-lg sm:text-xl text-gray-300 font-light max-w-2xl"
-          style="--delay: 0.1s;"
-        >
-          {t(lang, 'home.subheadline')}
-        </p>
-
         <!-- Proof strip -->
         <div
           class="animate-fade-in border-y border-white/10 py-2.5"
           style="--delay: 0.15s;"
           aria-label="Current context"
         >
-          <p class="text-xs font-bold tracking-widest uppercase text-white/45">
-            {t(lang, 'home.proof_strip')}
-          </p>
+          <p
+            class="text-xs font-bold tracking-widest uppercase text-white/45"
+            set:html={t(lang, 'home.proof_strip')}
+          />
         </div>
 
         <!-- Bio -->

@@ -109,44 +109,76 @@ const navLinks = [
     });
   }
 
-  // Active nav link highlighting on scroll
+  // Active nav link highlighting on scroll — cached offsets to avoid layout thrashing
   function initActiveNav(): void {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
+    const navLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('.nav-link, .mobile-nav-link')
+    );
+    if (!sections.length || !navLinks.length) return;
+
+    const offsets: { id: string; top: number }[] = [];
+    let lastActiveId = '';
+
+    function recomputeOffsets(): void {
+      offsets.length = 0;
+      const docTop = window.scrollY;
+      for (const section of sections) {
+        const top = section.getBoundingClientRect().top + docTop;
+        offsets.push({ id: section.id, top });
+      }
+    }
 
     function updateActiveLink(): void {
       const scrollY = window.scrollY + 120;
 
       let currentId = '';
-      sections.forEach((section) => {
-        const el = section as HTMLElement;
-        if (el.offsetTop <= scrollY) {
-          currentId = el.id;
-        }
-      });
+      for (let i = 0; i < offsets.length; i++) {
+        if (offsets[i].top <= scrollY) currentId = offsets[i].id;
+      }
 
-      navLinks.forEach((link) => {
-        const href = link.getAttribute('href');
-        if (href === `#${currentId}`) {
+      if (currentId === lastActiveId) return;
+      lastActiveId = currentId;
+
+      const target = `#${currentId}`;
+      for (const link of navLinks) {
+        if (link.getAttribute('href') === target) {
           link.classList.add('active');
         } else {
           link.classList.remove('active');
         }
-      });
+      }
     }
 
     let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          updateActiveLink();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
+    function onScroll(): void {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateActiveLink();
+        ticking = false;
+      });
+    }
 
+    let resizeRaf = 0;
+    function onResize(): void {
+      if (resizeRaf) return;
+      resizeRaf = requestAnimationFrame(() => {
+        recomputeOffsets();
+        updateActiveLink();
+        resizeRaf = 0;
+      });
+    }
+
+    recomputeOffsets();
     updateActiveLink();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
+    // Recompute when fonts/images settle to capture final layout
+    window.addEventListener('load', () => {
+      recomputeOffsets();
+      updateActiveLink();
+    });
   }
 
   function init(): void {

@@ -3,6 +3,7 @@ import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
 import type { Lang } from '../i18n/utils'
 import { t, getLocalePath } from '../i18n/utils'
+import { getJobTitle, getKnowsAbout, getRemoteLabel, getCountryLabel } from '../data/seo'
 import '../styles/global.css'
 import '../styles/header.css'
 
@@ -31,16 +32,11 @@ const ogLocale = lang === 'es' ? 'es_ES' : 'en_US'
 const enUrl = new URL(getLocalePath('en'), siteUrl)
 const esUrl = new URL(getLocalePath('es'), siteUrl)
 
-const jobTitle = lang === 'es' ? 'Software Developer especializado en Laravel y PHP' : 'Software Developer specialized in Laravel and PHP'
-const knowsAbout = lang === 'es'
-  ? ['Laravel', 'PHP', 'MySQL', 'Arquitectura Multi-tenant', 'SaaS Empresarial', 'Clean Architecture', 'SOLID', 'Feature Tests', 'WebSockets', 'APIs REST', 'JavaScript', 'TypeScript', 'Astro', 'Tailwind CSS', 'Flutter']
-  : ['Laravel', 'PHP', 'MySQL', 'Multi-tenant Architecture', 'Enterprise SaaS', 'Clean Architecture', 'SOLID', 'Feature Tests', 'WebSockets', 'REST APIs', 'JavaScript', 'TypeScript', 'Astro', 'Tailwind CSS', 'Flutter']
-
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Camilo Taba',
-  jobTitle,
+  jobTitle: getJobTitle(lang),
   url: siteUrl,
   image: ogImageURL.toString(),
   address: {
@@ -53,10 +49,10 @@ const jsonLd = {
     'https://github.com/Camiiilotaba',
     'https://www.linkedin.com/in/julian-camilo-blandon-taba-9b5210294/',
   ],
-  knowsAbout,
+  knowsAbout: getKnowsAbout(lang),
   description: pageDescription,
   workLocation: [
-    { '@type': 'Place', name: lang === 'es' ? 'Remoto' : 'Remote' },
+    { '@type': 'Place', name: getRemoteLabel(lang) },
     {
       '@type': 'Place',
       address: {
@@ -68,7 +64,7 @@ const jsonLd = {
     },
   ],
   areaServed: [
-    { '@type': 'Country', name: lang === 'es' ? 'España' : 'Spain' },
+    { '@type': 'Country', name: getCountryLabel(lang) },
     { '@type': 'AdministrativeArea', name: 'Comunidad Valenciana' },
     { '@type': 'AdministrativeArea', name: 'Región de Murcia' },
   ],
@@ -121,10 +117,26 @@ const jsonLd = {
     <!-- Preload critical assets -->
     <link rel="preload" as="image" href="/img/fotoperfil3.jpg" fetchpriority="high" />
 
-    <!-- Fonts -->
+    <!-- Fonts (async, non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
   </head>
 
   <body>

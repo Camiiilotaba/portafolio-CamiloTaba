@@ -13,9 +13,8 @@
     "eyebrow": "Camilo Taba",
     "headline_line1": "Software",
     "headline_line2": "Developer",
-    "subheadline": "I build web applications, mostly backend-leaning.",
-    "description": "Developer specialized in <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> and PHP, focused on enterprise SaaS. Fullstack with a backend lean — product features, integrations, and code that real companies depend on every day. Also <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> when the problem calls for mobile.",
-    "proof_strip": "Currently at FleetX, a Norwegian transport SaaS · Based in Alicante, Spain",
+    "description": "Developer specialized in <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> and PHP, focused on backend for enterprise SaaS. I build product features, integrations, and code that real companies depend on every day. Also <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> when the problem calls for mobile.",
+    "proof_strip": "Currently at <a href=\"https://fleetx.com/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-green-400/80 hover:text-green-400 transition-colors\">FleetX</a>, a Norwegian TMS · Based in Alicante, Spain",
     "tech_core_label": "Core",
     "tech_also_label": "Also ships",
     "cta_contact": "Get in touch",
@@ -65,10 +64,10 @@
       "location": "Orihuela Costa, Spain — Norwegian company",
       "period": "January 2026 — Present",
       "description": "Enterprise TMS (Transportation Management System). Multi-module, multi-tenant SaaS platform focused on route planning, asset management, fuel and CO₂ emissions control, and hardware integrations (Mapon GPS, tachograph).",
-      "highlight1": "Financial Module Development — Designed and built a per-route profitability system that aggregates multiple revenue and cost streams in real time, using bcmath for finance-grade precision in floating-point math.",
-      "highlight2": "Cross-Repo Architecture (Full-Stack + Mobile) — Coordinated a feature spanning Laravel backend, admin UI, and Flutter mobile. Authored the shared design spec used as strict contract between the three streams, with dynamic opt-in activation per tenant.",
-      "highlight3": "Regulatory Compliance (Sustainability) — Built the CO₂ emissions tracking engine compliant with GLEC Framework v3.2 and ISO 14083 (CSRD-ready), including a hardened audit trail tying every calculation to its official emission factor source.",
-      "highlight4": "Atomic, Decoupled API Design — Designed an auth-agnostic service layer that unifies web (session auth) and mobile (Firebase Bearer tokens) consumption. Guaranteed multi-entity data integrity via DB transactions and native HTTP Idempotency-Key support on incoming requests."
+      "highlight1": "Designed and built the product's financial module, a per-route profitability system that aggregates revenue and cost streams in real time. It uses bcmath for finance-grade precision in floating-point math.",
+      "highlight2": "Coordinated a cross-repo feature spanning Laravel backend, admin UI, and Flutter mobile. Authored the shared design spec that served as a strict contract between the three streams, with dynamic opt-in activation per tenant.",
+      "highlight3": "Built the CO₂ emissions tracking engine compliant with GLEC Framework v3.2 and ISO 14083 (CSRD-ready), with a hardened audit trail tying every calculation to its official emission factor source.",
+      "highlight4": "Designed an auth-agnostic service layer that unifies web (session auth) and mobile (Firebase Bearer tokens) consumption. Guaranteed multi-entity data integrity via DB transactions and native HTTP Idempotency-Key support on incoming requests."
     },
     "gesa": {
       "role": "Flutter Developer",

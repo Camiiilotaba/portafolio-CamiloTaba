@@ -13,9 +13,8 @@
     "eyebrow": "Camilo Taba",
     "headline_line1": "Software",
     "headline_line2": "Developer",
-    "subheadline": "Construyo aplicaciones web, sobre todo en backend.",
-    "description": "Desarrollador especializado en <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> y PHP, con foco en SaaS empresarial. Trabajo full-stack con peso en backend — features de producto, integraciones, y código que usan empresas reales todos los días. También <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> cuando el problema necesita móvil.",
-    "proof_strip": "Actualmente en FleetX, un SaaS noruego de transporte · Ubicado en Alicante, España",
+    "description": "Desarrollador especializado en <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> y PHP, con foco en backend para SaaS empresariales. Construyo features de producto, integraciones y código que usan empresas reales todos los días. También <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> cuando el problema necesita móvil.",
+    "proof_strip": "Actualmente en <a href=\"https://fleetx.com/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-green-400/80 hover:text-green-400 transition-colors\">FleetX</a>, un TMS noruego · Ubicado en Alicante, España",
     "tech_core_label": "Core",
     "tech_also_label": "También uso",
     "cta_contact": "Ponte en contacto",
@@ -65,10 +64,10 @@
       "location": "Orihuela Costa, España — Empresa noruega",
       "period": "Enero 2026 — Presente",
       "description": "TMS empresarial (Sistema de Gestión de Transporte). Plataforma SaaS multimódulo y multi-tenant orientada a la planificación de rutas, gestión de activos, control de combustible y emisiones de CO₂, e integraciones de hardware (Mapon GPS, tacógrafo).",
-      "highlight1": "Desarrollo de Módulo Financiero — Diseñé y construí un sistema de rentabilidad por ruta que agrega múltiples flujos de ingresos y costes en tiempo real, usando bcmath para garantizar precisión matemática flotante de grado financiero.",
-      "highlight2": "Arquitectura Cross-Repo (Full-Stack + Móvil) — Coordiné una feature entre backend Laravel, panel de administración y app móvil (Flutter). Redacté la especificación de diseño compartida que sirvió de contrato estricto entre los tres streams, con activación dinámica (opt-in) por tenant.",
-      "highlight3": "Cumplimiento Regulatorio (Sostenibilidad) — Desarrollé el motor de tracking de emisiones de CO₂ bajo los estándares GLEC Framework v3.2 e ISO 14083 (listo para normativas CSRD), incluyendo un audit trail blindado que enlaza cada cálculo con su fuente oficial de emisión.",
-      "highlight4": "Diseño de API Atómica y Desacoplada — Diseñé una capa de servicios auth-agnostic que unifica el consumo de la web (autenticación por sesión) y el entorno móvil (Firebase Bearer tokens). Aseguré la integridad de datos multi-entidad mediante transacciones de Base de Datos y soporte nativo para Idempotency-Key en peticiones HTTP."
+      "highlight1": "Diseñé y construí el módulo financiero del producto, un sistema de rentabilidad por ruta que agrega flujos de ingresos y costes en tiempo real. Usa bcmath para garantizar precisión matemática flotante de grado financiero.",
+      "highlight2": "Coordiné una feature cross-repo entre backend Laravel, panel de administración y app móvil en Flutter. Redacté la especificación de diseño compartida que sirvió de contrato estricto entre los tres streams, con activación dinámica (opt-in) por tenant.",
+      "highlight3": "Desarrollé el motor de tracking de emisiones de CO₂ bajo los estándares GLEC Framework v3.2 e ISO 14083 (listo para normativas CSRD), con un audit trail blindado que enlaza cada cálculo con su fuente oficial de emisión.",
+      "highlight4": "Diseñé una capa de servicios auth-agnostic que unifica el consumo desde la web (autenticación por sesión) y desde móvil (Firebase Bearer tokens). Aseguré la integridad de datos multi-entidad mediante transacciones de base de datos y soporte nativo para Idempotency-Key en peticiones HTTP."
     },
     "gesa": {
       "role": "Desarrollador Flutter",

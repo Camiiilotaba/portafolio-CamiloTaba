@@ -89,7 +89,7 @@ const { project, lang } = Astro.props;
           {project.technologies.map(({ name, icon }) => {
             const IconComponent = icon ? getIconComponent(icon) : null;
             return (
-              <span class="tech-pill inline-flex items-center gap-1.5 backdrop-blur-md bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-full text-xs font-medium">
+              <span class="tech-pill inline-flex items-center gap-1.5 bg-white/[0.07] border border-white/[0.12] text-gray-300 px-3 py-1 rounded-full text-xs font-medium">
                 {IconComponent && (
                   <span class="flex-shrink-0 [&_i]:flex [&_i]:items-center [&_svg]:w-3.5 [&_svg]:h-3.5" aria-hidden="true">
                     <IconComponent />
