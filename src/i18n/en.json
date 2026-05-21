@@ -1,22 +1,27 @@
 {
   "site": {
-    "title": "Camilo Taba – Fullstack Developer in Spain | Web Portfolio",
-    "description": "Fullstack freelance web developer in Spain. Specialized in building modern web applications with Astro, React, Laravel and UX/UI design. Professional web projects."
+    "title": "Camilo Taba – Software Developer · Laravel & PHP · Enterprise SaaS",
+    "description": "Developer specialized in Laravel and PHP, focused on enterprise SaaS. Building multi-tenant software at FleetX. PHP 8.3, MySQL, clean architecture, feature tests. Based in Alicante, Spain."
   },
   "nav": {
     "home": "Home",
     "projects": "Projects",
-    "skills": "How I Work",
     "experience": "Experience",
     "contact": "Contact"
   },
   "home": {
-    "description": "Specialized in <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> building enterprise architectures. Frontend with <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Astro</mark> and <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Tailwind</mark>. Mobile apps with <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark>. Focused on clean architecture, SOLID principles, and production-ready code.",
-    "cta_contact": "Start a Project",
+    "eyebrow": "Camilo Taba",
+    "headline_line1": "Software",
+    "headline_line2": "Developer",
+    "subheadline": "I build web applications, mostly backend-leaning.",
+    "description": "Developer specialized in <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> and PHP, focused on enterprise SaaS. Fullstack with a backend lean — product features, integrations, and code that real companies depend on every day. Also <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> when the problem calls for mobile.",
+    "proof_strip": "Currently at FleetX, a Norwegian transport SaaS · Based in Alicante, Spain",
+    "tech_core_label": "Core",
+    "tech_also_label": "Also ships",
+    "cta_contact": "Get in touch",
     "cta_cv": "Download CV",
-    "mailto_subject": "Contact from your portfolio",
-    "mailto_body": "Hi Camilo, I've seen your portfolio and...",
-    "aria_contact": "Contact Camilo Taba for web projects",
+    "cta_github": "See code on GitHub",
+    "aria_contact": "Contact Camilo Taba",
     "aria_cv": "View Camilo Taba's resume in a new tab",
     "aria_github": "View Camilo Taba's GitHub profile",
     "aria_linkedin": "View Camilo Taba's LinkedIn profile",
@@ -26,12 +31,12 @@
   },
   "projects": {
     "heading": "Projects",
-    "subtitle": "Real problems. Production solutions. Measurable impact.",
     "aria_section": "Web development projects",
-    "view_case_study": "View Project",
-    "view_project": "View Project",
     "problem_label": "Challenge",
     "solution_label": "Solution",
+    "status_video": "Watch walkthrough",
+    "status_live": "Live demo",
+    "status_private_badge": "Internal / Private",
     "truekapp": {
       "category": "Real-time Platform",
       "headline": "Real-time bartering platform with WebSocket-powered messaging",
@@ -45,26 +50,25 @@
       "solution": "Developed a full-stack management system with role-based access control, automated PDF report generation, and optimized database queries via Laravel migrations."
     },
     "valorant": {
-      "category": "API Integration",
-      "headline": "Character browser with external REST API consumption",
-      "problem": "Valorant players wanted a fast, visual way to browse characters and their abilities.",
-      "solution": "Built a responsive web app consuming the Valorant REST API with dynamic content rendering and light/dark theme switching."
+      "category": "Live Demo · REST API",
+      "headline": "Interactive character browser built on a public REST API",
+      "problem": "Personal project to practice the full loop: consuming a third-party REST API, handling UI state, and shipping a deployment.",
+      "solution": "A responsive character browser deployed on GitHub Pages, with dynamic fetching, persistent light/dark theme, and accessible design. Small, finished, and always live."
     }
   },
   "experience": {
     "heading": "Experience",
-    "subtitle": "Real production applications, not hobby projects. Building software that companies depend on every day.",
     "aria_section": "Professional work experience",
     "current_badge": "Current",
     "frakt24": {
       "role": "Full-Stack Developer",
       "location": "Orihuela Costa, Spain — Norwegian company",
       "period": "January 2026 — Present",
-      "description": "Enterprise cloud-based TMS (Transport Management System) for Norwegian transport companies. Multi-module SaaS platform serving clients from small fleets to hundreds of vehicles.",
-      "highlight1": "Full-stack development on enterprise SaaS platform serving real transport companies in production",
-      "highlight2": "Multi-tenant architecture with complex business logic across transport, invoicing, and fleet modules",
-      "highlight3": "Progressive migration of legacy codebase to modern Laravel architecture with strict typing and tests",
-      "highlight4": "HR module, advanced transport order management, and dynamic PDF document generation"
+      "description": "Enterprise TMS (Transportation Management System). Multi-module, multi-tenant SaaS platform focused on route planning, asset management, fuel and CO₂ emissions control, and hardware integrations (Mapon GPS, tachograph).",
+      "highlight1": "Financial Module Development — Designed and built a per-route profitability system that aggregates multiple revenue and cost streams in real time, using bcmath for finance-grade precision in floating-point math.",
+      "highlight2": "Cross-Repo Architecture (Full-Stack + Mobile) — Coordinated a feature spanning Laravel backend, admin UI, and Flutter mobile. Authored the shared design spec used as strict contract between the three streams, with dynamic opt-in activation per tenant.",
+      "highlight3": "Regulatory Compliance (Sustainability) — Built the CO₂ emissions tracking engine compliant with GLEC Framework v3.2 and ISO 14083 (CSRD-ready), including a hardened audit trail tying every calculation to its official emission factor source.",
+      "highlight4": "Atomic, Decoupled API Design — Designed an auth-agnostic service layer that unifies web (session auth) and mobile (Firebase Bearer tokens) consumption. Guaranteed multi-entity data integrity via DB transactions and native HTTP Idempotency-Key support on incoming requests."
     },
     "gesa": {
       "role": "Flutter Developer",
@@ -102,19 +106,6 @@
       "highlight2": "Linux server administration, OS installation, and network troubleshooting"
     }
   },
-  "howIWork": {
-    "heading": "How I Work",
-    "subtitle": "Beyond code — architecture, practices, and professional standards I bring to every project.",
-    "aria_section": "How I work - Stack, architecture and tools",
-    "stack_title": "Stack",
-    "stack_backend_label": "Backend",
-    "stack_frontend_label": "Frontend",
-    "stack_mobile_label": "Mobile",
-    "architecture_title": "Architecture & Practices",
-    "architecture_subtitle": "Transforming legacy monoliths into modern service-based architectures.",
-    "workflow_title": "Workflow & Tools",
-    "workflow_subtitle": "Professional development environment and agile methodology."
-  },
   "contact": {
     "heading": "Let's Build Something",
     "subtitle": "Have a project idea? Send me a message and I'll get back to you within 24 hours.",
@@ -131,7 +122,7 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "tagline": "Building production software since 2023.",
+    "tagline": "Building software since 2023.",
     "aria_github": "Visit Camilo Taba's GitHub profile",
     "aria_linkedin": "Visit Camilo Taba's LinkedIn profile",
     "sr_github": "Go to Camilo Taba's GitHub repositories",

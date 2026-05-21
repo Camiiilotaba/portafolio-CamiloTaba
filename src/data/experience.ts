@@ -20,8 +20,8 @@ export interface ExperienceEntry {
 export const experiences: ExperienceEntry[] = [
   {
     id: 'frakt24',
-    company: 'Frakt24 / FleetX',
-    companyUrl: 'https://frakt24.no',
+    company: 'FleetX',
+    companyUrl: 'https://fleetx.com/',
     roleKey: 'experience.frakt24.role',
     locationKey: 'experience.frakt24.location',
     periodKey: 'experience.frakt24.period',

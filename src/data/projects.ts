@@ -15,6 +15,8 @@ export interface Project {
   impactTags: string[];
   technologies: TechWithIcon[];
   featured: boolean;
+  statusLabelKey: string;
+  isPrivate?: boolean;
 }
 
 export const projects: Project[] = [
@@ -34,7 +36,8 @@ export const projects: Project[] = [
       { name: 'MySQL', icon: 'mysql' },
       { name: 'Tailwind CSS', icon: 'tailwind' },
     ],
-    featured: true,
+    featured: false,
+    statusLabelKey: 'projects.status_video',
   },
   {
     id: 'managepoint',
@@ -53,6 +56,8 @@ export const projects: Project[] = [
       { name: 'Tailwind CSS', icon: 'tailwind' },
     ],
     featured: false,
+    statusLabelKey: 'projects.status_video',
+    isPrivate: true,
   },
   {
     id: 'valorant',
@@ -63,12 +68,13 @@ export const projects: Project[] = [
     headlineKey: 'projects.valorant.headline',
     problemKey: 'projects.valorant.problem',
     solutionKey: 'projects.valorant.solution',
-    impactTags: ['REST API', 'Dynamic rendering', 'Theme toggle'],
+    impactTags: ['Live deployment', 'REST API', 'Theme persistence', 'Responsive UI'],
     technologies: [
       { name: 'HTML', icon: 'html' },
       { name: 'JavaScript', icon: 'javaScript' },
       { name: 'Tailwind CSS', icon: 'tailwind' },
     ],
-    featured: false,
+    featured: true,
+    statusLabelKey: 'projects.status_live',
   },
 ];

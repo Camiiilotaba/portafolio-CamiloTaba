@@ -1,22 +1,27 @@
 {
   "site": {
-    "title": "Camilo Taba – Desarrollador Fullstack en Alicante | Portafolio Web",
-    "description": "Desarrollador web fullstack freelance en Alicante. Especializado en crear aplicaciones web modernas con Astro, React, Laravel y diseño UX/UI. Proyectos web profesionales."
+    "title": "Camilo Taba – Software Developer · Laravel & PHP · SaaS Empresarial",
+    "description": "Desarrollador especializado en Laravel y PHP, con foco en SaaS empresarial. Construyendo software multi-tenant en FleetX. PHP 8.3, MySQL, arquitectura limpia, feature tests. Basado en Alicante, España."
   },
   "nav": {
     "home": "Inicio",
     "projects": "Proyectos",
-    "skills": "Cómo Trabajo",
     "experience": "Experiencia",
     "contact": "Contacto"
   },
   "home": {
-    "description": "Especialista en <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> construyendo arquitecturas empresariales. Frontend con <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Astro</mark> y <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Tailwind</mark>. Apps móviles con <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark>. Enfocado en arquitectura limpia, principios SOLID y código de producción.",
-    "cta_contact": "Iniciar Proyecto",
+    "eyebrow": "Camilo Taba",
+    "headline_line1": "Software",
+    "headline_line2": "Developer",
+    "subheadline": "Construyo aplicaciones web, sobre todo en backend.",
+    "description": "Desarrollador especializado en <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> y PHP, con foco en SaaS empresarial. Trabajo full-stack con peso en backend — features de producto, integraciones, y código que usan empresas reales todos los días. También <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> cuando el problema necesita móvil.",
+    "proof_strip": "Actualmente en FleetX, un SaaS noruego de transporte · Ubicado en Alicante, España",
+    "tech_core_label": "Core",
+    "tech_also_label": "También uso",
+    "cta_contact": "Ponte en contacto",
     "cta_cv": "Descargar CV",
-    "mailto_subject": "Contacto desde tu portafolio",
-    "mailto_body": "Hola Camilo, he visto tu portafolio y...",
-    "aria_contact": "Contactar a Camilo Taba para proyectos web",
+    "cta_github": "Ver código en GitHub",
+    "aria_contact": "Contactar a Camilo Taba",
     "aria_cv": "Ver CV de Camilo Taba en nueva pestaña",
     "aria_github": "Ver perfil de GitHub de Camilo Taba",
     "aria_linkedin": "Ver perfil de LinkedIn de Camilo Taba",
@@ -26,12 +31,12 @@
   },
   "projects": {
     "heading": "Proyectos",
-    "subtitle": "Problemas reales. Soluciones en producción. Impacto medible.",
     "aria_section": "Proyectos de desarrollo web",
-    "view_case_study": "Ver Proyecto",
-    "view_project": "Ver Proyecto",
     "problem_label": "Desafío",
     "solution_label": "Solución",
+    "status_video": "Ver demo en vídeo",
+    "status_live": "Demo en vivo",
+    "status_private_badge": "Interno / Privado",
     "truekapp": {
       "category": "Plataforma en Tiempo Real",
       "headline": "Plataforma de trueques en tiempo real con mensajería por WebSockets",
@@ -45,26 +50,25 @@
       "solution": "Desarrollé un sistema de gestión full-stack con control de acceso basado en roles, generación automatizada de informes PDF y optimización de consultas mediante migraciones de Laravel."
     },
     "valorant": {
-      "category": "Integración API",
-      "headline": "Explorador de personajes con consumo de API REST externa",
-      "problem": "Los jugadores de Valorant querían una forma rápida y visual de explorar personajes y habilidades.",
-      "solution": "Construí una aplicación web responsive que consume la API REST de Valorant con renderizado dinámico de contenido y cambio de tema claro/oscuro."
+      "category": "Live Demo · API REST",
+      "headline": "Explorador interactivo sobre una API REST pública",
+      "problem": "Proyecto personal para practicar el ciclo completo: consumir una API REST de terceros, manejar estado de UI, y desplegar en producción.",
+      "solution": "Explorador de personajes desplegado en GitHub Pages, con fetch dinámico, tema claro/oscuro persistente, y diseño responsive. Pequeño, terminado, y siempre accesible."
     }
   },
   "experience": {
     "heading": "Experiencia",
-    "subtitle": "Aplicaciones reales en producción, no proyectos de hobby. Construyendo software del que las empresas dependen cada día.",
     "aria_section": "Experiencia profesional laboral",
     "current_badge": "Actual",
     "frakt24": {
       "role": "Desarrollador Full-Stack",
       "location": "Orihuela Costa, España — Empresa noruega",
       "period": "Enero 2026 — Presente",
-      "description": "TMS empresarial en la nube (Sistema de Gestión de Transporte) para empresas de transporte noruegas. Plataforma SaaS multimódulo que atiende desde pequeñas flotas hasta cientos de vehículos.",
-      "highlight1": "Desarrollo full-stack en plataforma SaaS empresarial utilizada por empresas de transporte reales en producción",
-      "highlight2": "Arquitectura multi-tenant con lógica de negocio compleja en módulos de transporte, facturación y flota",
-      "highlight3": "Migración progresiva de código legacy a arquitectura Laravel moderna con tipado estricto y tests",
-      "highlight4": "Módulo RRHH, gestión avanzada de órdenes de transporte y generación dinámica de documentos PDF"
+      "description": "TMS empresarial (Sistema de Gestión de Transporte). Plataforma SaaS multimódulo y multi-tenant orientada a la planificación de rutas, gestión de activos, control de combustible y emisiones de CO₂, e integraciones de hardware (Mapon GPS, tacógrafo).",
+      "highlight1": "Desarrollo de Módulo Financiero — Diseñé y construí un sistema de rentabilidad por ruta que agrega múltiples flujos de ingresos y costes en tiempo real, usando bcmath para garantizar precisión matemática flotante de grado financiero.",
+      "highlight2": "Arquitectura Cross-Repo (Full-Stack + Móvil) — Coordiné una feature entre backend Laravel, panel de administración y app móvil (Flutter). Redacté la especificación de diseño compartida que sirvió de contrato estricto entre los tres streams, con activación dinámica (opt-in) por tenant.",
+      "highlight3": "Cumplimiento Regulatorio (Sostenibilidad) — Desarrollé el motor de tracking de emisiones de CO₂ bajo los estándares GLEC Framework v3.2 e ISO 14083 (listo para normativas CSRD), incluyendo un audit trail blindado que enlaza cada cálculo con su fuente oficial de emisión.",
+      "highlight4": "Diseño de API Atómica y Desacoplada — Diseñé una capa de servicios auth-agnostic que unifica el consumo de la web (autenticación por sesión) y el entorno móvil (Firebase Bearer tokens). Aseguré la integridad de datos multi-entidad mediante transacciones de Base de Datos y soporte nativo para Idempotency-Key en peticiones HTTP."
     },
     "gesa": {
       "role": "Desarrollador Flutter",
@@ -102,19 +106,6 @@
       "highlight2": "Administración de servidores Linux, instalación de sistemas operativos y resolución de problemas de red"
     }
   },
-  "howIWork": {
-    "heading": "Cómo Trabajo",
-    "subtitle": "Más allá del código — arquitectura, prácticas y estándares profesionales que aporto a cada proyecto.",
-    "aria_section": "Cómo trabajo - Stack, arquitectura y herramientas",
-    "stack_title": "Stack",
-    "stack_backend_label": "Backend",
-    "stack_frontend_label": "Frontend",
-    "stack_mobile_label": "Mobile",
-    "architecture_title": "Arquitectura y Prácticas",
-    "architecture_subtitle": "Transformando monolitos heredados en arquitecturas modernas basadas en servicios.",
-    "workflow_title": "Workflow y Herramientas",
-    "workflow_subtitle": "Entorno de desarrollo profesional y metodología ágil."
-  },
   "contact": {
     "heading": "Construyamos Algo",
     "subtitle": "¿Tienes una idea de proyecto? Envíame un mensaje y te respondo en menos de 24 horas.",
@@ -131,7 +122,7 @@
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
-    "tagline": "Construyendo software en producción desde 2023.",
+    "tagline": "Construyendo software desde 2023.",
     "aria_github": "Visitar perfil de GitHub de Camilo Taba",
     "aria_linkedin": "Visitar perfil de LinkedIn de Camilo Taba",
     "sr_github": "Ir al repositorio de Camilo Taba en GitHub",

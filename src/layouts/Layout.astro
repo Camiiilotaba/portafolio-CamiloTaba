@@ -31,10 +31,10 @@ const ogLocale = lang === 'es' ? 'es_ES' : 'en_US'
 const enUrl = new URL(getLocalePath('en'), siteUrl)
 const esUrl = new URL(getLocalePath('es'), siteUrl)
 
-const jobTitle = lang === 'es' ? 'Desarrollador Web Fullstack' : 'Fullstack Web Developer'
+const jobTitle = lang === 'es' ? 'Software Developer especializado en Laravel y PHP' : 'Software Developer specialized in Laravel and PHP'
 const knowsAbout = lang === 'es'
-  ? ['Desarrollo Web', 'JavaScript', 'TypeScript', 'React', 'Laravel', 'Astro', 'Tailwind CSS', 'Diseño UX/UI', 'Desarrollo Fullstack', 'APIs REST', 'WebSockets']
-  : ['Web Development', 'JavaScript', 'TypeScript', 'React', 'Laravel', 'Astro', 'Tailwind CSS', 'UX/UI Design', 'Fullstack Development', 'REST APIs', 'WebSockets']
+  ? ['Laravel', 'PHP', 'MySQL', 'Arquitectura Multi-tenant', 'SaaS Empresarial', 'Clean Architecture', 'SOLID', 'Feature Tests', 'WebSockets', 'APIs REST', 'JavaScript', 'TypeScript', 'Astro', 'Tailwind CSS', 'Flutter']
+  : ['Laravel', 'PHP', 'MySQL', 'Multi-tenant Architecture', 'Enterprise SaaS', 'Clean Architecture', 'SOLID', 'Feature Tests', 'WebSockets', 'REST APIs', 'JavaScript', 'TypeScript', 'Astro', 'Tailwind CSS', 'Flutter']
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -100,7 +100,7 @@ const jsonLd = {
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:locale" content={ogLocale} />
-    <meta property="og:site_name" content="Camilo Taba - Fullstack Developer" />
+    <meta property="og:site_name" content="Camilo Taba - Software Developer" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
