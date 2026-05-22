@@ -49,10 +49,10 @@
       "solution": "Desarrollé un sistema de gestión full-stack con control de acceso basado en roles, generación automatizada de informes PDF y optimización de consultas mediante migraciones de Laravel."
     },
     "valorant": {
-      "category": "Live Demo · API REST",
-      "headline": "Explorador interactivo sobre una API REST pública",
-      "problem": "Proyecto personal para practicar el ciclo completo: consumir una API REST de terceros, manejar estado de UI, y desplegar en producción.",
-      "solution": "Explorador de personajes desplegado en GitHub Pages, con fetch dinámico, tema claro/oscuro persistente, y diseño responsive. Pequeño, terminado, y siempre accesible."
+      "category": "Live Demo · SPA en React",
+      "headline": "Explorador de datos de Valorant con búsqueda de jugadores y herramientas interactivas",
+      "problem": "Quería una herramienta de Valorant que combinara datos del juego con estadísticas reales de jugadores, sin backend propio, respetando los límites de las APIs de terceros y las normas de Riot para proyectos de fans.",
+      "solution": "SPA en React + Vite con navegación por agentes, armas, mapas y bundles, una calculadora de daño interactiva, y búsqueda de jugador que agrega stats de las últimas 10 partidas. El reto técnico principal fue gestionar dos APIs de terceros sin backend propio, resolviendo los límites de rate con un throttle compartido entre rutas."
     }
   },
   "experience": {

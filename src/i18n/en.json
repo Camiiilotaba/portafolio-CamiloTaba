@@ -49,10 +49,10 @@
       "solution": "Developed a full-stack management system with role-based access control, automated PDF report generation, and optimized database queries via Laravel migrations."
     },
     "valorant": {
-      "category": "Live Demo · REST API",
-      "headline": "Interactive character browser built on a public REST API",
-      "problem": "Personal project to practice the full loop: consuming a third-party REST API, handling UI state, and shipping a deployment.",
-      "solution": "A responsive character browser deployed on GitHub Pages, with dynamic fetching, persistent light/dark theme, and accessible design. Small, finished, and always live."
+      "category": "Live Demo · React SPA",
+      "headline": "Fan-made Valorant data explorer with live player lookup and interactive tools",
+      "problem": "I wanted a Valorant tool that combined game data with real player stats, no backend of my own, while respecting third-party API rate limits and Riot's fan project rules.",
+      "solution": "React + Vite SPA with agent, weapon, map and bundle browsing, an interactive damage calculator, and a player lookup that aggregates stats from the last 10 games. The main technical challenge was consuming two third-party APIs with no backend, managing rate limits through a shared throttle across routes."
     }
   },
   "experience": {
