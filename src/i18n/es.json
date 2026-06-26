@@ -114,13 +114,21 @@
     "submit": "Enviar Mensaje",
     "sending": "Enviando...",
     "success": "¡Mensaje enviado con éxito! Te responderé pronto.",
-    "error": "Error al enviar el mensaje. Por favor, intenta de nuevo o envía un email directamente."
+    "error": "Error al enviar el mensaje. Por favor, intenta de nuevo o envía un email directamente.",
+    "direct_heading": "¿Prefieres el correo? Escríbeme a"
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
-    "tagline": "Construyendo software desde 2023.",
+    "tagline": "Desarrollador Laravel & PHP: construyo backends fiables y los productos que los rodean.",
+    "nav_heading": "Navegación",
+    "connect_heading": "Conecta",
+    "location": "Alicante, España · Disponible en remoto",
+    "built_with": "Hecho con Astro y Tailwind CSS",
+    "back_to_top": "Volver arriba",
     "aria_github": "Visitar perfil de GitHub de Camilo Taba",
     "aria_linkedin": "Visitar perfil de LinkedIn de Camilo Taba",
+    "aria_email": "Enviar email a Camilo Taba",
+    "aria_top": "Volver arriba",
     "sr_github": "Ir al repositorio de Camilo Taba en GitHub",
     "sr_linkedin": "Seguir a Camilo en LinkedIn"
   }

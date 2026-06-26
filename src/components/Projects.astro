@@ -15,22 +15,20 @@ const secondary = projects.filter((p) => !p.featured);
 ---
 
 <section
-  class="relative bg-gradient-to-b from-black via-emerald-950 to-black pb-20 overflow-hidden"
+  class="relative pb-20 overflow-hidden"
 >
-  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
-  </div>
-
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-25 relative z-10">
-    <header class="text-center mb-12 lg:mb-16 xl:mb-20">
+    <header class="reveal-on-scroll text-center mb-12 lg:mb-16 xl:mb-20">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
         <span class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent">
           {t(lang, 'projects.heading')}
         </span>
       </h2>
       <div class="flex justify-center mt-6 mb-5">
-        <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"></div>
+        <div
+          class="scroll-draw w-24 h-1 rounded-full"
+          style="background: linear-gradient(90deg, var(--accent-bright), var(--accent), var(--accent-deep));"
+        ></div>
       </div>
     </header>
 

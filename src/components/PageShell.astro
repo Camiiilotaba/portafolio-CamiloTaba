@@ -22,7 +22,7 @@ const { lang } = Astro.props;
   <main class="text-white">
     <section
       id="home"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black min-h-[calc(100vh-4.5rem)] flex items-center w-full"
+      class="min-h-[calc(100vh-4.5rem)] flex items-center w-full"
       aria-label={t(lang, 'home.aria_section')}
     >
       <Home lang={lang} />
@@ -30,7 +30,6 @@ const { lang } = Astro.props;
 
     <section
       id="projects"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black"
       aria-label={t(lang, 'projects.aria_section')}
     >
       <Projects lang={lang} />
@@ -38,7 +37,7 @@ const { lang } = Astro.props;
 
     <section
       id="experience"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black pt-4 pb-12 overflow-hidden"
+      class="pt-4 pb-12 overflow-hidden"
       aria-label={t(lang, 'experience.aria_section')}
     >
       <Experience lang={lang} />
@@ -46,7 +45,7 @@ const { lang } = Astro.props;
 
     <section
       id="contact"
-      class="bg-gradient-to-b from-black via-emerald-950 to-black py-12 w-full px-4"
+      class="py-12 w-full px-4"
     >
       <ContactForm lang={lang} />
     </section>

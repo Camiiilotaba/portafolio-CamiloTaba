@@ -21,7 +21,7 @@
   bottom: -0.06em;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #4ade80, transparent);
+  background: linear-gradient(90deg, var(--accent-bright), var(--accent) 55%, transparent);
   transform: scaleX(0);
   transform-origin: left;
   animation: grow-line 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;

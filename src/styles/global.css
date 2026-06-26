@@ -3,15 +3,46 @@
 
 /* Typography system */
 @theme {
-  --font-heading: 'Space Grotesk', sans-serif;
+  --font-heading: 'Bricolage Grotesque', sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+/* Accent tonal ramp — one brand green expressed across three
+   stops so gradients/glows read as lit, not flat. */
+:root {
+  --accent-bright: #6ee7b7; /* mint highlight  */
+  --accent: #10b981;        /* emerald-500 brand */
+  --accent-deep: #0f766e;   /* teal-700 shadow  */
+}
+
 body {
   font-family: var(--font-body);
+  background-color: #020806; /* deep emerald-tinted black base */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Unified atmospheric field — one continuous mesh behind every
+   section (replaces the repeated black→emerald→black stripes).
+   Fixed so it never bands as you scroll; cheap, GPU-friendly. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 60rem at 78% -6%, rgba(110, 231, 183, 0.10), transparent 60%),
+    radial-gradient(55rem 55rem at 8% 14%, rgba(16, 185, 129, 0.10), transparent 55%),
+    radial-gradient(50rem 50rem at 96% 58%, rgba(15, 118, 110, 0.12), transparent 55%),
+    radial-gradient(70rem 52rem at 28% 102%, rgba(16, 185, 129, 0.09), transparent 60%);
+}
+
+/* Brand-tinted text selection */
+::selection {
+  background: rgba(16, 185, 129, 0.30);
+  color: #ffffff;
 }
 
 h1, h2, h3, h4 {

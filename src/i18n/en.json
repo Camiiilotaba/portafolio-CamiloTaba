@@ -114,13 +114,21 @@
     "submit": "Send Message",
     "sending": "Sending...",
     "success": "Message sent successfully! I'll get back to you soon.",
-    "error": "Error sending message. Please try again or send an email directly."
+    "error": "Error sending message. Please try again or send an email directly.",
+    "direct_heading": "Prefer email? Write to me at"
   },
   "footer": {
     "rights": "All rights reserved.",
-    "tagline": "Building software since 2023.",
+    "tagline": "Laravel & PHP developer building reliable backends and the products around them.",
+    "nav_heading": "Navigate",
+    "connect_heading": "Connect",
+    "location": "Alicante, Spain · Remote-friendly",
+    "built_with": "Built with Astro & Tailwind CSS",
+    "back_to_top": "Back to top",
     "aria_github": "Visit Camilo Taba's GitHub profile",
     "aria_linkedin": "Visit Camilo Taba's LinkedIn profile",
+    "aria_email": "Email Camilo Taba",
+    "aria_top": "Back to top",
     "sr_github": "Go to Camilo Taba's GitHub repositories",
     "sr_linkedin": "Follow Camilo on LinkedIn"
   }

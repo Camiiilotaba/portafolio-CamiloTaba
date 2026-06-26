@@ -33,7 +33,7 @@
 - Website: https://camilotaba.dev
 - Website (Spanish): https://camilotaba.dev/es/
 - GitHub: https://github.com/Camiiilotaba
-- LinkedIn: https://www.linkedin.com/in/julian-camilo-blandon-taba-9b5210294/
+- LinkedIn: https://www.linkedin.com/in/camilotaba/
 
 ## Contact
 - Through the contact form at https://camilotaba.dev/#contact
