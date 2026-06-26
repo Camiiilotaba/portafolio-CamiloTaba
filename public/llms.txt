@@ -1,0 +1,40 @@
+# Camilo Taba — Laravel & PHP Developer (Web & Mobile)
+
+> Software developer specialized in Laravel and PHP backend for enterprise,
+> multi-tenant SaaS, with full-stack web (Vue, React) and mobile (Flutter)
+> development. Based in Alicante, Spain. Open to remote work.
+
+## Profile
+- Name: Camilo Taba (full name: Julián Camilo Blandón Taba)
+- Title: Laravel & PHP Developer · Full-stack Web & Mobile
+- Location: Alicante, Spain — works remotely (currently for a Norwegian company)
+- Building software professionally since 2023
+- Languages: Spanish (native), English
+
+## Specialization
+- Core: Laravel, PHP 8.3, MySQL, REST APIs, WebSockets, Clean Architecture, SOLID, feature tests
+- Web frontend: JavaScript, TypeScript, Vue.js, React, Astro, Tailwind CSS
+- Mobile: Flutter, Firebase
+- Domains: enterprise SaaS, multi-tenant architecture, financial/billing modules, hardware/API integrations
+
+## Current role
+- FleetX (Norwegian TMS, transportation management SaaS), Jan 2026 — present
+- Built the per-route financial profitability module (bcmath, finance-grade precision)
+- Built a CO2 emissions engine compliant with GLEC Framework v3.2 and ISO 14083 (CSRD-ready)
+- Designed an auth-agnostic service layer unifying web (session) and mobile (Firebase tokens)
+- Coordinated a cross-repo feature across Laravel backend, admin UI, and Flutter mobile
+
+## Selected projects
+- Truekapp — real-time bartering platform (Laravel, WebSockets via Reverb, private channels, admin panel)
+- ManagePoint — internal management SaaS (Laravel, RBAC, automated PDF reports, query optimization)
+- VALO·DEX — React + Vite SPA consuming third-party APIs with shared rate-limit throttling (live demo)
+
+## Links
+- Website: https://camilotaba.dev
+- Website (Spanish): https://camilotaba.dev/es/
+- GitHub: https://github.com/Camiiilotaba
+- LinkedIn: https://www.linkedin.com/in/julian-camilo-blandon-taba-9b5210294/
+
+## Contact
+- Through the contact form at https://camilotaba.dev/#contact
+- Responds within 24 hours

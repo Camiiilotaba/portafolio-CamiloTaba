@@ -3,7 +3,15 @@ import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
 import type { Lang } from '../i18n/utils'
 import { t, getLocalePath } from '../i18n/utils'
-import { getJobTitle, getKnowsAbout, getRemoteLabel, getCountryLabel } from '../data/seo'
+import {
+  getJobTitle,
+  getKnowsAbout,
+  getRemoteLabel,
+  getCountryLabel,
+  getRoleTitles,
+  getOccupationDescription,
+  getKnownLanguages,
+} from '../data/seo'
 import '../styles/global.css'
 import '../styles/header.css'
 
@@ -32,10 +40,13 @@ const ogLocale = lang === 'es' ? 'es_ES' : 'en_US'
 const enUrl = new URL(getLocalePath('en'), siteUrl)
 const esUrl = new URL(getLocalePath('es'), siteUrl)
 
-const jsonLd = {
-  '@context': 'https://schema.org',
+const personId = `${siteUrl}#person`
+
+const person = {
   '@type': 'Person',
+  '@id': personId,
   name: 'Camilo Taba',
+  alternateName: ['Julián Camilo Blandón Taba', ...getRoleTitles(lang)],
   jobTitle: getJobTitle(lang),
   url: siteUrl,
   image: ogImageURL.toString(),
@@ -50,7 +61,21 @@ const jsonLd = {
     'https://www.linkedin.com/in/julian-camilo-blandon-taba-9b5210294/',
   ],
   knowsAbout: getKnowsAbout(lang),
+  knowsLanguage: getKnownLanguages(lang),
   description: pageDescription,
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: getJobTitle(lang),
+    description: getOccupationDescription(lang),
+    occupationalCategory: getRoleTitles(lang),
+    skills: getKnowsAbout(lang).join(', '),
+    occupationLocation: { '@type': 'Country', name: getCountryLabel(lang) },
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'FleetX',
+    url: 'https://fleetx.com/',
+  },
   workLocation: [
     { '@type': 'Place', name: getRemoteLabel(lang) },
     {
@@ -69,6 +94,34 @@ const jsonLd = {
     { '@type': 'AdministrativeArea', name: 'Región de Murcia' },
   ],
 }
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    person,
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}#website`,
+      url: siteUrl,
+      name: 'Camilo Taba',
+      inLanguage: ogLocale,
+      author: { '@id': personId },
+      publisher: { '@id': personId },
+    },
+    {
+      '@type': 'ProfilePage',
+      url: canonicalURL.toString(),
+      inLanguage: ogLocale,
+      name: pageTitle,
+      description: pageDescription,
+      isPartOf: { '@id': `${siteUrl}#website` },
+      about: { '@id': personId },
+      mainEntity: { '@id': personId },
+    },
+  ],
+}
+
+const metaKeywords = getKnowsAbout(lang).join(', ')
 ---
 
 <!doctype html>
@@ -81,6 +134,7 @@ const jsonLd = {
 
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={metaKeywords} />
     <meta name="author" content="Camilo Taba" />
     <meta name="generator" content={Astro.generator} />
 
@@ -113,9 +167,6 @@ const jsonLd = {
 
     <!-- JSON-LD structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
-    <!-- Preload critical assets -->
-    <link rel="preload" as="image" href="/img/fotoperfil3.jpg" fetchpriority="high" />
 
     <!-- Fonts (async, non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

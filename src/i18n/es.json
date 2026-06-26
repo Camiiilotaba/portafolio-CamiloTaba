@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Camilo Taba – Software Developer · Laravel & PHP · SaaS Empresarial",
-    "description": "Desarrollador especializado en Laravel y PHP, con foco en SaaS empresarial. Construyendo software multi-tenant en FleetX. PHP 8.3, MySQL, arquitectura limpia, feature tests. Basado en Alicante, España."
+    "title": "Camilo Taba – Desarrollador Laravel & PHP · Web y Móvil",
+    "description": "Desarrollador Laravel y PHP especializado en SaaS empresarial, con desarrollo web full-stack (Vue, React) y apps móviles en Flutter. En Alicante, España — disponible para trabajo remoto."
   },
   "nav": {
     "home": "Inicio",
@@ -11,9 +11,9 @@
   },
   "home": {
     "eyebrow": "Camilo Taba",
-    "headline_line1": "Software",
-    "headline_line2": "Developer",
-    "description": "Desarrollador especializado en <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> y PHP, con foco en backend para SaaS empresariales. Construyo features de producto, integraciones y código que usan empresas reales todos los días. También <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> cuando el problema necesita móvil.",
+    "headline_line1": "Laravel",
+    "headline_line2": "PHP Developer",
+    "description": "Desarrollador especializado en <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> y PHP, con foco en backend para SaaS empresariales. Construyo features de producto, integraciones y código que usan empresas reales todos los días. En el frontend trabajo con <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Vue</mark> y React, y uso <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> cuando el problema necesita móvil.",
     "proof_strip": "Actualmente en <a href=\"https://fleetx.com/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-green-400/80 hover:text-green-400 transition-colors\">FleetX</a>, un TMS noruego · Ubicado en Alicante, España",
     "tech_core_label": "Core",
     "tech_also_label": "También uso",
@@ -36,23 +36,37 @@
     "status_video": "Ver demo en vídeo",
     "status_live": "Demo en vivo",
     "status_private_badge": "Interno / Privado",
+    "tab_about": "Descripción",
+    "tab_features": "Funcionalidades",
+    "tab_tech": "Tecnologías",
+    "tab_deploy": "Despliegue",
     "truekapp": {
-      "category": "Plataforma en Tiempo Real",
-      "headline": "Plataforma de trueques en tiempo real con mensajería por WebSockets",
-      "problem": "Los usuarios necesitaban negociar intercambios de artículos de forma instantánea sin recargas de página.",
-      "solution": "Desarrollé una plataforma completa en Laravel con mensajería privada en tiempo real vía WebSockets, flujos de gestión de ofertas y un panel de moderación para control de contenido."
+      "category": "Full-stack · Tiempo real",
+      "headline": "Un marketplace de trueque que construí y llevé hasta producción",
+      "problem": "Los usuarios necesitaban negociar intercambios al instante, sin recargas de página.",
+      "solution": "Una plataforma completa en Laravel con mensajería privada en tiempo real, flujos de trueque y panel de administración.",
+      "section_about": "Un marketplace de trueque full-stack donde la gente intercambia objetos sin dinero: publicas lo que ya no usas, propones trueques, chateas y os valoráis. Empezó como mi TFG y lo llevé mucho más allá: una app real funcionando en producción en mi propio servidor. Construida con Laravel 12 y arquitectura de servicios, reúne mensajería en tiempo real, un asistente de IA y búsqueda semántica, desplegada mediante un pipeline de CI/CD con una suite de tests automatizada en cada push.",
+      "section_features": "Chat en tiempo real con WebSockets (Laravel Reverb) y canales privados autorizados\nAsistente de IA con RAG agéntico + tool calling (Google Gemini): responde dudas, propone trueques y puede volver a buscar en el catálogo a mitad de conversación\nFoto a ficha con IA: haces una foto y Gemini Vision sugiere título, categoría y descripción\nModeración de imágenes con IA que bloquea subidas inapropiadas antes de guardarlas\nBúsqueda semántica que ordena el catálogo por significado, reutilizando embeddings\nLista «Busco» con matching automático, además de favoritos\nSistema de trueques con propuestas, valoraciones y reputación\nAPI REST con autenticación por tokens (Laravel Sanctum)\nBilingüe (ES/EN) con panel de administración por permisos y demo pública con reseteo diario",
+      "section_tech": "Backend: Laravel 12, PHP 8.3, arquitectura de servicios\nTiempo real: Laravel Reverb (WebSockets)\nIA: Google Gemini (chat, embeddings + visión) con RAG y function calling\nBase de datos: MySQL\nFrontend: Blade, Tailwind CSS, Alpine.js, Vite\nAuth y API: Laravel Sanctum\nTesting: Pest (120+ tests, incl. evals del asistente) · Estilo: Laravel Pint",
+      "section_deploy": "Servidor propio (VPS Hetzner, Ubuntu) configurado a mano, sin paneles tipo Forge/Ploi\nNginx + PHP-FPM + MySQL instalados y gestionados manualmente\nSupervisor mantiene vivos el daemon de Reverb y el worker de colas\nSSL con Let's Encrypt y Cloudflare por delante (CDN + DDoS/WAF + escaneo CSAM)\nCI/CD con GitHub Actions: la suite de tests corre en cada push\nUn cron diario regenera la demo, más una pasada de hardening (CSP, rate-limit, cabeceras)"
     },
     "managepoint": {
       "category": "Gestión Empresarial",
       "headline": "Plataforma de gestión interna con reportes automatizados",
       "problem": "Las operaciones de los salones dependían de procesos manuales y datos dispersos en múltiples sistemas.",
-      "solution": "Desarrollé un sistema de gestión full-stack con control de acceso basado en roles, generación automatizada de informes PDF y optimización de consultas mediante migraciones de Laravel."
+      "solution": "Desarrollé un sistema de gestión full-stack con control de acceso basado en roles, generación automatizada de informes PDF y optimización de consultas mediante migraciones de Laravel.",
+      "section_about": "Una plataforma interna full-stack para gestionar las operaciones diarias y el personal de un salón de juego. Sustituyó procesos manuales y datos dispersos en varios sistemas por una única herramienta de gestión con control por roles, construida sobre Laravel.",
+      "section_features": "Panel de administración con control de acceso por roles (RBAC) y gestión de usuarios\nGeneración automatizada de informes PDF para las operaciones del negocio, con seguimiento histórico\nDatos operativos centralizados que sustituyeron flujos manuales en múltiples sistemas\nConsultas a base de datos optimizadas para reportes rápidos sobre datos históricos",
+      "section_tech": "Backend: Laravel, PHP, estructura orientada a servicios\nBase de datos: MySQL con esquema relacional diseñado mediante migraciones de Laravel\nFrontend: Blade + Tailwind CSS\nRendimiento: optimización de consultas para vistas con mucha carga de reportes"
     },
     "valorant": {
       "category": "Live Demo · SPA en React",
       "headline": "Explorador de datos de Valorant con búsqueda de jugadores y herramientas interactivas",
       "problem": "Quería una herramienta de Valorant que combinara datos del juego con estadísticas reales de jugadores, sin backend propio, respetando los límites de las APIs de terceros y las normas de Riot para proyectos de fans.",
-      "solution": "SPA en React + Vite con navegación por agentes, armas, mapas y bundles, una calculadora de daño interactiva, y búsqueda de jugador que agrega stats de las últimas 10 partidas. El reto técnico principal fue gestionar dos APIs de terceros sin backend propio, resolviendo los límites de rate con un throttle compartido entre rutas."
+      "solution": "SPA en React + Vite con navegación por agentes, armas, mapas y bundles, una calculadora de daño interactiva, y búsqueda de jugador que agrega stats de las últimas 10 partidas. El reto técnico principal fue gestionar dos APIs de terceros sin backend propio, resolviendo los límites de rate con un throttle compartido entre rutas.",
+      "section_about": "Una SPA en React + Vite que combina valorant-api.com (assets del juego, sin clave) con la Henrik Dev API (datos en vivo, con clave) en una sola interfaz táctica. Es la reescritura completa de un proyecto vanilla-JS inicial, ahora con UI en inglés y un sistema de diseño propio inspirado en Valorant.",
+      "section_features": "Búsqueda de jugador por Riot ID con stats agregadas: K/D/A, % de headshot, ACS y win rate\nLeaderboard Radiant top-10 en vivo en seis regiones\nCalculadora de daño de armas interactiva y callouts de mapas proyectados desde coordenadas reales\nCruce bundle ↔ tema que muestra skins, sprays y objetos del set",
+      "section_tech": "React 18 + Vite + React Router + Tailwind CSS\nProxy serverless mantiene la clave fuera del cliente, replicado en el dev server de Vite\nRate limiting en profundidad: edge cache, cache por región y throttle de ventana deslizante\nRutas lazy-loaded y cache a nivel de módulo para cargas rápidas"
     }
   },
   "experience": {
@@ -63,29 +77,20 @@
       "role": "Desarrollador Full-Stack",
       "location": "Orihuela Costa, España — Empresa noruega",
       "period": "Enero 2026 — Presente",
-      "description": "TMS empresarial (Sistema de Gestión de Transporte). Plataforma SaaS multimódulo y multi-tenant orientada a la planificación de rutas, gestión de activos, control de combustible y emisiones de CO₂, e integraciones de hardware (Mapon GPS, tacógrafo).",
-      "highlight1": "Diseñé y construí el módulo financiero del producto, un sistema de rentabilidad por ruta que agrega flujos de ingresos y costes en tiempo real. Usa bcmath para garantizar precisión matemática flotante de grado financiero.",
-      "highlight2": "Coordiné una feature cross-repo entre backend Laravel, panel de administración y app móvil en Flutter. Redacté la especificación de diseño compartida que sirvió de contrato estricto entre los tres streams, con activación dinámica (opt-in) por tenant.",
-      "highlight3": "Desarrollé el motor de tracking de emisiones de CO₂ bajo los estándares GLEC Framework v3.2 e ISO 14083 (listo para normativas CSRD), con un audit trail blindado que enlaza cada cálculo con su fuente oficial de emisión.",
-      "highlight4": "Diseñé una capa de servicios auth-agnostic que unifica el consumo desde la web (autenticación por sesión) y desde móvil (Firebase Bearer tokens). Aseguré la integridad de datos multi-entidad mediante transacciones de base de datos y soporte nativo para Idempotency-Key en peticiones HTTP."
+      "description": "Responsable del diseño, implementación y mantenimiento a largo plazo de varios módulos clave de una plataforma SaaS multi-tenant de logística. Mi trabajo abarca diseño de soluciones, desarrollo backend y entrega de features cross-platform: convierto requisitos de negocio en features de producción fiables, manteniendo la calidad de código, los tests y las buenas prácticas del equipo.",
+      "highlight1": "Modernización incremental de un código PHP legacy (mysqli) a Laravel, llamando a servicios Laravel desde el código legacy sin romper producción.",
+      "highlight2": "Integración de APIs de hardware de terceros (GPS, tacógrafo) y ownership de los contratos de datos que conectan el backend web con la app móvil en Flutter vía Firebase/Firestore.",
+      "highlight3": "Ownership de módulos de grado financiero con integridad transaccional estricta y aislamiento de datos multi-tenant bajo concurrencia: transacciones atómicas, bloqueo de filas y peticiones idempotentes.",
+      "highlight4": "Diagnóstico de bugs de producción no triviales mediante análisis de causa raíz en el backend, las integraciones y los flujos de datos."
     },
     "gesa": {
-      "role": "Desarrollador Flutter",
-      "location": "Murcia, España",
-      "period": "Septiembre 2025 — Noviembre 2025",
-      "description": "Aplicación móvil de nutrición con capacidades de análisis impulsadas por IA, desarrollada con Flutter y Firebase.",
-      "highlight1": "Análisis nutricional con IA mediante reconocimiento de imágenes y documentos PDF",
-      "highlight2": "Sincronización de datos en tiempo real con Firebase Firestore",
-      "highlight3": "Perfiles nutricionales dinámicos y sistema personalizado de gestión de dietas"
-    },
-    "truekapp": {
       "role": "Desarrollador Full-Stack",
-      "location": "España (Remoto)",
-      "period": "Enero 2025 — Junio 2025",
-      "description": "Plataforma web para trueque e intercambio de artículos entre usuarios con comunicación en tiempo real.",
-      "highlight1": "Sistema de mensajería en tiempo real con WebSockets y canales privados mediante Laravel Reverb",
-      "highlight2": "Sistema CRUD completo para gestión de intercambios con flujos de ofertas",
-      "highlight3": "Interfaz moderna y responsive con Tailwind CSS y notificaciones en tiempo real"
+      "location": "Murcia, España",
+      "period": "Septiembre 2025 — Diciembre 2025",
+      "description": "Responsable único de una app de nutrición con IA de principio a fin: construí tanto el backend en Laravel como el cliente móvil en Flutter, encargándome de la arquitectura, las integraciones y la entrega en ambos repositorios.",
+      "highlight1": "Construí todo el backend en Laravel: API REST, modelado de datos y lógica de negocio que alimenta la app.",
+      "highlight2": "Desarrollé el cliente Flutter completo, manteniendo paridad estricta entre los repositorios de backend y móvil.",
+      "highlight3": "Me encargué de todas las integraciones, las notificaciones push, el análisis nutricional con IA (reconocimiento de imágenes y PDF) y la sincronización en tiempo real con Firestore."
     },
     "managepoint": {
       "role": "Desarrollador Full-Stack",
@@ -95,14 +100,6 @@
       "highlight1": "Panel de administración con control de acceso basado en roles (RBAC) y gestión de usuarios",
       "highlight2": "Generación automatizada de informes PDF para operaciones del negocio y seguimiento histórico",
       "highlight3": "Diseño de base de datos relacional con migraciones de Laravel y optimización de consultas"
-    },
-    "ticarum": {
-      "role": "Técnico IT (Prácticas)",
-      "location": "Murcia, España",
-      "period": "Marzo 2023 — Junio 2023",
-      "description": "Soporte IT y mantenimiento de sistemas en empresa tecnológica.",
-      "highlight1": "Mantenimiento preventivo y correctivo de hardware y sistemas empresariales",
-      "highlight2": "Administración de servidores Linux, instalación de sistemas operativos y resolución de problemas de red"
     }
   },
   "contact": {

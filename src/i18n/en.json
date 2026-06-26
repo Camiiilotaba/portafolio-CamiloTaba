@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Camilo Taba – Software Developer · Laravel & PHP · Enterprise SaaS",
-    "description": "Developer specialized in Laravel and PHP, focused on enterprise SaaS. Building multi-tenant software at FleetX. PHP 8.3, MySQL, clean architecture, feature tests. Based in Alicante, Spain."
+    "title": "Camilo Taba – Laravel & PHP Developer · Web & Mobile",
+    "description": "Laravel & PHP developer building enterprise SaaS, with full-stack web (Vue, React) and Flutter mobile apps. Based in Alicante, Spain — open to remote work."
   },
   "nav": {
     "home": "Home",
@@ -11,9 +11,9 @@
   },
   "home": {
     "eyebrow": "Camilo Taba",
-    "headline_line1": "Software",
-    "headline_line2": "Developer",
-    "description": "Developer specialized in <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> and PHP, focused on backend for enterprise SaaS. I build product features, integrations, and code that real companies depend on every day. Also <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> when the problem calls for mobile.",
+    "headline_line1": "Laravel",
+    "headline_line2": "PHP Developer",
+    "description": "Developer specialized in <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> and PHP, focused on backend for enterprise SaaS. I build product features, integrations, and code that real companies depend on every day. On the frontend I work with <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Vue</mark> and React, and reach for <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> when the problem calls for mobile.",
     "proof_strip": "Currently at <a href=\"https://fleetx.com/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-green-400/80 hover:text-green-400 transition-colors\">FleetX</a>, a Norwegian TMS · Based in Alicante, Spain",
     "tech_core_label": "Core",
     "tech_also_label": "Also ships",
@@ -36,23 +36,37 @@
     "status_video": "Watch walkthrough",
     "status_live": "Live demo",
     "status_private_badge": "Internal / Private",
+    "tab_about": "Overview",
+    "tab_features": "Features",
+    "tab_tech": "Tech stack",
+    "tab_deploy": "Deployment",
     "truekapp": {
-      "category": "Real-time Platform",
-      "headline": "Real-time bartering platform with WebSocket-powered messaging",
-      "problem": "Users needed to negotiate item exchanges instantly without page refreshes or delays.",
-      "solution": "Built a complete Laravel platform with real-time private messaging via WebSockets, offer management workflows, and an admin moderation panel for content control."
+      "category": "Full-stack · Real-time",
+      "headline": "A barter marketplace I built and took all the way to production",
+      "problem": "Users needed to negotiate item swaps instantly, without page refreshes.",
+      "solution": "A complete Laravel platform with real-time private messaging, trade workflows and an admin panel.",
+      "section_about": "A full-stack barter marketplace where people swap items without money — post what you no longer use, propose trades, chat and rate each other. It began as my final degree project and I pushed it far beyond that: a real app running in production on my own server. Built with Laravel 12 and a service-oriented architecture, it brings together real-time messaging, an AI assistant and semantic search, shipped through a CI/CD pipeline with an automated test suite on every push.",
+      "section_features": "Real-time chat over WebSockets (Laravel Reverb) with authorized private channels\nAI assistant with agentic RAG + tool calling (Google Gemini): answers questions, proposes trades and can re-search the catalog mid-conversation\nAI photo-to-listing: take a photo and Gemini Vision suggests the title, category and description\nAI image moderation that blocks inappropriate uploads before they're stored\nSemantic search that ranks the catalog by meaning, reusing embeddings\nA \"wishlist\" with automatic matching, plus favorites\nTrade system with proposals, ratings and reputation\nREST API with token authentication (Laravel Sanctum)\nFully bilingual (EN/ES) with a permission-based admin panel and a daily-reset public demo",
+      "section_tech": "Backend: Laravel 12, PHP 8.3, service-oriented architecture\nReal-time: Laravel Reverb (WebSockets)\nAI: Google Gemini (chat, embeddings + vision) with RAG and function calling\nDatabase: MySQL\nFrontend: Blade, Tailwind CSS, Alpine.js, Vite\nAuth & API: Laravel Sanctum\nTesting: Pest (120+ tests, incl. AI assistant evals) · Code style: Laravel Pint",
+      "section_deploy": "My own VPS (Hetzner, Ubuntu) configured by hand — no Forge/Ploi panels\nNginx + PHP-FPM + MySQL set up and managed manually\nSupervisor keeps the Reverb daemon and the queue worker alive\nSSL via Let's Encrypt, with Cloudflare in front (CDN + DDoS/WAF + CSAM scanning)\nCI/CD with GitHub Actions: the test suite runs on every push\nA daily cron rebuilds the demo, plus a security-hardening pass (CSP, rate limits, headers)"
     },
     "managepoint": {
       "category": "Enterprise Management",
       "headline": "Internal management platform with automated reporting",
       "problem": "Gaming venue operations relied on manual processes and scattered data across multiple systems.",
-      "solution": "Developed a full-stack management system with role-based access control, automated PDF report generation, and optimized database queries via Laravel migrations."
+      "solution": "Developed a full-stack management system with role-based access control, automated PDF report generation, and optimized database queries via Laravel migrations.",
+      "section_about": "An internal full-stack platform for managing a gaming venue's day-to-day operations and staff. It replaced manual processes and data scattered across several systems with a single, role-aware management tool built on Laravel.",
+      "section_features": "Admin panel with role-based access control (RBAC) and user management\nAutomated PDF report generation for business operations, with historical tracking\nCentralized operational data that replaced manual, multi-system workflows\nOptimized database queries for fast reporting over historical data",
+      "section_tech": "Backend: Laravel, PHP, service-oriented structure\nDatabase: MySQL with a relational schema designed through Laravel migrations\nFrontend: Blade + Tailwind CSS\nPerformance: query optimization for reporting-heavy views"
     },
     "valorant": {
       "category": "Live Demo · React SPA",
       "headline": "Fan-made Valorant data explorer with live player lookup and interactive tools",
       "problem": "I wanted a Valorant tool that combined game data with real player stats, no backend of my own, while respecting third-party API rate limits and Riot's fan project rules.",
-      "solution": "React + Vite SPA with agent, weapon, map and bundle browsing, an interactive damage calculator, and a player lookup that aggregates stats from the last 10 games. The main technical challenge was consuming two third-party APIs with no backend, managing rate limits through a shared throttle across routes."
+      "solution": "React + Vite SPA with agent, weapon, map and bundle browsing, an interactive damage calculator, and a player lookup that aggregates stats from the last 10 games. The main technical challenge was consuming two third-party APIs with no backend, managing rate limits through a shared throttle across routes.",
+      "section_about": "A React + Vite SPA that pairs valorant-api.com (game assets, no key) with the Henrik Dev API (live player data, key-protected) in one tactical interface. It's a full rebuild of an early vanilla-JS project, now with an English UI and a custom Valorant-inspired design system.",
+      "section_features": "Player lookup by Riot ID with aggregate stats: K/D/A, headshot %, ACS and win rate\nLive Radiant top-10 leaderboard across six regions\nInteractive weapon damage calculator and real-world map callout overlays\nBundle ↔ theme cross-reference that surfaces matching skins, sprays and gear",
+      "section_tech": "React 18 + Vite + React Router + Tailwind CSS\nServerless proxy keeps the API key off the client, mirrored in the Vite dev server\nRate limiting in depth: edge caching, per-region cache and a sliding-window throttle\nLazy-loaded routes and module-level caching for fast loads"
     }
   },
   "experience": {
@@ -63,29 +77,20 @@
       "role": "Full-Stack Developer",
       "location": "Orihuela Costa, Spain — Norwegian company",
       "period": "January 2026 — Present",
-      "description": "Enterprise TMS (Transportation Management System). Multi-module, multi-tenant SaaS platform focused on route planning, asset management, fuel and CO₂ emissions control, and hardware integrations (Mapon GPS, tachograph).",
-      "highlight1": "Designed and built the product's financial module, a per-route profitability system that aggregates revenue and cost streams in real time. It uses bcmath for finance-grade precision in floating-point math.",
-      "highlight2": "Coordinated a cross-repo feature spanning Laravel backend, admin UI, and Flutter mobile. Authored the shared design spec that served as a strict contract between the three streams, with dynamic opt-in activation per tenant.",
-      "highlight3": "Built the CO₂ emissions tracking engine compliant with GLEC Framework v3.2 and ISO 14083 (CSRD-ready), with a hardened audit trail tying every calculation to its official emission factor source.",
-      "highlight4": "Designed an auth-agnostic service layer that unifies web (session auth) and mobile (Firebase Bearer tokens) consumption. Guaranteed multi-entity data integrity via DB transactions and native HTTP Idempotency-Key support on incoming requests."
+      "description": "Responsible for the design, implementation, and long-term ownership of several core modules in a multi-tenant logistics SaaS. My work spans solution design, backend development, and cross-platform feature delivery — turning business requirements into reliable production features while upholding code quality, testing, and best practices across the team.",
+      "highlight1": "Incrementally modernizing a legacy PHP (mysqli) codebase to Laravel — calling Laravel services from legacy code without disrupting production.",
+      "highlight2": "Integrating third-party hardware APIs (GPS, tachograph) and owning the data contracts that bridge the web backend with the Flutter mobile app via Firebase/Firestore.",
+      "highlight3": "Owning finance-grade modules with strict transactional integrity and multi-tenant data isolation under concurrency — atomic transactions, row-level locking, and idempotent requests.",
+      "highlight4": "Diagnosing non-trivial production bugs through root-cause analysis across the backend, integrations, and data pipelines."
     },
     "gesa": {
-      "role": "Flutter Developer",
-      "location": "Murcia, Spain",
-      "period": "September 2025 — November 2025",
-      "description": "Mobile nutrition app with AI-powered analysis capabilities built with Flutter and Firebase.",
-      "highlight1": "AI-powered nutritional analysis via image and PDF document recognition",
-      "highlight2": "Real-time data synchronization with Firebase Firestore",
-      "highlight3": "Dynamic nutritional profiles and personalized diet management system"
-    },
-    "truekapp": {
       "role": "Full-Stack Developer",
-      "location": "Spain (Remote)",
-      "period": "January 2025 — June 2025",
-      "description": "Web platform for bartering and exchanging items between users with real-time communication.",
-      "highlight1": "Real-time messaging system with WebSockets and private channels via Laravel Reverb",
-      "highlight2": "Complete CRUD system for exchange management with offer workflows",
-      "highlight3": "Modern responsive interface with Tailwind CSS and real-time notifications"
+      "location": "Murcia, Spain",
+      "period": "September 2025 — December 2025",
+      "description": "Sole developer responsible for an AI-powered nutrition app end to end — I built both the Laravel backend and the Flutter mobile client, owning architecture, integrations, and delivery across both repositories.",
+      "highlight1": "Built the entire Laravel backend — REST API, data modeling, and business logic powering the app.",
+      "highlight2": "Developed the full Flutter client and kept strict parity across the backend and mobile repositories.",
+      "highlight3": "Owned all integrations, push notifications, AI nutritional analysis (image & PDF recognition), and real-time Firestore sync."
     },
     "managepoint": {
       "role": "Full-Stack Developer",
@@ -95,14 +100,6 @@
       "highlight1": "Admin panel with role-based access control (RBAC) and user management",
       "highlight2": "Automated PDF report generation for business operations and historical tracking",
       "highlight3": "Relational database design with Laravel migrations and query optimization"
-    },
-    "ticarum": {
-      "role": "IT Technician (Internship)",
-      "location": "Murcia, Spain",
-      "period": "March 2023 — June 2023",
-      "description": "IT support and systems maintenance at a technology company.",
-      "highlight1": "Preventive and corrective maintenance of hardware and enterprise systems",
-      "highlight2": "Linux server administration, OS installation, and network troubleshooting"
     }
   },
   "contact": {

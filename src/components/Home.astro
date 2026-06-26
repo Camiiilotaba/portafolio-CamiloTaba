@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import profileImg from "../assets/fotoperfil3.jpg";
 import "../styles/home-animations.css";
 import type { Lang } from "../i18n/utils";
 import { t } from "../i18n/utils";
@@ -10,8 +11,8 @@ interface Props {
 
 const { lang } = Astro.props;
 
-const coreTech = ["Laravel", "PHP", "MySQL", "JavaScript"];
-const alsoTech = ["Flutter", "Astro", "Tailwind CSS", "TypeScript"];
+const coreTech = ["Laravel", "PHP", "MySQL", "REST APIs"];
+const alsoTech = ["Vue", "React", "Flutter", "Tailwind CSS"];
 ---
 
 <section class="hero-section relative w-full pt-6 pb-10 md:pb-14 overflow-hidden">
@@ -166,7 +167,7 @@ const alsoTech = ["Flutter", "Astro", "Tailwind CSS", "TypeScript"];
           <div class="absolute -inset-4 bg-gradient-to-br from-green-500/20 to-emerald-500/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-80 transition-opacity duration-500" aria-hidden="true"></div>
           <div class="relative bg-white/[0.04] border border-white/10 group-hover:border-green-500/30 rounded-3xl p-2 transition-all duration-500 shadow-2xl shadow-black/60">
             <Image
-              src="/img/fotoperfil3.jpg"
+              src={profileImg}
               alt="Camilo Taba - Software Developer"
               class="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 2xl:w-72 2xl:h-72 rounded-2xl object-cover shadow-xl"
               width={288}

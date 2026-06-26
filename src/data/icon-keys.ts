@@ -23,4 +23,7 @@ export const IconKeys = {
   php: "php",
   mysql: "mysql",
   websocket: "websocket",
+  vue: "vue",
+  flutter: "flutter",
+  firebase: "firebase",
 } as const;

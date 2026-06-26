@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import logoImg from "../assets/logooo.png";
 import type { Lang } from "../i18n/utils";
 import { t, getLocalePath } from "../i18n/utils";
 import LanguageToggle from "./LanguageToggle.astro";
@@ -21,12 +23,14 @@ const navLinks = [
   <div class="header-container">
     <div class="logo-section">
       <a href={getLocalePath(lang)}>
-        <img
-          src="/img/logooo.png"
+        <Image
+          src={logoImg}
           alt="Camilo Taba"
           class="logo-img"
-          width="180"
-          height="72"
+          width={256}
+          height={200}
+          format="webp"
+          quality={90}
           loading="eager"
           fetchpriority="high"
           decoding="async"
