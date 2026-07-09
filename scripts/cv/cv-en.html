@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Camilo Taba — CV (EN)</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { font-family: Helvetica, Arial, sans-serif; color: #1a1a1a; }
+  body { padding: 7mm 12mm; font-size: 9.2pt; line-height: 1.25; }
+
+  a { color: #047857; text-decoration: none; }
+
+  .header { text-align: center; margin-bottom: 3mm; }
+  .header h1 { font-size: 19pt; letter-spacing: 1px; }
+  .header .role { font-size: 11pt; font-weight: 700; color: #047857; margin-top: 1mm; }
+  .header .meta { font-size: 8.8pt; color: #444; margin-top: 1.2mm; }
+
+  h2 {
+    font-size: 10.5pt; text-transform: uppercase; letter-spacing: 0.8px;
+    border-bottom: 1.4px solid #1a1a1a; padding-bottom: 0.8mm;
+    margin: 2.2mm 0 1.2mm;
+  }
+
+  .entry { margin-bottom: 1.6mm; }
+  .entry-head { font-size: 9.4pt; }
+  .entry-head .role { font-weight: 700; }
+  .entry-head .sep { color: #888; }
+
+  ul { margin: 0.8mm 0 0 4.5mm; }
+  li { margin-bottom: 0.4mm; }
+
+  .skills p { margin-bottom: 0.6mm; }
+  .skills b { font-weight: 700; }
+
+  .projects .entry { margin-bottom: 1.8mm; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>CAMILO TABA</h1>
+    <div class="role">Laravel &amp; PHP Developer · Web &amp; Mobile</div>
+    <div class="meta">
+      Orihuela 03300, Alicante, Spain · +34 665 324 567 · camilotaba.dev@gmail.com<br />
+      <a href="https://camilotaba.dev">camilotaba.dev</a> ·
+      <a href="https://www.linkedin.com/in/camilotaba/">linkedin.com/in/camilotaba</a> ·
+      <a href="https://github.com/Camiiilotaba">github.com/Camiiilotaba</a>
+    </div>
+  </div>
+
+  <h2>Professional profile</h2>
+  <p>
+    Developer specialized in <b>Laravel and PHP backend</b> for multi-tenant enterprise SaaS, currently
+    building production modules for a Norwegian logistics TMS. Proven production experience: finance-grade
+    modules with strict transactional integrity, real-time communication (WebSockets / Laravel Reverb),
+    AI integrations (Google Gemini, RAG) and self-managed VPS deployment with CI/CD. On the frontend I work with Vue and React; on mobile, Flutter.
+  </p>
+
+  <h2>Professional experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="role">Full-Stack Developer</span> <span class="sep">|</span>
+      FleetX (Frakt24) — Norwegian TMS <span class="sep">|</span> January 2026 – Present
+    </div>
+    <ul>
+      <li>Designed and built a multi-pollutant emissions engine (CO2e, NOx, PM, CO, HC) for a multi-tenant logistics SaaS platform, adopting the <b>GLEC Framework v3.2 and ISO 14083</b> (CSRD-ready).</li>
+      <li>Designed and built the <b>per-route financial profitability module</b>: finance-grade precision (bcmath), atomic transactions, row-level locking and idempotent requests under multi-tenant concurrency.</li>
+      <li>Built the <b>driver Daily Report module</b> end to end — a cross-repo feature: multi-tenant Laravel backend, a Vue review-and-approval dashboard, and an offline-first Flutter app with push notifications.</li>
+      <li>Designed the data contract between backend and mobile (Firestore) and worked with attendance data from multiple sources (tachograph, punch-ins), with a full audit trail and test-first delivery.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="role">Full-Stack Developer</span> <span class="sep">|</span>
+      Gesa Mediación S.L., Murcia, Spain <span class="sep">|</span> September 2025 – December 2025
+    </div>
+    <ul>
+      <li>Built an <b>AI-powered nutrition app</b> as the sole developer, from zero to delivery in 4 months: Laravel backend (REST API, data modeling, business logic) and the complete Flutter mobile client.</li>
+      <li>Implemented AI nutritional analysis (image and PDF document recognition) with Firebase AI Logic.</li>
+      <li>Integrated push notifications and real-time Firestore sync, keeping strict parity across the backend and mobile repositories.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="role">Full-Stack Developer</span> <span class="sep">|</span>
+      Apuestas de Murcia, Murcia, Spain <span class="sep">|</span> February 2025 – June 2025
+    </div>
+    <ul>
+      <li>Developed an internal gaming-venue management platform (ManagePoint) on Laravel: role-based access control (RBAC), user management and automated PDF reporting that cut administrative overhead.</li>
+      <li>Designed the relational database with Laravel migrations and optimized queries for reporting-heavy views.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="role">IT Systems &amp; Networks Technician</span> <span class="sep">|</span>
+      Ticarum, Murcia, Spain <span class="sep">|</span> March 2023 – June 2023
+    </div>
+    <ul>
+      <li>Performed preventive and corrective hardware maintenance, administered Linux environments and provided technical support.</li>
+    </ul>
+  </div>
+
+  <h2>Selected projects</h2>
+  <div class="projects">
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">Truekapp</span> <span class="sep">|</span>
+        <a href="https://truekapp.xyz">truekapp.xyz</a> <span class="sep">|</span> In production
+      </div>
+      <ul>
+        <li>Full-stack barter marketplace (started as my final degree project, taken to real production): Laravel 12, real-time chat (Reverb/WebSockets), AI assistant with agentic RAG and tool calling (Google Gemini), semantic search and AI image moderation.</li>
+        <li>120+ tests (Pest), CI/CD with GitHub Actions, deployed on a self-managed VPS (Hetzner: Nginx, PHP-FPM, Supervisor, Cloudflare).</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">VALO·DEX</span> <span class="sep">|</span>
+        <a href="https://valodex-app.vercel.app/">valodex-app.vercel.app</a> <span class="sep">|</span> Live demo
+      </div>
+      <ul>
+        <li>React 18 + TypeScript + Vite SPA aggregating two third-party APIs behind a serverless proxy with per-region caching and sliding-window rate limiting.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="role">Professional portfolio</span> <span class="sep">|</span>
+        <a href="https://camilotaba.dev">camilotaba.dev</a> <span class="sep">|</span> In production
+      </div>
+      <ul>
+        <li>Bilingual (EN/ES) site built with Astro 5 and Tailwind CSS: technical SEO (JSON-LD, hreflang, sitemap), WAI-ARIA accessibility and performance-optimized delivery (inlined CSS, WebP images). Includes live demos of the projects above.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="entry-head"><span class="role">Higher Technician in Web Application Development</span> <span class="sep">|</span> EFA El Campico, Jacarilla, Spain <span class="sep">|</span> 2023 – 2025</div>
+  </div>
+  <div class="entry">
+    <div class="entry-head"><span class="role">Technician in IT Systems &amp; Networks</span> <span class="sep">|</span> IES Las Espeñetas, Orihuela, Spain <span class="sep">|</span> 2020 – 2023</div>
+  </div>
+
+  <h2>Technical skills</h2>
+  <div class="skills">
+    <p><b>Backend:</b> Laravel 10–12, PHP 8.3, MySQL, REST APIs, WebSockets/Reverb, queues &amp; jobs, Sanctum, testing (Pest, PHPUnit)</p>
+    <p><b>Frontend:</b> JavaScript, TypeScript, Vue.js, React, Astro, Tailwind CSS, Blade, Alpine.js</p>
+    <p><b>Mobile:</b> Flutter, Dart, Firebase (Authentication, Firestore, Storage, AI Logic)</p>
+    <p><b>AI:</b> Google Gemini (RAG, function calling, embeddings, vision), OpenAI API</p>
+    <p><b>DevOps:</b> Git, GitHub Actions (CI/CD), Linux / VPS (Nginx, PHP-FPM, Supervisor), Docker, Cloudflare, Vercel</p>
+    <p><b>Methodologies:</b> Scrum/Kanban, Clean Architecture, SOLID, multi-tenant SaaS architecture</p>
+    <p><b>Languages:</b> Spanish native &nbsp;·&nbsp; English: professional working proficiency — daily working language (meetings, technical presentations)</p>
+  </div>
+
+</body>
+</html>
