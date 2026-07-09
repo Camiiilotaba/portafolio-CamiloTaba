@@ -18,7 +18,6 @@ const { project, lang } = Astro.props;
   data-project-index="0"
 >
   <div class="flex flex-col lg:flex-row">
-    <!-- Image -->
     <div class="relative lg:w-[45%] overflow-hidden">
       <Image
         src={project.img}
@@ -34,7 +33,6 @@ const { project, lang } = Astro.props;
       <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/60 lg:block hidden" aria-hidden="true"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:hidden" aria-hidden="true"></div>
 
-      <!-- Category badge -->
       <span class="absolute top-4 left-4 px-3 py-1 text-xs font-bold rounded-full bg-green-500/20 text-green-400 border border-green-500/30 backdrop-blur-sm">
         {t(lang, project.categoryKey)}
       </span>
@@ -46,7 +44,6 @@ const { project, lang } = Astro.props;
       )}
     </div>
 
-    <!-- Content -->
     <div class="lg:w-[55%] p-6 sm:p-8 flex flex-col justify-center">
       <h3 class="text-2xl sm:text-3xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300">
         {project.title}
@@ -63,14 +60,16 @@ const { project, lang } = Astro.props;
 
       {project.sections && project.sections.length > 0 ? (
         <div class="mb-6" data-tabs>
-          <!-- Tab buttons -->
           <div class="flex flex-wrap gap-2 mb-4" role="tablist" aria-label={project.title}>
             {project.sections.map((section, i) => (
               <button
                 type="button"
                 role="tab"
+                id={`tab-${project.id}-${section.id}`}
+                aria-controls={`panel-${project.id}-${section.id}`}
                 data-tab-btn={section.id}
                 aria-selected={i === 0 ? 'true' : 'false'}
+                tabindex={i === 0 ? 0 : -1}
                 class="tab-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 cursor-pointer text-gray-300 border-white/15 hover:border-green-500/40 hover:text-white aria-selected:bg-green-500 aria-selected:text-black aria-selected:border-green-500"
               >
                 {t(lang, section.labelKey)}
@@ -78,14 +77,19 @@ const { project, lang } = Astro.props;
             ))}
           </div>
 
-          <!-- Tab panels -->
           {project.sections.map((section, i) => {
             const lines = t(lang, section.bodyKey)
               .split("\n")
               .map((line) => line.trim())
               .filter(Boolean);
             return (
-              <div data-tab-panel={section.id} class={i === 0 ? "" : "hidden"}>
+              <div
+                role="tabpanel"
+                id={`panel-${project.id}-${section.id}`}
+                aria-labelledby={`tab-${project.id}-${section.id}`}
+                data-tab-panel={section.id}
+                class={i === 0 ? "" : "hidden"}
+              >
                 {lines.length > 1 ? (
                   <ul class="space-y-2">
                     {lines.map((line) => (
@@ -106,7 +110,6 @@ const { project, lang } = Astro.props;
         </div>
       ) : (
         <Fragment>
-          <!-- Problem -->
           <div class="mb-4">
             <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">
               {t(lang, 'projects.problem_label')}
@@ -116,7 +119,6 @@ const { project, lang } = Astro.props;
             </p>
           </div>
 
-          <!-- Solution -->
           <div class="mb-5">
             <span class="text-green-400 text-xs font-semibold uppercase tracking-wider">
               {t(lang, 'projects.solution_label')}
@@ -128,7 +130,6 @@ const { project, lang } = Astro.props;
         </Fragment>
       )}
 
-      <!-- Impact tags -->
       <div class="flex flex-wrap gap-2 mb-6">
         {project.impactTags.map((tag) => (
           <span class="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -137,7 +138,6 @@ const { project, lang } = Astro.props;
         ))}
       </div>
 
-      <!-- Tech pills + CTA -->
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div class="flex flex-wrap gap-2">
           {project.technologies.map(({ name, icon }) => {
@@ -190,18 +190,3 @@ const { project, lang } = Astro.props;
     </div>
   </div>
 </article>
-
-<script>
-  // Pestañas del case study destacado: cambia el panel visible al pulsar un botón.
-  document.querySelectorAll<HTMLElement>("[data-tabs]").forEach((root) => {
-    const buttons = root.querySelectorAll<HTMLElement>("[data-tab-btn]");
-    const panels = root.querySelectorAll<HTMLElement>("[data-tab-panel]");
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const id = button.getAttribute("data-tab-btn");
-        buttons.forEach((b) => b.setAttribute("aria-selected", String(b === button)));
-        panels.forEach((p) => p.classList.toggle("hidden", p.getAttribute("data-tab-panel") !== id));
-      });
-    });
-  });
-</script>

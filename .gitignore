@@ -23,3 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 OPTIMIZACIONES-ISLAS.md
+
+# personal notes (kept local, not published)
+PaletaDeColores.txt
+extensiones.txt
+docs/refactor-prompt-*.md
+docs/proyectos-portfolio-backend-2026.md

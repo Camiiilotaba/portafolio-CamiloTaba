@@ -35,6 +35,16 @@ const { lang } = Astro.props;
     data-success-msg={t(lang, 'contact.success')}
     data-error-msg={t(lang, 'contact.error')}
   >
+    <!-- Honeypot: Formspree discards the submission if this field arrives filled (bots) -->
+    <input
+      type="text"
+      name="_gotcha"
+      tabindex="-1"
+      autocomplete="off"
+      aria-hidden="true"
+      class="hidden"
+    />
+
     <div class="mb-6">
       <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2" for="name">
         {t(lang, 'contact.name_label')}

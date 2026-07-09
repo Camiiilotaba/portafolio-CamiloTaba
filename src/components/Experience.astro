@@ -28,7 +28,6 @@ const { lang } = Astro.props;
   </header>
 
   <div class="relative max-w-4xl mx-auto">
-    <!-- Timeline vertical line -->
     <div
       class="timeline-line absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500/50 via-emerald-500/30 to-transparent z-0"
       aria-hidden="true"
@@ -45,7 +44,6 @@ const { lang } = Astro.props;
           <!-- Spacer for zigzag (hidden on mobile) -->
           <div class="hidden md:block md:w-1/2" />
 
-          <!-- Timeline dot (centered on line) -->
           <div class="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 z-10">
             <div
               class:list={[
@@ -64,7 +62,6 @@ const { lang } = Astro.props;
             </div>
           </div>
 
-          <!-- Card -->
           <div
             class:list={[
               'experience-card-content ml-14 md:ml-0 md:w-1/2 z-20',
@@ -78,11 +75,9 @@ const { lang } = Astro.props;
                   : 'border-white/10 hover:border-green-500/50 hover:shadow-green-500/10',
               ]}
             >
-              <!-- Glassmorphism hover overlay -->
               <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" aria-hidden="true"></div>
 
               <div class="relative z-10">
-                <!-- Company + Current badge -->
                 <div class="flex flex-wrap items-center gap-3 mb-2">
                   <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-green-400 transition-colors duration-300">
                     {exp.companyUrl ? (
@@ -105,12 +100,10 @@ const { lang } = Astro.props;
                   )}
                 </div>
 
-                <!-- Role -->
                 <p class="text-green-400 font-semibold text-sm sm:text-base mb-1">
                   {t(lang, exp.roleKey)}
                 </p>
 
-                <!-- Location + Period -->
                 <div class="flex flex-wrap gap-x-4 gap-y-1 text-gray-400 text-xs sm:text-sm mb-4">
                   <span class="flex items-center gap-1">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -127,12 +120,10 @@ const { lang } = Astro.props;
                   </span>
                 </div>
 
-                <!-- Description -->
                 <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
                   {t(lang, exp.descriptionKey)}
                 </p>
 
-                <!-- Highlights (skip for 'brief' type) -->
                 {exp.type === 'full' && (
                   <ul class="space-y-2 mb-4">
                     {exp.highlightKeys.map((hk) => (
@@ -146,7 +137,6 @@ const { lang } = Astro.props;
                   </ul>
                 )}
 
-                <!-- Technology pills with optional icons -->
                 <div class="flex flex-wrap gap-2" role="list" aria-label={t(lang, 'experience.heading')}>
                   {exp.technologies.map(({ name, icon }) => {
                     const IconComponent = icon ? getIconComponent(icon) : null;
@@ -167,7 +157,6 @@ const { lang } = Astro.props;
                 </div>
               </div>
 
-              <!-- Bottom accent line -->
               <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left rounded-b-2xl" aria-hidden="true"></div>
             </div>
           </div>

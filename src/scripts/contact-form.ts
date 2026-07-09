@@ -21,7 +21,7 @@ function initContactForm(): void {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch(form.action || '/api/contact', {
+      const response = await fetch(form.action, {
         method: 'POST',
         body: formData,
         headers: {

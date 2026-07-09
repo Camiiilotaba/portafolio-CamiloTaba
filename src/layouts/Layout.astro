@@ -139,34 +139,29 @@ const metaKeywords = getKnowsAbout(lang).join(', ')
     <meta name="author" content="Camilo Taba" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Hreflang for SEO -->
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="es" href={esUrl} />
     <link rel="alternate" hreflang="x-default" href={enUrl} />
 
-    <!-- Open Graph -->
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:locale" content={ogLocale} />
-    <meta property="og:site_name" content="Camilo Taba - Software Developer" />
+    <meta property="og:site_name" content="Camilo Taba – Laravel & PHP Developer" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImageURL} />
 
-    <!-- Geo tags -->
     <meta name="geo.region" content="ES-VC" />
     <meta name="geo.placename" content="Orihuela, Alicante" />
     <meta name="geo.position" content="38.0858;-0.9429" />
     <meta name="ICBM" content="38.0858, -0.9429" />
 
-    <!-- JSON-LD structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Fonts (async, non-render-blocking) -->

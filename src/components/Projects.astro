@@ -32,14 +32,12 @@ const secondary = projects.filter((p) => !p.featured);
       </div>
     </header>
 
-    <!-- Featured Case Study -->
     {featured && (
       <div class="mb-8 lg:mb-12">
         <FeaturedProject project={featured} lang={lang} />
       </div>
     )}
 
-    <!-- Secondary Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
       {secondary.map((project, index) => (
         <CompactProjectCard project={project} lang={lang} index={index + 1} />
@@ -48,3 +46,7 @@ const secondary = projects.filter((p) => !p.featured);
   </div>
 
 </section>
+
+<script>
+  import "../scripts/project-tabs.ts";
+</script>
