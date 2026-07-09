@@ -19,10 +19,9 @@
 
 ## Current role
 - FleetX (Norwegian TMS, transportation management SaaS), Jan 2026 — present
-- Built the per-route financial profitability module (bcmath, finance-grade precision)
-- Built a CO2 emissions engine compliant with GLEC Framework v3.2 and ISO 14083 (CSRD-ready)
-- Designed an auth-agnostic service layer unifying web (session) and mobile (Firebase tokens)
-- Coordinated a cross-repo feature across Laravel backend, admin UI, and Flutter mobile
+- Designed and built a multi-pollutant emissions engine (CO2e, NOx, PM, CO, HC), adopting the GLEC Framework v3.2 and ISO 14083 (CSRD-ready)
+- Designed and built the per-route financial profitability module (bcmath, finance-grade precision, atomic transactions, idempotent requests)
+- Built the driver Daily Report module end to end — cross-repo: multi-tenant Laravel backend, Vue review-and-approval dashboard, offline-first Flutter app with push notifications
 
 ## Selected projects
 - Truekapp — real-time bartering platform (Laravel, WebSockets via Reverb, private channels, admin panel)

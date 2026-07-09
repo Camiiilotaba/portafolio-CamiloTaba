@@ -35,6 +35,7 @@
     "solution_label": "Solution",
     "status_video": "Watch walkthrough",
     "status_live": "Live demo",
+    "status_try": "Try it — no sign-up",
     "status_private_badge": "Internal / Private",
     "tab_about": "Overview",
     "tab_features": "Features",
@@ -78,9 +79,9 @@
       "location": "Orihuela Costa, Spain — Norwegian company",
       "period": "January 2026 — Present",
       "description": "Responsible for the design, implementation, and long-term ownership of several core modules in a multi-tenant logistics SaaS. My work spans solution design, backend development, and cross-platform feature delivery — turning business requirements into reliable production features while upholding code quality, testing, and best practices across the team.",
-      "highlight1": "Incrementally modernizing a legacy PHP (mysqli) codebase to Laravel — calling Laravel services from legacy code without disrupting production.",
-      "highlight2": "Integrating third-party hardware APIs (GPS, tachograph) and owning the data contracts that bridge the web backend with the Flutter mobile app via Firebase/Firestore.",
-      "highlight3": "Owning finance-grade modules with strict transactional integrity and multi-tenant data isolation under concurrency — atomic transactions, row-level locking, and idempotent requests.",
+      "highlight1": "Designed and built a multi-pollutant emissions engine (CO2e, NOx, PM, CO, HC), adopting the GLEC Framework v3.2 and ISO 14083 (CSRD-ready).",
+      "highlight2": "Designed and built the per-route financial profitability module: finance-grade precision (bcmath), atomic transactions, row-level locking and idempotent requests under multi-tenant concurrency.",
+      "highlight3": "Built the driver Daily Report module end to end — a cross-repo feature: multi-tenant Laravel backend, a Vue review-and-approval dashboard, and an offline-first Flutter app with push notifications.",
       "highlight4": "Diagnosing non-trivial production bugs through root-cause analysis across the backend, integrations, and data pipelines."
     },
     "gesa": {

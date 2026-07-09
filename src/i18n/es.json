@@ -35,6 +35,7 @@
     "solution_label": "Solución",
     "status_video": "Ver demo en vídeo",
     "status_live": "Demo en vivo",
+    "status_try": "Pruébala sin registro",
     "status_private_badge": "Interno / Privado",
     "tab_about": "Descripción",
     "tab_features": "Funcionalidades",
@@ -78,10 +79,10 @@
       "location": "Orihuela Costa, España — Empresa noruega",
       "period": "Enero 2026 — Presente",
       "description": "Responsable del diseño, implementación y mantenimiento a largo plazo de varios módulos clave de una plataforma SaaS multi-tenant de logística. Mi trabajo abarca diseño de soluciones, desarrollo backend y entrega de features cross-platform: convierto requisitos de negocio en features de producción fiables, manteniendo la calidad de código, los tests y las buenas prácticas del equipo.",
-      "highlight1": "Modernización incremental de un código PHP legacy (mysqli) a Laravel, llamando a servicios Laravel desde el código legacy sin romper producción.",
-      "highlight2": "Integración de APIs de hardware de terceros (GPS, tacógrafo) y ownership de los contratos de datos que conectan el backend web con la app móvil en Flutter vía Firebase/Firestore.",
-      "highlight3": "Ownership de módulos de grado financiero con integridad transaccional estricta y aislamiento de datos multi-tenant bajo concurrencia: transacciones atómicas, bloqueo de filas y peticiones idempotentes.",
-      "highlight4": "Diagnóstico de bugs de producción no triviales mediante análisis de causa raíz en el backend, las integraciones y los flujos de datos."
+      "highlight1": "Diseñé y desarrollé un motor de emisiones multi-contaminante (CO2e, NOx, PM, CO, HC), adoptando el GLEC Framework v3.2 e ISO 14083 (preparado para CSRD).",
+      "highlight2": "Diseñé y desarrollé el módulo de rentabilidad financiera por ruta: precisión de grado financiero (bcmath), transacciones atómicas, bloqueo de filas y peticiones idempotentes bajo concurrencia multi-tenant.",
+      "highlight3": "Desarrollé de extremo a extremo el módulo de partes diarios de conductores (Daily Report), una feature cross-repo: backend Laravel multi-tenant, panel de revisión y aprobación en Vue, y app móvil Flutter offline-first con notificaciones push.",
+      "highlight4": "Diagnostico bugs de producción no triviales mediante análisis de causa raíz en el backend, las integraciones y los flujos de datos."
     },
     "gesa": {
       "role": "Desarrollador Full-Stack",

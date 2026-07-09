@@ -7,11 +7,11 @@ export interface TechWithIcon {
   icon?: string;
 }
 
-/** Pestaña de profundización de un case study (solo se usa en el featured). */
+/** Deep-dive tab of a case study (only used on the featured card). */
 export interface ProjectSection {
   id: string;
-  labelKey: string; // texto del botón/pestaña (i18n)
-  bodyKey: string;  // contenido (i18n). Varias líneas separadas por \n → se renderiza como lista.
+  labelKey: string; // tab button label (i18n)
+  bodyKey: string;  // content (i18n). Multiple lines separated by \n render as a list.
 }
 
 export interface Project {
@@ -28,11 +28,11 @@ export interface Project {
   featured: boolean;
   statusLabelKey: string;
   isPrivate?: boolean;
-  /** Segundo botón opcional (p. ej. el vídeo cuando el principal es la demo en vivo). */
+  /** Optional secondary button (e.g. the video when the primary is the live demo). */
   videoLink?: string;
-  /** Párrafo corto siempre visible en el featured (qué es / cómo se hizo). */
+  /** Short paragraph always visible on the featured card (what it is / how it was built). */
   introKey?: string;
-  /** Pestañas de profundización (case study). Si existen, sustituyen a problem/solution en el featured. */
+  /** Case-study tabs. When present, they replace problem/solution on the featured card. */
   sections?: ProjectSection[];
 }
 
@@ -55,7 +55,7 @@ export const projects: Project[] = [
       { name: 'Tailwind CSS', icon: 'tailwind' },
     ],
     featured: true,
-    statusLabelKey: 'projects.status_live',
+    statusLabelKey: 'projects.status_try',
     sections: [
       { id: 'about', labelKey: 'projects.tab_about', bodyKey: 'projects.truekapp.section_about' },
       { id: 'features', labelKey: 'projects.tab_features', bodyKey: 'projects.truekapp.section_features' },
