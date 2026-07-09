@@ -1,50 +1,60 @@
-# Astro Starter Kit: Basics
+# camilotaba.dev
 
-```sh
-npm create astro@latest -- --template basics
+Personal portfolio of **Camilo Taba** — Laravel & PHP developer (web & mobile).
+
+**Live site:** [camilotaba.dev](https://camilotaba.dev) · [Versión en español](https://camilotaba.dev/es/)
+
+![Preview](public/og-image.jpg)
+
+## What's inside
+
+A fully static, bilingual (EN/ES) single-page portfolio built with Astro and Tailwind CSS. No JS framework on the client — just a few small vanilla TypeScript modules for the interactive bits.
+
+### Highlights
+
+- **i18n without a library** — a tiny `t()` helper over two JSON dictionaries (`src/i18n/`), with per-locale routes (`/` and `/es/`), `hreflang` alternates and localized metadata.
+- **Technical SEO / GEO** — JSON-LD `@graph` (Person, WebSite, ProfilePage), Open Graph + Twitter cards, sitemap, and an [`llms.txt`](public/llms.txt) so AI crawlers get a clean summary of the profile.
+- **Accessibility** — WAI-ARIA tabs with roving tabindex and arrow-key navigation, skip link, `aria-label`s throughout.
+- **Performance** — static output, inlined critical CSS, WebP images via `astro:assets`, async non-blocking fonts, viewport-based prefetch. Monitored with Vercel Analytics + Speed Insights.
+- **Scroll-driven UI** — reveal-on-scroll and progress indicators in plain CSS/TS, no animation library.
+
+## Tech stack
+
+[Astro 5](https://astro.build) · [Tailwind CSS 4](https://tailwindcss.com) · TypeScript · Vercel
+
+## Project structure
+
+```
+src/
+├── components/   # Header, Home (hero), Projects, Experience, ContactForm, Footer…
+├── data/         # projects.ts, experience.ts, seo.ts, socials.ts (single sources of truth)
+├── i18n/         # en.json, es.json + t() helper
+├── icons/        # Inline SVG icon components
+├── layouts/      # Layout.astro (head, SEO, JSON-LD)
+├── pages/        # index.astro (EN) and es/index.astro (ES)
+├── scripts/      # scroll-animations, project-tabs, contact-form (vanilla TS)
+└── styles/       # global.css + per-section styles
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Commands
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Command           | Action                                 |
+| ----------------- | -------------------------------------- |
+| `npm install`     | Install dependencies                   |
+| `npm run dev`     | Start dev server at `localhost:4321`   |
+| `npm run build`   | Build the production site to `./dist/` |
+| `npm run preview` | Preview the production build locally   |
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+The downloadable CVs (`public/CamiloTaba-CV*.pdf`) are generated from the HTML sources in `scripts/cv/` with headless Chrome:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --no-pdf-header-footer --print-to-pdf="public/CamiloTaba-CV.pdf" "scripts/cv/cv-es.html"
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Contact
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-
+- Website: [camilotaba.dev](https://camilotaba.dev)
+- LinkedIn: [linkedin.com/in/camilotaba](https://www.linkedin.com/in/camilotaba/)
+- GitHub: [@Camiiilotaba](https://github.com/Camiiilotaba)
+- Email: camilotaba.dev@gmail.com
