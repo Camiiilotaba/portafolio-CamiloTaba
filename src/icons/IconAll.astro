@@ -1,26 +1,9 @@
 ---
-import IconAstro from "./IconAstro.astro";
-import IconMaterialUi from "./IconMaterialUi.astro";
-import IconNextjs from "./IconNextjs.astro";
-import IconRedux from "./IconRedux.astro";
-import IconStyled from "./IconStyled.astro";
 import IconTailwind from "./IconTailwind.astro";
-import IconRadix from "./IconRadix.astro";
-import IconReactQuery from "./IconReactQuery.astro";
 import IconTypeScript from "./IconTypeScript.astro";
-import IconZustand from "./IconZustand.astro";
-import IconHtml from "./IconHtml.astro";
-import IconCss from "./IconCss.astro";
 import IconReact from "./IconReact.astro";
-import IconGit from "./IconGit.astro";
-import IconGitHub from "./IconGitHub.astro";
-import IconStripe from "./IconStripe.astro";
 import IconJavaScript from "./IconJavaScript.astro";
-import IconShadcn from "./IconShadcn.astro";
-import IconMongodb from "./IconMongodb.astro";
-import IconNodeJs from "./IconNodeJs.astro";
 import IconVite from "./IconVite.astro";
-import IconAngular from "./IconAngular.astro";
 import IconLaravel from "./IconLaravel.astro";
 import IconPhp from "./IconPhp.astro";
 import IconMysql from "./IconMysql.astro";
@@ -29,31 +12,12 @@ import IconVue from "./IconVue.astro";
 import IconFlutter from "./IconFlutter.astro";
 import IconFirebase from "./IconFirebase.astro";
 
-
-
 export const ICONS = {
-  html: IconHtml,
-  css: IconCss,
   javaScript: IconJavaScript,
   react: IconReact,
-  astro: IconAstro,
-  materialUi: IconMaterialUi,
-  nextjs: IconNextjs,
-  redux: IconRedux,
-  styled: IconStyled,
   tailwind: IconTailwind,
-  radix: IconRadix,
-  reactQuery: IconReactQuery,
   typeScript: IconTypeScript,
-  zustand: IconZustand,
-  git: IconGit,
-  github: IconGitHub,
-  stripe: IconStripe,
-  shadcn: IconShadcn,
-  mongodb: IconMongodb,
-  nodejs: IconNodeJs,
   vite: IconVite,
-  angular: IconAngular,
   laravel: IconLaravel,
   php: IconPhp,
   mysql: IconMysql,
@@ -61,9 +25,6 @@ export const ICONS = {
   vue: IconVue,
   flutter: IconFlutter,
   firebase: IconFirebase,
-  // add new icons here <--
-  // Make sure that when calling the icon the key is the same
-  // "optional" in the IconKeys const file adds the icon key for when you call IconKeys.nameIcon
 };
 
 export function getIconComponent(iconName: string) {

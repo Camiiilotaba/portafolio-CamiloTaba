@@ -45,12 +45,9 @@ src/
 | `npm run build`   | Build the production site to `./dist/` |
 | `npm run preview` | Preview the production build locally   |
 
-The downloadable CVs (`public/CamiloTaba-CV*.pdf`) are generated from the HTML sources in `scripts/cv/` with headless Chrome:
-
-```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
-  --no-pdf-header-footer --print-to-pdf="public/CamiloTaba-CV.pdf" "scripts/cv/cv-es.html"
-```
+The social share card (`public/og-image.jpg`) is generated with `node scripts/generate-og.mjs`.
+The downloadable CVs (`public/CamiloTaba-CV*.pdf`) are print-rendered locally from HTML
+sources kept outside the repo.
 
 ## Contact
 
