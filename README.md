@@ -46,8 +46,9 @@ src/
 | `npm run preview` | Preview the production build locally   |
 
 The social share card (`public/og-image.jpg`) is generated with `node scripts/generate-og.mjs`.
-The downloadable CVs (`public/CamiloTaba-CV*.pdf`) are print-rendered locally from HTML
-sources kept outside the repo.
+The downloadable CVs (`public/CamiloTaba-CV*.pdf`) are generated from the editable
+content and styles in [`cv/`](cv/README.md). Run `npm run cv:build` to regenerate
+both languages, or `npm run cv:html` to create HTML previews. Requires local Chrome/Chromium.
 
 ## Contact
 

@@ -4,6 +4,7 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import Home from "./Home.astro";
 import Projects from "./Projects.astro";
+import Expertise from "./Expertise.astro";
 import Experience from "./Experience.astro";
 import ContactForm from "./ContactForm.astro";
 import { t } from "../i18n/utils";
@@ -19,34 +20,24 @@ const { lang } = Astro.props;
 <Layout lang={lang}>
   <Header lang={lang} />
 
-  <main class="text-white">
-    <section
-      id="home"
-      class="min-h-[calc(100vh-4.5rem)] flex items-center w-full"
-      aria-label={t(lang, 'home.aria_section')}
-    >
+  <main id="main">
+    <section id="home" aria-label={t(lang, 'home.aria_section')}>
       <Home lang={lang} />
     </section>
 
-    <section
-      id="projects"
-      aria-label={t(lang, 'projects.aria_section')}
-    >
+    <section id="projects" class="border-t border-line" aria-label={t(lang, 'projects.aria_section')}>
       <Projects lang={lang} />
     </section>
 
-    <section
-      id="experience"
-      class="pt-4 pb-12 overflow-hidden"
-      aria-label={t(lang, 'experience.aria_section')}
-    >
+    <section id="expertise" class="border-t border-line" aria-label={t(lang, 'expertise.aria_section')}>
+      <Expertise lang={lang} />
+    </section>
+
+    <section id="experience" class="border-t border-line" aria-label={t(lang, 'experience.aria_section')}>
       <Experience lang={lang} />
     </section>
 
-    <section
-      id="contact"
-      class="py-12 w-full px-4"
-    >
+    <section id="contact" class="border-t border-line" aria-label={t(lang, 'contact.aria_section')}>
       <ContactForm lang={lang} />
     </section>
   </main>

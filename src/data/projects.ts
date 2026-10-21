@@ -1,52 +1,39 @@
-import truekappImg from '../assets/web/Truekapp3.png';
-import managePointImg from '../assets/web/MPlogo.png';
-import valorantImg from '../assets/web/valorant.jpg';
+import truekappImg from '../assets/web/truekapp.jpeg';
+import valodexImg from '../assets/web/valodex.jpeg';
 
 export interface TechWithIcon {
   name: string;
   icon?: string;
 }
 
-/** Deep-dive tab of a case study (only used on the featured card). */
-export interface ProjectSection {
-  id: string;
-  labelKey: string; // tab button label (i18n)
-  bodyKey: string;  // content (i18n). Multiple lines separated by \n render as a list.
+export interface ProjectLink {
+  href: string;
+  labelKey: string;
 }
 
 export interface Project {
   id: string;
   img: ImageMetadata;
+  imgAltKey: string;
   title: string;
-  link: string;
-  categoryKey: string;
-  headlineKey: string;
-  problemKey: string;
-  solutionKey: string;
-  impactTags: string[];
+  kindKey: string;
+  summaryKey: string;
+  detailKey: string;
   technologies: TechWithIcon[];
-  featured: boolean;
-  statusLabelKey: string;
-  isPrivate?: boolean;
-  /** Optional secondary button (e.g. the video when the primary is the live demo). */
-  videoLink?: string;
-  /** Short paragraph always visible on the featured card (what it is / how it was built). */
-  introKey?: string;
-  /** Case-study tabs. When present, they replace problem/solution on the featured card. */
-  sections?: ProjectSection[];
+  links: ProjectLink[];
+  /** Optional line shown under the links, e.g. why the code is not public. */
+  noteKey?: string;
 }
 
 export const projects: Project[] = [
   {
     id: 'truekapp',
     img: truekappImg,
+    imgAltKey: 'projects.truekapp.img_alt',
     title: 'Truekapp',
-    link: 'https://truekapp.xyz',
-    categoryKey: 'projects.truekapp.category',
-    headlineKey: 'projects.truekapp.headline',
-    problemKey: 'projects.truekapp.problem',
-    solutionKey: 'projects.truekapp.solution',
-    impactTags: ['Real-time chat', 'Self-hosted VPS', 'AI assistant', 'CI/CD'],
+    kindKey: 'projects.truekapp.kind',
+    summaryKey: 'projects.truekapp.summary',
+    detailKey: 'projects.truekapp.detail',
     technologies: [
       { name: 'Laravel', icon: 'laravel' },
       { name: 'PHP', icon: 'php' },
@@ -54,62 +41,27 @@ export const projects: Project[] = [
       { name: 'WebSockets', icon: 'websocket' },
       { name: 'Tailwind CSS', icon: 'tailwind' },
     ],
-    featured: true,
-    statusLabelKey: 'projects.status_try',
-    sections: [
-      { id: 'about', labelKey: 'projects.tab_about', bodyKey: 'projects.truekapp.section_about' },
-      { id: 'features', labelKey: 'projects.tab_features', bodyKey: 'projects.truekapp.section_features' },
-      { id: 'tech', labelKey: 'projects.tab_tech', bodyKey: 'projects.truekapp.section_tech' },
-      { id: 'deploy', labelKey: 'projects.tab_deploy', bodyKey: 'projects.truekapp.section_deploy' },
+    links: [
+      { href: 'https://truekapp.xyz', labelKey: 'projects.truekapp.link_demo' },
     ],
+    noteKey: 'projects.truekapp.note',
   },
   {
-    id: 'valorant',
-    img: valorantImg,
+    id: 'valodex',
+    img: valodexImg,
+    imgAltKey: 'projects.valodex.img_alt',
     title: 'VALO·DEX',
-    link: 'https://valodex-app.vercel.app/',
-    categoryKey: 'projects.valorant.category',
-    headlineKey: 'projects.valorant.headline',
-    problemKey: 'projects.valorant.problem',
-    solutionKey: 'projects.valorant.solution',
-    impactTags: ['Live deployment', 'REST API', 'Rate limiting', 'Player stats'],
+    kindKey: 'projects.valodex.kind',
+    summaryKey: 'projects.valodex.summary',
+    detailKey: 'projects.valodex.detail',
     technologies: [
       { name: 'React', icon: 'react' },
       { name: 'TypeScript', icon: 'typeScript' },
       { name: 'Vite', icon: 'vite' },
       { name: 'Tailwind CSS', icon: 'tailwind' },
     ],
-    featured: false,
-    statusLabelKey: 'projects.status_live',
-    sections: [
-      { id: 'about', labelKey: 'projects.tab_about', bodyKey: 'projects.valorant.section_about' },
-      { id: 'features', labelKey: 'projects.tab_features', bodyKey: 'projects.valorant.section_features' },
-      { id: 'tech', labelKey: 'projects.tab_tech', bodyKey: 'projects.valorant.section_tech' },
-    ],
-  },
-  {
-    id: 'managepoint',
-    img: managePointImg,
-    title: 'ManagePoint',
-    link: 'https://youtu.be/IrdCjjE65Q8',
-    categoryKey: 'projects.managepoint.category',
-    headlineKey: 'projects.managepoint.headline',
-    problemKey: 'projects.managepoint.problem',
-    solutionKey: 'projects.managepoint.solution',
-    impactTags: ['RBAC auth', 'PDF automation', 'Query optimization'],
-    technologies: [
-      { name: 'Laravel', icon: 'laravel' },
-      { name: 'PHP', icon: 'php' },
-      { name: 'MySQL', icon: 'mysql' },
-      { name: 'Tailwind CSS', icon: 'tailwind' },
-    ],
-    featured: false,
-    statusLabelKey: 'projects.status_video',
-    isPrivate: true,
-    sections: [
-      { id: 'about', labelKey: 'projects.tab_about', bodyKey: 'projects.managepoint.section_about' },
-      { id: 'features', labelKey: 'projects.tab_features', bodyKey: 'projects.managepoint.section_features' },
-      { id: 'tech', labelKey: 'projects.tab_tech', bodyKey: 'projects.managepoint.section_tech' },
+    links: [
+      { href: 'https://valodex-app.vercel.app/', labelKey: 'projects.valodex.link_demo' },
     ],
   },
 ];

@@ -1,32 +1,30 @@
 # Camilo Taba — Laravel & PHP Developer (Web & Mobile)
 
 > Software developer specialized in Laravel and PHP backend for enterprise,
-> multi-tenant SaaS, with full-stack web (Vue, React) and mobile (Flutter)
-> development. Based in Alicante, Spain. Open to remote work.
+> multi-tenant SaaS, with JavaScript, TypeScript and Vue for web interfaces,
+> and Flutter for mobile development. Based in Orihuela, Alicante, Spain.
 
 ## Profile
 - Name: Camilo Taba (full name: Julián Camilo Blandón Taba)
 - Title: Laravel & PHP Developer · Full-stack Web & Mobile
 - Location: Alicante, Spain — works remotely (currently for a Norwegian company)
-- Building software professionally since 2023
-- Languages: Spanish (native), English
+- Languages: Spanish (native), English (professional, used daily at work)
 
 ## Specialization
 - Core: Laravel, PHP 8.3, MySQL, REST APIs, WebSockets, Clean Architecture, SOLID, feature tests
-- Web frontend: JavaScript, TypeScript, Vue.js, React, Astro, Tailwind CSS
+- Web frontend: JavaScript, TypeScript, Vue.js, Astro, Tailwind CSS; additional React experience through VALO·DEX
 - Mobile: Flutter, Firebase
 - Domains: enterprise SaaS, multi-tenant architecture, financial/billing modules, hardware/API integrations
 
 ## Current role
 - FleetX (Norwegian TMS, transportation management SaaS), Jan 2026 — present
-- Designed and built a multi-pollutant emissions engine (CO2e, NOx, PM, CO, HC), adopting the GLEC Framework v3.2 and ISO 14083 (CSRD-ready)
-- Designed and built the per-route financial profitability module (bcmath, finance-grade precision, atomic transactions, idempotent requests)
-- Built the driver Daily Report module end to end — cross-repo: multi-tenant Laravel backend, Vue review-and-approval dashboard, offline-first Flutter app with push notifications
+- Designed and built per-shipment emissions calculation (CO2e, NOx, PM, CO, HC), following GLEC v3.2 and aligned with ISO 14083, with factors traceable to their published sources
+- Built route profitability calculations combining fuel consumption, driver salary and overtime, using exact decimal arithmetic and transactions
+- Built the driver timesheet end to end: Laravel backend, Vue approval dashboard and an offline-capable Flutter app connected to tachograph data and payroll
 
 ## Selected projects
 - Truekapp — real-time bartering platform (Laravel, WebSockets via Reverb, private channels, admin panel)
-- ManagePoint — internal management SaaS (Laravel, RBAC, automated PDF reports, query optimization)
-- VALO·DEX — React + Vite SPA consuming third-party APIs with shared rate-limit throttling (live demo)
+- VALO·DEX — React + TypeScript + Vite SPA consuming third-party APIs with shared rate-limit throttling (in production, publicly accessible)
 
 ## Links
 - Website: https://camilotaba.dev
@@ -36,4 +34,3 @@
 
 ## Contact
 - Through the contact form at https://camilotaba.dev/#contact
-- Responds within 24 hours

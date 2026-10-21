@@ -1,0 +1,72 @@
+---
+import LegalPage from "../../components/LegalPage.astro";
+import { EMAIL } from "../../data/socials";
+---
+
+<LegalPage
+  title="Política de privacidad"
+  description="Cómo se tratan los datos que envías a través de camilotaba.dev."
+  updated="20 de octubre de 2026"
+>
+  <h2>Responsable del tratamiento</h2>
+  <ul>
+    <li><strong>Responsable:</strong> Julián Camilo Blandón Taba</li>
+    <li><strong>Residencia:</strong> Orihuela (Alicante), España</li>
+    <li><strong>Contacto para temas de privacidad:</strong> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+  </ul>
+  <p>No es obligatorio designar un delegado de protección de datos para esta actividad, así que no hay uno.</p>
+
+  <h2>Qué datos se tratan y para qué</h2>
+  <p><strong>Formulario de contacto.</strong> Cuando me escribes recojo tu nombre, tu correo electrónico y el contenido del mensaje. Los uso solo para responderte y, si me pides un proyecto, para preparar un presupuesto.</p>
+  <p><strong>Visitas al sitio.</strong> Al cargar la web, el servidor recibe datos técnicos como tu dirección IP y tu navegador, necesarios para mostrarte la página. Además se miden las visitas de forma anónima y agregada (páginas vistas, país, tipo de dispositivo, procedencia y tiempos de carga) para saber cómo se usa el sitio y si funciona rápido.</p>
+
+  <h2>Base legal</h2>
+  <ul>
+    <li><strong>Peticiones de presupuesto o de servicios:</strong> la aplicación, a petición tuya, de medidas precontractuales (artículo 6.1.b del Reglamento General de Protección de Datos, RGPD).</li>
+    <li><strong>Otros mensajes:</strong> el interés legítimo en responder a quien se pone en contacto conmigo (artículo 6.1.f del RGPD).</li>
+    <li><strong>Funcionamiento y medición anónima de la web:</strong> el interés legítimo en ofrecer un sitio que funcione y conocer su uso de forma agregada, sin identificarte.</li>
+  </ul>
+  <p>Facilitar tu nombre y tu correo es necesario para poder contestarte. Si no los facilitas, no podré responder a tu mensaje.</p>
+
+  <h2>Quién más accede a los datos</h2>
+  <p>No vendo ni cedo tus datos a nadie. Para que la web funcione uso dos proveedores que los tratan por mi cuenta:</p>
+  <ul>
+    <li><strong>Formspree, Inc.</strong> (Estados Unidos): recibe y entrega los mensajes del formulario.</li>
+    <li><strong>Vercel Inc.</strong> (Estados Unidos): aloja la web y ofrece la medición anónima de visitas (Vercel Web Analytics y Speed Insights).</li>
+  </ul>
+
+  <h2>Transferencias internacionales</h2>
+  <p>Ambos proveedores están en Estados Unidos, así que tus datos salen del Espacio Económico Europeo:</p>
+  <ul>
+    <li><strong>Vercel</strong> está adherida al Marco de Privacidad de Datos UE-EE. UU. (EU-U.S. Data Privacy Framework), que la Comisión Europea reconoce como garantía adecuada.</li>
+    <li><strong>Formspree</strong> se apoya en las cláusulas contractuales tipo aprobadas por la Comisión Europea. Puedes pedirme una copia de estas garantías escribiéndome al correo indicado arriba.</li>
+  </ul>
+
+  <h2>Cuánto tiempo se conservan</h2>
+  <ul>
+    <li><strong>Mensajes del formulario:</strong> el tiempo necesario para atender tu consulta y, como máximo, 12 meses si no da lugar a un encargo. Si trabajamos juntos, los conservaré durante los plazos que exija la ley.</li>
+    <li><strong>Datos de medición:</strong> Vercel no usa cookies para esta medición y descarta el identificador de cada visita a las 24 horas. Solo se guardan estadísticas agregadas.</li>
+  </ul>
+
+  <h2>Tus derechos</h2>
+  <p>
+    Puedes pedirme el acceso, la rectificación o la supresión de tus datos, la limitación de su tratamiento, oponerte a él
+    o solicitar su portabilidad. Escríbeme a <a href={`mailto:${EMAIL}`}>{EMAIL}</a> indicando qué derecho quieres ejercer.
+  </p>
+  <p>
+    Si crees que no he tratado tus datos correctamente, puedes presentar una reclamación ante la Agencia Española de
+    Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>).
+  </p>
+  <p>No tomo decisiones automatizadas ni elaboro perfiles con tus datos.</p>
+
+  <h2>Cookies</h2>
+  <p>
+    Este sitio no instala cookies propias ni de terceros. La medición de visitas de Vercel funciona sin cookies y con datos
+    anónimos y agregados, por lo que no necesita tu consentimiento según la guía de la Agencia Española de Protección de
+    Datos sobre herramientas de medición de audiencia. Si en el futuro se añadiera algún servicio que use cookies, se te
+    pedirá permiso antes.
+  </p>
+
+  <h2>Menores de edad</h2>
+  <p>Este sitio está dirigido a profesionales y empresas. Si tienes menos de 14 años, no envíes tus datos a través del formulario.</p>
+</LegalPage>

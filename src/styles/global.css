@@ -1,339 +1,72 @@
 /* global.css */
 @import "tailwindcss";
 
-/* Typography system */
+/* Design tokens: dark green-tinted neutrals with one emerald accent.
+   Text colours keep at least 4.5:1 contrast on --color-bg. */
 @theme {
-  --font-heading: 'Bricolage Grotesque', sans-serif;
+  --font-heading: 'Bricolage Grotesque', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg: #0b0f0d;
+  --color-surface: #121814;
+  --color-surface-2: #182019;
+  --color-line: rgb(255 255 255 / 0.09);
+  --color-ink: #eef1ee;
+  --color-ink-2: #c3cbc5;
+  --color-muted: #939c95;
+  --color-accent: #45c690;
+  --color-accent-strong: #10b981;
+  --color-on-accent: #04130c;
 }
 
-/* Accent tonal ramp — one brand green expressed across three
-   stops so gradients/glows read as lit, not flat. */
-:root {
-  --accent-bright: #6ee7b7; /* mint highlight  */
-  --accent: #10b981;        /* emerald-500 brand */
-  --accent-deep: #0f766e;   /* teal-700 shadow  */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
-  background-color: #020806; /* deep emerald-tinted black base */
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-size: 1.0625rem;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Unified atmospheric field — one continuous mesh behind every
-   section (replaces the repeated black→emerald→black stripes).
-   Fixed so it never bands as you scroll; cheap, GPU-friendly. */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background:
-    radial-gradient(60rem 60rem at 78% -6%, rgba(110, 231, 183, 0.10), transparent 60%),
-    radial-gradient(55rem 55rem at 8% 14%, rgba(16, 185, 129, 0.10), transparent 55%),
-    radial-gradient(50rem 50rem at 96% 58%, rgba(15, 118, 110, 0.12), transparent 55%),
-    radial-gradient(70rem 52rem at 28% 102%, rgba(16, 185, 129, 0.09), transparent 60%);
-}
-
-/* Brand-tinted text selection */
 ::selection {
-  background: rgba(16, 185, 129, 0.30);
+  background: rgb(52 211 153 / 0.3);
   color: #ffffff;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
-/* Mono font for code-like elements */
-.tech-pill,
-.font-mono {
-  font-family: var(--font-mono);
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
 }
 
-/* Subtle grain texture on dark backgrounds */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-
-/* Scroll offset for sticky header */
+/* Scroll offset for the sticky header */
 section[id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 6.5rem;
 }
 
-/* Skip link para accesibilidad */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.focus\:not-sr-only:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  padding: inherit;
-  margin: inherit;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-}
-
-
-.btn-primary {
-    @apply inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:from-green-600 hover:to-green-700 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500/50;
-  }
-  
-  .btn-secondary {
-    @apply inline-flex items-center px-8 py-4 border-2 border-green-400 text-green-400 font-semibold rounded-xl backdrop-blur-sm transition-all duration-300 hover:bg-green-400 hover:text-slate-900 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-400/50;
-  }
-  
-  .tech-pill {
-    @apply px-4 py-2 bg-slate-800/70 border border-green-400/30 text-green-400 text-sm font-medium rounded-full transition-all duration-300 hover:bg-green-400/10 hover:border-green-400/50 hover:scale-105;
-  }
-  
-  .social-link {
-    @apply text-gray-400 transition-all duration-300 hover:text-green-400 hover:drop-shadow-lg;
-  }
-
-  /* Hero Section Responsive Adjustments */
-
-  .img-profile {
-    margin-bottom: calc(var(--spacing)* 30);
-}
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 100vh;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .tech-pill {
-    border-width: 2px;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    border-width: 2px;
-  }
-}
-
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .transition-transform,
-  .transition-all,
-  .transition-colors {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
     transition: none !important;
-  }
-
-  .hover\:scale-105:hover {
-    transform: none !important;
-  }
-}
-
-
-/* ─────────────── 📂 Projects Section ─────────────── */
-
-/* Line clamp utility */
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Backdrop blur utility (Tailwind provides it; kept for compatibility) */
-
-/* Project card base animation - optimizado para mejor rendimiento */
-.project-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered delays */
-.project-card[data-project-index="0"] { transition-delay: 0ms; }
-.project-card[data-project-index="1"] { transition-delay: 100ms; }
-.project-card[data-project-index="2"] { transition-delay: 200ms; }
-.project-card[data-project-index="3"] { transition-delay: 300ms; }
-.project-card[data-project-index="4"] { transition-delay: 400ms; }
-.project-card[data-project-index="5"] { transition-delay: 500ms; }
-
-/* Hover animation */
-.project-card:hover {
-  transform: translateY(-4px);
-}
-
-/* Tech icon */
-.tech-icon:hover {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
-}
-
-/* Focus */
-.project-card:focus-within {
-  outline: 2px solid #10b981;
-  outline-offset: 2px;
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .transition-all,
-  .transition-transform,
-  .transition-colors,
-  .transition-opacity {
-    transition: none;
-  }
-
-  .project-card {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .group:hover .group-hover\:scale-110,
-  .project-card:hover,
-  .tech-icon:hover {
-    transform: none;
-  }
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  .border-gray-800\/50,
-  .border-gray-700\/50 {
-    border-width: 2px;
-    border-color: #374151;
-  }
-
-  .text-gray-300 {
-    color: #f3f4f6;
-  }
-}
-
-/* Print optimization */
-@media print {
-  .project-card {
-    break-inside: avoid;
-    box-shadow: none;
-    border: 1px solid #374151;
-  }
-
-  .absolute {
-    position: static;
-  }
-}
-/* ─────────────── 📂 About Section ─────────────── */
-
-.skill-card,
-.stat-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.skill-card.animate-in,
-.stat-card.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.skill-card:hover a {
-  transform: translateY(-8px);
-}
-
-.skill-card {
-  min-height: 120px;
-  display: flex;
-  align-items: stretch;
-}
-
-.skill-card a {
-  min-height: 100%;
-  justify-content: center;
-}
-
-/* Staggered animation delays */
-.skill-card[data-skill-index="0"] { transition-delay: 0ms; }
-.skill-card[data-skill-index="1"] { transition-delay: 100ms; }
-/* ... up to skill-card[data-skill-index="14"] */
-.stat-card[data-stat-index="0"] { transition-delay: 200ms; }
-/* ... y siguientes */
-
-@media (prefers-reduced-motion: reduce) {
-  .transition-all,
-  .transition-transform,
-  .transition-colors,
-  .transition-opacity {
-    transition: none;
-  }
-
-  .skill-card,
-  .stat-card {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .group:hover .group-hover\:scale-110,
-  .skill-card:hover a {
-    transform: none;
-  }
-}
-
-@media (prefers-contrast: high) {
-  .border-gray-800\/50 {
-    border-width: 2px;
-    border-color: #374151;
-  }
-
-  .text-gray-300 {
-    color: #f3f4f6;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .skill-card a {
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.8));
-  }
-}
-
-@media (max-width: 640px) {
-  .skill-card {
-    min-height: 100px;
-  }
-
-  .skill-card a {
-    padding: 0.75rem;
-  }
-
-  .skill-card img {
-    width: 2.5rem;
-    height: 2.5rem;
+    animation: none !important;
   }
 }

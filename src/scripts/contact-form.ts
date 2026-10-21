@@ -32,7 +32,7 @@ function initContactForm(): void {
       if (response.ok) {
         if (formMessage) {
           formMessage.textContent = successMsg;
-          formMessage.className = 'mt-4 text-center text-green-500 font-medium';
+          formMessage.className = 'text-center font-medium text-accent';
           formMessage.classList.remove('hidden');
         }
         form.reset();
@@ -42,7 +42,7 @@ function initContactForm(): void {
     } catch {
       if (formMessage) {
         formMessage.textContent = errorMsg;
-        formMessage.className = 'mt-4 text-center text-red-500 font-medium';
+        formMessage.className = 'text-center font-medium text-red-400';
         formMessage.classList.remove('hidden');
       }
     } finally {

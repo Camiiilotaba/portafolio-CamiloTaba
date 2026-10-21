@@ -13,8 +13,6 @@ import {
   getKnownLanguages,
 } from '../data/seo'
 import '../styles/global.css'
-import '../styles/header.css'
-import '../styles/scroll-driven.css'
 
 interface Props {
   lang?: Lang
@@ -22,6 +20,8 @@ interface Props {
   description?: string
   image?: string
   type?: string
+  /** Set to false on pages that exist in only one language (e.g. legal pages). */
+  alternates?: boolean
 }
 
 const {
@@ -30,6 +30,7 @@ const {
   description,
   image = '/og-image.jpg',
   type = 'website',
+  alternates = true,
 } = Astro.props
 
 const pageTitle = title ?? t(lang, 'site.title')
@@ -139,9 +140,13 @@ const metaKeywords = getKnowsAbout(lang).join(', ')
     <meta name="author" content="Camilo Taba" />
     <meta name="generator" content={Astro.generator} />
 
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="es" href={esUrl} />
-    <link rel="alternate" hreflang="x-default" href={enUrl} />
+    {alternates && (
+      <>
+        <link rel="alternate" hreflang="en" href={enUrl} />
+        <link rel="alternate" hreflang="es" href={esUrl} />
+        <link rel="alternate" hreflang="x-default" href={enUrl} />
+      </>
+    )}
 
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
@@ -170,32 +175,28 @@ const metaKeywords = getKnowsAbout(lang).join(', ')
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap"
       />
     </noscript>
   </head>
 
   <body>
-    <div class="scroll-progress" aria-hidden="true"></div>
-    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-green-500 focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">
-      Skip to main content
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-accent focus:text-on-accent focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">
+      {t(lang, 'site.skip')}
     </a>
     <slot />
     <Analytics />
     <SpeedInsights />
-    <script>
-      import "../scripts/scroll-animations.ts";
-    </script>
   </body>
 </html>

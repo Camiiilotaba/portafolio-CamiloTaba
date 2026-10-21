@@ -7,29 +7,27 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+
+const options: { code: Lang; label: string; title: string }[] = [
+  { code: 'en', label: 'EN', title: 'English' },
+  { code: 'es', label: 'ES', title: 'Español' },
+];
 ---
 
-<div class="flex items-center backdrop-blur-md bg-white/5 border border-white/10 rounded-full p-0.5 text-sm font-medium">
-  <a
-    href={getLocalePath('en')}
-    class:list={[
-      'px-3 py-1.5 rounded-full transition-all duration-300',
-      lang === 'en' ? 'bg-green-500 text-black font-bold' : 'text-gray-300 hover:text-white',
-    ]}
-    aria-label="Switch to English"
-    aria-current={lang === 'en' ? 'page' : undefined}
-  >
-    EN
-  </a>
-  <a
-    href={getLocalePath('es')}
-    class:list={[
-      'px-3 py-1.5 rounded-full transition-all duration-300',
-      lang === 'es' ? 'bg-green-500 text-black font-bold' : 'text-gray-300 hover:text-white',
-    ]}
-    aria-label="Cambiar a Español"
-    aria-current={lang === 'es' ? 'page' : undefined}
-  >
-    ES
-  </a>
+<div class="flex items-center rounded-full border border-line p-0.5 text-sm font-medium">
+  {options.map(({ code, label, title }) => (
+    <a
+      href={getLocalePath(code)}
+      class:list={[
+        'rounded-full px-3 py-1.5 transition-colors',
+        lang === code ? 'bg-surface-2 text-ink' : 'text-muted hover:text-ink',
+      ]}
+      hreflang={code}
+      lang={code}
+      title={title}
+      aria-current={lang === code ? 'page' : undefined}
+    >
+      {label}
+    </a>
+  ))}
 </div>

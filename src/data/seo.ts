@@ -13,7 +13,6 @@ const SHARED_SKILLS = [
   'JavaScript',
   'TypeScript',
   'Vue.js',
-  'React',
   'Astro',
   'Tailwind CSS',
   'Flutter',
@@ -52,8 +51,8 @@ const ROLE_TITLES_BY_LANG: Record<Lang, readonly string[]> = {
 };
 
 const OCCUPATION_DESC_BY_LANG: Record<Lang, string> = {
-  es: 'Desarrollador especializado en backend Laravel y PHP para SaaS empresarial multi-tenant, con desarrollo web full-stack (Vue, React) y móvil (Flutter).',
-  en: 'Developer specialized in Laravel and PHP backend for multi-tenant enterprise SaaS, with full-stack web (Vue, React) and mobile (Flutter) development.',
+  es: 'Desarrollador especializado en backend Laravel y PHP para SaaS empresarial multi-tenant, con desarrollo web full-stack (Vue y TypeScript) y móvil (Flutter).',
+  en: 'Developer specialized in Laravel and PHP backend for multi-tenant enterprise SaaS, with full-stack web (Vue and TypeScript) and mobile (Flutter) development.',
 };
 
 const KNOWS_LANGUAGE_BY_LANG: Record<Lang, readonly string[]> = {

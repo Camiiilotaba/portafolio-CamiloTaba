@@ -1,115 +1,105 @@
 ---
 import type { Lang } from "../i18n/utils";
 import { t } from "../i18n/utils";
+import { EMAIL } from "../data/socials";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
+
+const fieldClass =
+  "w-full rounded-xl border border-line bg-surface-2 px-4 py-3.5 text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none";
 ---
 
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-  <header class="reveal-on-scroll text-center mb-12 lg:mb-16">
-    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
-      <span class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent">
-        {t(lang, 'contact.heading')}
-      </span>
-    </h2>
-    <p class="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-4">
-      {t(lang, 'contact.subtitle')}
-    </p>
-    <div class="flex justify-center mt-6">
-      <div
-        class="scroll-draw w-24 h-1 rounded-full"
-        style="background: linear-gradient(90deg, var(--accent-bright), var(--accent), var(--accent-deep));"
-      ></div>
+<div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+  <div>
+    <h2 class="text-3xl font-bold text-ink sm:text-4xl">{t(lang, 'contact.heading')}</h2>
+    <p class="mt-4 max-w-md text-lg leading-relaxed text-ink-2">{t(lang, 'contact.subtitle')}</p>
+
+    <p class="mt-8 text-sm text-muted">{t(lang, 'contact.direct_heading')}</p>
+    <div class="mt-2 flex flex-wrap items-center gap-3">
+      <a
+        href={`mailto:${EMAIL}`}
+        class="text-xl font-medium text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-accent"
+      >
+        {EMAIL}
+      </a>
+      <button
+        type="button"
+        id="copy-email"
+        data-email={EMAIL}
+        data-copied={t(lang, 'contact.copied')}
+        class="rounded-lg border border-line px-3 py-1.5 text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+      >
+        {t(lang, 'contact.copy')}
+      </button>
     </div>
-  </header>
+  </div>
 
   <form
     id="contact-form"
-    class="max-w-xl mx-auto w-full backdrop-blur-md bg-white/5 border border-white/10 hover:border-green-500/30 p-6 sm:p-8 rounded-2xl shadow-2xl transition-all duration-300"
+    class="rounded-3xl border border-line bg-surface p-6 sm:p-8"
     method="POST"
     action="https://formspree.io/f/xnnllzpo"
     data-success-msg={t(lang, 'contact.success')}
     data-error-msg={t(lang, 'contact.error')}
   >
     <!-- Honeypot: Formspree discards the submission if this field arrives filled (bots) -->
-    <input
-      type="text"
-      name="_gotcha"
-      tabindex="-1"
-      autocomplete="off"
-      aria-hidden="true"
-      class="hidden"
-    />
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
 
-    <div class="mb-6">
-      <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2" for="name">
-        {t(lang, 'contact.name_label')}
-      </label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        class="w-full p-3 sm:p-4 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 focus:border-green-500/50 focus:bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-all duration-300"
-        placeholder={t(lang, 'contact.name_placeholder')}
-      />
+    <div class="flex flex-col gap-5">
+      <div>
+        <label class="mb-2 block text-sm font-medium text-ink-2" for="name">{t(lang, 'contact.name_label')}</label>
+        <input type="text" id="name" name="name" required autocomplete="name" class={fieldClass} placeholder={t(lang, 'contact.name_placeholder')} />
+      </div>
+
+      <div>
+        <label class="mb-2 block text-sm font-medium text-ink-2" for="email">{t(lang, 'contact.email_label')}</label>
+        <input type="email" id="email" name="email" required autocomplete="email" class={fieldClass} placeholder={t(lang, 'contact.email_placeholder')} />
+      </div>
+
+      <div>
+        <label class="mb-2 block text-sm font-medium text-ink-2" for="message">{t(lang, 'contact.message_label')}</label>
+        <textarea id="message" name="message" rows="5" required class:list={[fieldClass, 'resize-y']} placeholder={t(lang, 'contact.message_placeholder')}></textarea>
+      </div>
+
+      <button
+        type="submit"
+        id="submit-btn"
+        class="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 font-semibold text-on-accent transition-colors hover:bg-ink disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        <span id="submit-text">{t(lang, 'contact.submit')}</span>
+        <span id="submit-loading" class="hidden">{t(lang, 'contact.sending')}</span>
+      </button>
+
+      <p class="text-sm leading-relaxed text-muted">
+        {t(lang, 'contact.privacy_notice')}
+        <a href="/es/privacidad/" class="text-ink-2 underline underline-offset-2 hover:text-ink">{t(lang, 'contact.privacy_link')}</a>
+      </p>
+
+      <div id="form-message" class="hidden text-center" role="status"></div>
     </div>
-
-    <div class="mb-6">
-      <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2" for="email">
-        {t(lang, 'contact.email_label')}
-      </label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        class="w-full p-3 sm:p-4 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 focus:border-green-500/50 focus:bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-all duration-300"
-        placeholder={t(lang, 'contact.email_placeholder')}
-      />
-    </div>
-
-    <div class="mb-6">
-      <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2" for="message">
-        {t(lang, 'contact.message_label')}
-      </label>
-      <textarea
-        id="message"
-        name="message"
-        rows="5"
-        required
-        class="w-full p-3 sm:p-4 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 focus:border-green-500/50 focus:bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-all duration-300 resize-none"
-        placeholder={t(lang, 'contact.message_placeholder')}></textarea>
-    </div>
-
-    <button
-      type="submit"
-      id="submit-btn"
-      class="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-bold px-6 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 inline-flex items-center justify-center gap-2 group"
-    >
-      <span id="submit-text">{t(lang, 'contact.submit')}</span>
-      <span id="submit-loading" class="hidden">{t(lang, 'contact.sending')}</span>
-      <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-      </svg>
-    </button>
-
-    <div id="form-message" class="mt-4 text-center hidden"></div>
   </form>
-
-  <p class="text-center text-sm text-gray-400 mt-8">
-    {t(lang, 'contact.direct_heading')}{' '}
-    <a
-      href="mailto:camilotaba.dev@gmail.com"
-      class="font-medium text-emerald-400 hover:text-emerald-300 underline underline-offset-2 decoration-emerald-500/40 transition-colors"
-    >camilotaba.dev@gmail.com</a>
-  </p>
 </div>
 
 <script>
   import "../scripts/contact-form.ts";
+
+  const copyButton = document.getElementById('copy-email');
+  if (copyButton) {
+    const original = copyButton.textContent;
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(copyButton.dataset.email ?? '');
+        copyButton.textContent = copyButton.dataset.copied ?? original;
+        setTimeout(() => {
+          copyButton.textContent = original;
+        }, 1800);
+      } catch {
+        // Clipboard unavailable: the address stays visible and selectable.
+      }
+    });
+  }
 </script>

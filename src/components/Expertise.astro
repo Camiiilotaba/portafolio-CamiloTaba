@@ -1,0 +1,40 @@
+---
+import type { Lang } from "../i18n/utils";
+import { t } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const areas = ['backend', 'platforms', 'frontend', 'mobile'];
+---
+
+<div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+  <div class="rounded-3xl border border-line bg-surface p-6 sm:p-10 lg:p-12">
+    <div class="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
+      <div>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">{t(lang, 'expertise.heading')}</h2>
+        <p class="mt-4 text-lg leading-relaxed text-ink-2">{t(lang, 'expertise.intro')}</p>
+
+        <a
+          href="#projects"
+          class="mt-9 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3.5 font-semibold text-on-accent transition-colors hover:bg-ink"
+        >
+          {t(lang, 'expertise.cta')}
+        </a>
+      </div>
+
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {areas.map((area) => (
+          <li class="rounded-2xl bg-surface-2 p-6">
+            <h3 class="text-xl font-semibold text-ink">{t(lang, `expertise.areas.${area}.title`)}</h3>
+            <p class="mt-2 leading-relaxed text-ink-2">{t(lang, `expertise.areas.${area}.body`)}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</div>

@@ -1,52 +1,92 @@
 ---
+import { Image } from "astro:assets";
 import { projects } from "../data/projects";
+import { getIconComponent } from "../icons/IconAll.astro";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
-import FeaturedProject from "./FeaturedProject.astro";
-import CompactProjectCard from "./CompactProjectCard.astro";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const featured = projects.find((p) => p.featured);
-const secondary = projects.filter((p) => !p.featured);
 ---
 
-<section
-  class="relative pb-20 overflow-hidden"
->
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-25 relative z-10">
-    <header class="reveal-on-scroll text-center mb-12 lg:mb-16 xl:mb-20">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
-        <span class="bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent">
-          {t(lang, 'projects.heading')}
-        </span>
-      </h2>
-      <div class="flex justify-center mt-6 mb-5">
-        <div
-          class="scroll-draw w-24 h-1 rounded-full"
-          style="background: linear-gradient(90deg, var(--accent-bright), var(--accent), var(--accent-deep));"
-        ></div>
-      </div>
-    </header>
+<div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+  <h2 class="text-3xl font-bold text-ink sm:text-4xl">{t(lang, 'projects.heading')}</h2>
+  <p class="mt-3 max-w-2xl text-lg text-ink-2">{t(lang, 'projects.intro')}</p>
 
-    {featured && (
-      <div class="mb-8 lg:mb-12">
-        <FeaturedProject project={featured} lang={lang} />
-      </div>
-    )}
+  <div class="mt-12 flex flex-col gap-10">
+    {projects.map((project, index) => (
+      <article
+        class:list={[
+          'group grid items-center gap-8 rounded-3xl border border-line bg-surface p-5 sm:p-7 lg:grid-cols-[1.15fr_1fr] lg:gap-12',
+          index % 2 === 1 && 'lg:grid-cols-[1fr_1.15fr]',
+        ]}
+        aria-labelledby={`project-${project.id}`}
+      >
+        <a
+          href={project.links[0]?.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class:list={['block overflow-hidden rounded-2xl border border-line', index % 2 === 1 && 'lg:order-2']}
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <Image
+            src={project.img}
+            alt=""
+            class="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            widths={[480, 720, 960, 1280]}
+            sizes="(min-width: 1024px) 600px, calc(100vw - 80px)"
+            format="webp"
+            quality={82}
+            loading={index === 0 ? 'eager' : 'lazy'}
+          />
+        </a>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-      {secondary.map((project, index) => (
-        <CompactProjectCard project={project} lang={lang} index={index + 1} />
-      ))}
-    </div>
+        <div class="flex flex-col gap-5">
+          <p class="text-sm font-semibold text-accent">{t(lang, project.kindKey)}</p>
+          <h3 id={`project-${project.id}`} class="text-3xl font-bold text-ink sm:text-4xl">
+            {project.title}
+          </h3>
+          <p class="text-lg leading-relaxed text-ink">{t(lang, project.summaryKey)}</p>
+          <p class="leading-relaxed text-ink-2">{t(lang, project.detailKey)}</p>
+
+          <ul class="flex flex-wrap gap-2" aria-label={t(lang, 'projects.aria_stack')}>
+            {project.technologies.map(({ name, icon }) => {
+              const IconComponent = icon ? getIconComponent(icon) : null;
+              return (
+                <li class="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-3 py-1.5 text-sm text-ink-2">
+                  {IconComponent && (
+                    <span class="flex shrink-0 [&_svg]:h-3.5 [&_svg]:w-3.5" aria-hidden="true">
+                      <IconComponent />
+                    </span>
+                  )}
+                  {name}
+                </li>
+              );
+            })}
+          </ul>
+
+          <div class="flex flex-wrap gap-3 pt-1">
+            {project.links.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 font-semibold text-on-accent transition-colors hover:bg-ink"
+              >
+                {t(lang, link.labelKey)}
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+              </a>
+            ))}
+          </div>
+          {project.noteKey && <p class="text-sm text-muted">{t(lang, project.noteKey)}</p>}
+        </div>
+      </article>
+    ))}
   </div>
-
-</section>
-
-<script>
-  import "../scripts/project-tabs.ts";
-</script>
+</div>

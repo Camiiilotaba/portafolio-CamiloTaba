@@ -1,10 +1,7 @@
 ---
-import { Image } from "astro:assets";
-import logoImg from "../assets/logo.png";
 import type { Lang } from "../i18n/utils";
 import { t, getLocalePath } from "../i18n/utils";
 import LanguageToggle from "./LanguageToggle.astro";
-import { GITHUB_URL, LINKEDIN_URL, EMAIL, GITHUB_ICON_PATH, LINKEDIN_ICON_PATH, EMAIL_ICON_PATH } from "../data/socials";
 
 interface Props {
   lang: Lang;
@@ -13,211 +10,133 @@ interface Props {
 const { lang } = Astro.props;
 
 const navLinks = [
-  { href: '#home', key: 'nav.home' },
   { href: '#projects', key: 'nav.projects' },
+  { href: '#expertise', key: 'nav.expertise' },
   { href: '#experience', key: 'nav.experience' },
   { href: '#contact', key: 'nav.contact' },
 ];
 ---
 
-<header class="header">
-  <div class="header-container">
-    <div class="logo-section">
-      <a href={getLocalePath(lang)}>
-        <Image
-          src={logoImg}
-          alt="Camilo Taba"
-          class="logo-img"
-          width={256}
-          height={200}
-          format="webp"
-          quality={90}
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
-      </a>
-    </div>
+<header class="sticky top-0 z-50 border-b border-line bg-bg/95">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
+    <a
+      href={getLocalePath(lang)}
+      class="shrink-0 rounded-xl transition-opacity hover:opacity-80"
+      aria-label={lang === 'es' ? 'Camilo Taba — Inicio' : 'Camilo Taba — Home'}
+    >
+      <img src="/ct-mark.svg" width="64" height="48" alt="" />
+    </a>
 
-    <div class="nav-controls">
-      <!-- Desktop nav -->
-      <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
-        {navLinks.filter(({ href }) => href !== '#contact').map(({ href, key }) => (
-          <a href={href} class="nav-link">{t(lang, key)}</a>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <nav class="hidden items-center gap-1 md:flex" aria-label={t(lang, 'nav.aria_main')}>
+        {navLinks.map(({ href, key }) => (
+          <a
+            href={href}
+            class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+          >
+            {t(lang, key)}
+          </a>
         ))}
       </nav>
 
-      <!-- Contact CTA (desktop) -->
-      <a href="#contact" class="nav-cta" aria-label={t(lang, 'home.aria_contact')}>
-        {t(lang, 'nav.contact')}
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </a>
-
       <LanguageToggle lang={lang} />
 
-      <!-- Mobile hamburger -->
       <button
-        class="mobile-toggle"
+        type="button"
         id="mobile-toggle"
-        aria-label="Toggle navigation menu"
+        class="inline-flex h-11 items-center justify-center gap-2 px-3 rounded-lg border border-line text-ink md:hidden"
+        aria-label={t(lang, 'nav.aria_toggle')}
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+        <span class="text-sm font-medium">{lang === 'es' ? 'Menú' : 'Menu'}</span>
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
       </button>
     </div>
   </div>
 
-  <!-- Mobile dropdown menu -->
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
-    <div class="mobile-nav">
-      {navLinks.map(({ href, key }) => (
-        <a href={href} class="mobile-nav-link">{t(lang, key)}</a>
-      ))}
-
-      <div class="mobile-social">
-        <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label={t(lang, 'footer.aria_github')}>
-          <svg viewBox="0 0 16 16" fill="currentColor" width="20" height="20" aria-hidden="true">
-            <path d={GITHUB_ICON_PATH}></path>
-          </svg>
-        </a>
-        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label={t(lang, 'footer.aria_linkedin')}>
-          <svg viewBox="0 0 16 16" fill="currentColor" width="20" height="20" aria-hidden="true">
-            <path d={LINKEDIN_ICON_PATH} />
-          </svg>
-        </a>
-        <a href={`mailto:${EMAIL}`} aria-label={t(lang, 'footer.aria_email')}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d={EMAIL_ICON_PATH} />
-          </svg>
-        </a>
-      </div>
-    </div>
+  <nav
+    id="mobile-menu"
+    class="border-t border-line px-5 pb-4 md:hidden"
+    aria-label={t(lang, 'nav.aria_mobile')}
+    hidden
+  >
+    {navLinks.map(({ href, key }) => (
+      <a href={href} class="block border-b border-line py-3.5 text-lg font-medium text-ink">
+        {t(lang, key)}
+      </a>
+    ))}
   </nav>
-
-  <div class="header-accent"></div>
 </header>
 
+<style>
+  .nav-link.active {
+    color: var(--color-accent);
+    background: var(--color-surface-2);
+  }
+</style>
+
 <script>
-  function initHeader(): void {
-    const toggle = document.getElementById('mobile-toggle');
-    const menu = document.getElementById('mobile-menu');
-    if (!toggle || !menu) return;
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    const close = (): void => {
+      menu.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    };
 
     toggle.addEventListener('click', () => {
-      const isOpen = menu.classList.contains('show');
-      menu.classList.toggle('show');
-      toggle.classList.toggle('active');
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = isOpen ? '' : 'hidden';
+      const open = menu.hidden;
+      menu.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
     });
 
-    menu.querySelectorAll('.mobile-nav-link').forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('show');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+    menu.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) {
+        close();
+      }
     });
 
-    const mql = window.matchMedia('(min-width: 768px)');
-    mql.addEventListener('change', (e) => {
-      if (e.matches) {
-        menu.classList.remove('show');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !menu.hidden) {
+        close();
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !toggle.closest('header')?.contains(event.target)) close();
+    });
+
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+      if (event.matches) {
+        close();
       }
     });
   }
 
-  // Active nav link highlighting on scroll — cached offsets to avoid layout thrashing
-  function initActiveNav(): void {
-    const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
-    const navLinks = Array.from(
-      document.querySelectorAll<HTMLAnchorElement>('.nav-link, .mobile-nav-link')
-    );
-    if (!sections.length || !navLinks.length) return;
-
-    const offsets: { id: string; top: number }[] = [];
-    let lastActiveId = '';
-
-    function recomputeOffsets(): void {
-      offsets.length = 0;
-      const docTop = window.scrollY;
-      for (const section of sections) {
-        const top = section.getBoundingClientRect().top + docTop;
-        offsets.push({ id: section.id, top });
-      }
-    }
-
-    function updateActiveLink(): void {
-      const scrollY = window.scrollY + 120;
-
-      let currentId = '';
-      for (let i = 0; i < offsets.length; i++) {
-        if (offsets[i].top <= scrollY) currentId = offsets[i].id;
-      }
-
-      if (currentId === lastActiveId) return;
-      lastActiveId = currentId;
-
-      const target = `#${currentId}`;
-      for (const link of navLinks) {
-        if (link.getAttribute('href') === target) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
+  // Highlights the nav link of the section currently in view.
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nav-link'));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) {
+          continue;
+        }
+        const target = `#${entry.target.id}`;
+        for (const link of links) {
+          const active = link.getAttribute('href') === target;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
         }
       }
-    }
+    },
+    { rootMargin: '-45% 0px -50% 0px' },
+  );
 
-    let ticking = false;
-    function onScroll(): void {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        updateActiveLink();
-        ticking = false;
-      });
-    }
-
-    let resizeRaf = 0;
-    function onResize(): void {
-      if (resizeRaf) return;
-      resizeRaf = requestAnimationFrame(() => {
-        recomputeOffsets();
-        updateActiveLink();
-        resizeRaf = 0;
-      });
-    }
-
-    recomputeOffsets();
-    updateActiveLink();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize, { passive: true });
-    // Recompute when fonts/images settle to capture final layout
-    window.addEventListener('load', () => {
-      recomputeOffsets();
-      updateActiveLink();
-    });
-  }
-
-  function init(): void {
-    initHeader();
-    initActiveNav();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  document.querySelectorAll<HTMLElement>('main section[id]').forEach((section) => observer.observe(section));
 </script>

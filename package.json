@@ -3,6 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "cv:build": "node scripts/build-cv.mjs",
+    "cv:html": "node scripts/build-cv.mjs --html-only",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

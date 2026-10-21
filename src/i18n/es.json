@@ -1,136 +1,131 @@
 {
   "site": {
     "title": "Camilo Taba – Desarrollador Laravel & PHP · Web y Móvil",
-    "description": "Desarrollador Laravel y PHP especializado en SaaS empresarial, con desarrollo web full-stack (Vue, React) y apps móviles en Flutter. En Alicante, España — disponible para trabajo remoto."
+    "description": "Desarrollador Laravel y PHP especializado en SaaS empresarial, con desarrollo web full-stack (Vue y TypeScript) y apps móviles en Flutter. En Alicante, España.",
+    "skip": "Saltar al contenido"
   },
   "nav": {
-    "home": "Inicio",
     "projects": "Proyectos",
+    "expertise": "Especialización",
     "experience": "Experiencia",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "aria_main": "Navegación principal",
+    "aria_mobile": "Navegación móvil",
+    "aria_toggle": "Abrir o cerrar el menú"
   },
   "home": {
-    "eyebrow": "Camilo Taba",
-    "headline_line1": "Laravel",
-    "headline_line2": "PHP Developer",
-    "description": "Desarrollador especializado en <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Laravel</mark> y PHP, con foco en backend para SaaS empresariales. Construyo features de producto, integraciones y código que usan empresas reales todos los días. En el frontend trabajo con <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Vue</mark> y React, y uso <mark class=\"bg-green-500/12 text-green-400 px-1 rounded\">Flutter</mark> cuando el problema necesita móvil.",
-    "proof_strip": "Actualmente en <a href=\"https://fleetx.com/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-green-400/80 hover:text-green-400 transition-colors\">FleetX</a>, un TMS noruego · Ubicado en Alicante, España",
-    "tech_core_label": "Core",
-    "tech_also_label": "También uso",
-    "cta_contact": "Ponte en contacto",
+    "greeting": "Hola, soy Camilo Taba",
+    "role": "Desarrollador Laravel y PHP",
+    "lead": "Desarrollo aplicaciones de gestión con Laravel: backend, APIs y paneles web. También desarrollo aplicaciones móviles con Flutter.",
+    "context": "Actualmente en FleetX · Orihuela, Alicante",
+    "cta_projects": "Ver proyectos",
     "cta_cv": "Descargar CV",
-    "cta_github": "Ver código en GitHub",
-    "aria_contact": "Contactar a Camilo Taba",
-    "aria_cv": "Ver CV de Camilo Taba en nueva pestaña",
-    "aria_github": "Ver perfil de GitHub de Camilo Taba",
-    "aria_linkedin": "Ver perfil de LinkedIn de Camilo Taba",
-    "aria_technologies": "Tecnologías principales",
-    "aria_social": "Enlaces a redes sociales",
-    "aria_section": "Inicio - Presentación"
+    "photo_alt": "Retrato de Camilo Taba",
+    "aria_cv": "Abrir el CV de Camilo Taba en una pestaña nueva",
+    "aria_github": "Perfil de GitHub de Camilo Taba",
+    "aria_linkedin": "Perfil de LinkedIn de Camilo Taba",
+    "aria_section": "Presentación"
   },
   "projects": {
     "heading": "Proyectos",
-    "aria_section": "Proyectos de desarrollo web",
-    "problem_label": "Desafío",
-    "solution_label": "Solución",
-    "status_video": "Ver demo en vídeo",
-    "status_live": "Demo en vivo",
-    "status_try": "Pruébala sin registro",
-    "status_private_badge": "Interno / Privado",
-    "tab_about": "Descripción",
-    "tab_features": "Funcionalidades",
-    "tab_tech": "Tecnologías",
-    "tab_deploy": "Despliegue",
+    "intro": "Dos proyectos propios en producción que puedes probar ahora mismo.",
+    "aria_section": "Proyectos",
+    "aria_stack": "Tecnologías usadas",
     "truekapp": {
-      "category": "Full-stack · Tiempo real",
-      "headline": "Un marketplace de trueque que construí y llevé hasta producción",
-      "problem": "Los usuarios necesitaban negociar intercambios al instante, sin recargas de página.",
-      "solution": "Una plataforma completa en Laravel con mensajería privada en tiempo real, flujos de trueque y panel de administración.",
-      "section_about": "Un marketplace de trueque full-stack donde la gente intercambia objetos sin dinero: publicas lo que ya no usas, propones trueques, chateas y os valoráis. Empezó como mi TFG y lo llevé mucho más allá: una app real funcionando en producción en mi propio servidor. Construida con Laravel 12 y arquitectura de servicios, reúne mensajería en tiempo real, un asistente de IA y búsqueda semántica, desplegada mediante un pipeline de CI/CD con una suite de tests automatizada en cada push.",
-      "section_features": "Chat en tiempo real con WebSockets (Laravel Reverb) y canales privados autorizados\nAsistente de IA con RAG agéntico + tool calling (Google Gemini): responde dudas, propone trueques y puede volver a buscar en el catálogo a mitad de conversación\nFoto a ficha con IA: haces una foto y Gemini Vision sugiere título, categoría y descripción\nModeración de imágenes con IA que bloquea subidas inapropiadas antes de guardarlas\nBúsqueda semántica que ordena el catálogo por significado, reutilizando embeddings\nLista «Busco» con matching automático, además de favoritos\nSistema de trueques con propuestas, valoraciones y reputación\nAPI REST con autenticación por tokens (Laravel Sanctum)\nBilingüe (ES/EN) con panel de administración por permisos y demo pública con reseteo diario",
-      "section_tech": "Backend: Laravel 12, PHP 8.3, arquitectura de servicios\nTiempo real: Laravel Reverb (WebSockets)\nIA: Google Gemini (chat, embeddings + visión) con RAG y function calling\nBase de datos: MySQL\nFrontend: Blade, Tailwind CSS, Alpine.js, Vite\nAuth y API: Laravel Sanctum\nTesting: Pest (120+ tests, incl. evals del asistente) · Estilo: Laravel Pint",
-      "section_deploy": "Servidor propio (VPS Hetzner, Ubuntu) configurado a mano, sin paneles tipo Forge/Ploi\nNginx + PHP-FPM + MySQL instalados y gestionados manualmente\nSupervisor mantiene vivos el daemon de Reverb y el worker de colas\nSSL con Let's Encrypt y Cloudflare por delante (CDN + DDoS/WAF + escaneo CSAM)\nCI/CD con GitHub Actions: la suite de tests corre en cada push\nUn cron diario regenera la demo, más una pasada de hardening (CSP, rate-limit, cabeceras)"
+      "kind": "Proyecto propio · En producción",
+      "summary": "Una plataforma para intercambiar objetos sin dinero, con chat en directo entre usuarios y un asistente con IA que busca entre los anuncios publicados.",
+      "detail": "Nació como mi proyecto de fin de grado. Desarrollé la aplicación completa y la mantengo en mi propio servidor, con tests automatizados en cada cambio. Puedes probarla sin registrarte; la demo se reinicia cada día.",
+      "link_demo": "Probar la demo",
+      "img_alt": "Chat de Truekapp entre dos usuarios negociando un trueque",
+      "note": "El código es privado; la demo muestra la aplicación completa."
     },
-    "managepoint": {
-      "category": "Gestión Empresarial",
-      "headline": "Plataforma de gestión interna con reportes automatizados",
-      "problem": "Las operaciones de los salones dependían de procesos manuales y datos dispersos en múltiples sistemas.",
-      "solution": "Desarrollé un sistema de gestión full-stack con control de acceso basado en roles, generación automatizada de informes PDF y optimización de consultas mediante migraciones de Laravel.",
-      "section_about": "Una plataforma interna full-stack para gestionar las operaciones diarias y el personal de un salón de juego. Sustituyó procesos manuales y datos dispersos en varios sistemas por una única herramienta de gestión con control por roles, construida sobre Laravel.",
-      "section_features": "Panel de administración con control de acceso por roles (RBAC) y gestión de usuarios\nGeneración automatizada de informes PDF para las operaciones del negocio, con seguimiento histórico\nDatos operativos centralizados que sustituyeron flujos manuales en múltiples sistemas\nConsultas a base de datos optimizadas para reportes rápidos sobre datos históricos",
-      "section_tech": "Backend: Laravel, PHP, estructura orientada a servicios\nBase de datos: MySQL con esquema relacional diseñado mediante migraciones de Laravel\nFrontend: Blade + Tailwind CSS\nRendimiento: optimización de consultas para vistas con mucha carga de reportes"
-    },
-    "valorant": {
-      "category": "Live Demo · SPA en React",
-      "headline": "Explorador de datos de Valorant con búsqueda de jugadores y herramientas interactivas",
-      "problem": "Quería una herramienta de Valorant que combinara datos del juego con estadísticas reales de jugadores, sin backend propio, respetando los límites de las APIs de terceros y las normas de Riot para proyectos de fans.",
-      "solution": "SPA en React + Vite con navegación por agentes, armas, mapas y bundles, una calculadora de daño interactiva, y búsqueda de jugador que agrega stats de las últimas 10 partidas. El reto técnico principal fue gestionar dos APIs de terceros sin backend propio, resolviendo los límites de rate con un throttle compartido entre rutas.",
-      "section_about": "Una SPA en React + Vite que combina valorant-api.com (assets del juego, sin clave) con la Henrik Dev API (datos en vivo, con clave) en una sola interfaz táctica. Es la reescritura completa de un proyecto vanilla-JS inicial, ahora con UI en inglés y un sistema de diseño propio inspirado en Valorant.",
-      "section_features": "Búsqueda de jugador por Riot ID con stats agregadas: K/D/A, % de headshot, ACS y win rate\nLeaderboard Radiant top-10 en vivo en seis regiones\nCalculadora de daño de armas interactiva y callouts de mapas proyectados desde coordenadas reales\nCruce bundle ↔ tema que muestra skins, sprays y objetos del set",
-      "section_tech": "React 18 + Vite + React Router + Tailwind CSS\nProxy serverless mantiene la clave fuera del cliente, replicado en el dev server de Vite\nRate limiting en profundidad: edge cache, cache por región y throttle de ventana deslizante\nRutas lazy-loaded y cache a nivel de módulo para cargas rápidas"
+    "valodex": {
+      "kind": "Proyecto personal · En producción",
+      "summary": "Una web para consultar agentes, armas, mapas y estadísticas de jugadores de Valorant.",
+      "detail": "La rehíce desde cero en React a partir de una primera versión en JavaScript sin framework. Las peticiones a las APIs externas pasan por un servidor intermedio que guarda la clave y respeta sus límites de uso.",
+      "link_demo": "Abrir la demo",
+      "img_alt": "Rejilla de agentes de Valorant en VALO·DEX"
+    }
+  },
+  "expertise": {
+    "heading": "Áreas de especialización",
+    "intro": "Mi trabajo se centra en el backend con Laravel y PHP, desde la lógica de negocio hasta las APIs. También desarrollo interfaces con JavaScript, TypeScript y Vue, y aplicaciones móviles en Flutter.",
+    "aria_section": "Áreas de especialización",
+    "cta": "Ver proyectos",
+    "areas": {
+      "backend": {
+        "title": "Backend y APIs con Laravel",
+        "body": "Lógica de negocio, permisos, bases de datos e integraciones con otros sistemas."
+      },
+      "platforms": {
+        "title": "Aplicaciones de gestión y SaaS",
+        "body": "Paneles de administración, informes y aplicaciones multi-tenant para organizar procesos y datos."
+      },
+      "frontend": {
+        "title": "JavaScript, TypeScript y Vue",
+        "body": "Interfaces web conectadas al backend para consultar información, gestionar datos y realizar tareas del día a día."
+      },
+      "mobile": {
+        "title": "Aplicaciones móviles con Flutter",
+        "body": "Apps conectadas a APIs, con notificaciones, sincronización y funcionamiento sin conexión."
+      }
     }
   },
   "experience": {
     "heading": "Experiencia",
-    "aria_section": "Experiencia profesional laboral",
+    "aria_section": "Experiencia profesional",
     "current_badge": "Actual",
     "frakt24": {
       "role": "Desarrollador Full-Stack",
       "location": "Orihuela Costa, España — Empresa noruega",
       "period": "Enero 2026 — Presente",
-      "description": "Responsable del diseño, implementación y mantenimiento a largo plazo de varios módulos clave de una plataforma SaaS multi-tenant de logística. Mi trabajo abarca diseño de soluciones, desarrollo backend y entrega de features cross-platform: convierto requisitos de negocio en features de producción fiables, manteniendo la calidad de código, los tests y las buenas prácticas del equipo.",
-      "highlight1": "Diseñé y desarrollé un motor de emisiones multi-contaminante (CO2e, NOx, PM, CO, HC), adoptando el GLEC Framework v3.2 e ISO 14083 (preparado para CSRD).",
-      "highlight2": "Diseñé y desarrollé el módulo de rentabilidad financiera por ruta: precisión de grado financiero (bcmath), transacciones atómicas, bloqueo de filas y peticiones idempotentes bajo concurrencia multi-tenant.",
-      "highlight3": "Desarrollé de extremo a extremo el módulo de partes diarios de conductores (Daily Report), una feature cross-repo: backend Laravel multi-tenant, panel de revisión y aprobación en Vue, y app móvil Flutter offline-first con notificaciones push.",
-      "highlight4": "Diagnostico bugs de producción no triviales mediante análisis de causa raíz en el backend, las integraciones y los flujos de datos."
+      "description": "SaaS de logística multi-tenant para empresas de transporte.",
+      "highlight1": "Construí el parte de horas de los conductores de principio a fin: app Flutter sin conexión, aprobación en Vue y backend Laravel conectado al tacógrafo digital y a la nómina.",
+      "highlight2": "Diseñé y desarrollé el cálculo de emisiones por envío (CO₂e, NOx, PM, CO y HC) según GLEC v3.2 y alineado con ISO 14083, con cada factor trazable a su fuente publicada.",
+      "highlight3": "Desarrollé la rentabilidad por ruta, que combina consumo de combustible, salario y horas extra del conductor."
     },
     "gesa": {
       "role": "Desarrollador Full-Stack",
       "location": "Murcia, España",
       "period": "Septiembre 2025 — Diciembre 2025",
-      "description": "Responsable único de una app de nutrición con IA de principio a fin: construí tanto el backend en Laravel como el cliente móvil en Flutter, encargándome de la arquitectura, las integraciones y la entrega en ambos repositorios.",
-      "highlight1": "Construí todo el backend en Laravel: API REST, modelado de datos y lógica de negocio que alimenta la app.",
-      "highlight2": "Desarrollé el cliente Flutter completo, manteniendo paridad estricta entre los repositorios de backend y móvil.",
-      "highlight3": "Me encargué de todas las integraciones, las notificaciones push, el análisis nutricional con IA (reconocimiento de imágenes y PDF) y la sincronización en tiempo real con Firestore."
+      "description": "Único desarrollador de una app de nutrición con IA.",
+      "highlight1": "Construí el backend en Laravel: API REST, modelo de datos y lógica de negocio.",
+      "highlight2": "Desarrollé la app en Flutter, con análisis nutricional por IA de fotos y PDF, notificaciones push y sincronización en tiempo real."
     },
     "managepoint": {
       "role": "Desarrollador Full-Stack",
       "location": "Murcia, España",
       "period": "Febrero 2025 — Junio 2025",
-      "description": "Aplicación web interna para gestión de salones de juego y personal, optimizando operaciones del negocio.",
-      "highlight1": "Panel de administración con control de acceso basado en roles (RBAC) y gestión de usuarios",
-      "highlight2": "Generación automatizada de informes PDF para operaciones del negocio y seguimiento histórico",
-      "highlight3": "Diseño de base de datos relacional con migraciones de Laravel y optimización de consultas"
+      "description": "Aplicación de gestión para una empresa de salones de juego.",
+      "highlight1": "Desarrollé ManagePoint, que sustituyó al sistema antiguo: salones, personal, mobiliario y terminales en un solo sitio.",
+      "highlight2": "Añadí partes de trabajo por salón e informes en PDF, con un histórico de cambios que solo un administrador puede corregir."
     }
   },
   "contact": {
-    "heading": "Construyamos Algo",
-    "subtitle": "¿Tienes una idea de proyecto? Envíame un mensaje y te respondo en menos de 24 horas.",
     "name_label": "Nombre",
     "name_placeholder": "Tu nombre",
-    "email_label": "Correo Electrónico",
+    "email_label": "Correo electrónico",
     "email_placeholder": "tu@email.com",
     "message_label": "Mensaje",
     "message_placeholder": "Escribe tu mensaje aquí...",
-    "submit": "Enviar Mensaje",
     "sending": "Enviando...",
     "success": "¡Mensaje enviado con éxito! Te responderé pronto.",
     "error": "Error al enviar el mensaje. Por favor, intenta de nuevo o envía un email directamente.",
-    "direct_heading": "¿Prefieres el correo? Escríbeme a"
+    "heading": "Hablemos",
+    "subtitle": "Si quieres hablar sobre mi trabajo o intercambiar ideas, escríbeme.",
+    "direct_heading": "O escríbeme directamente a",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "aria_section": "Contacto",
+    "submit": "Enviar mensaje",
+    "privacy_notice": "Usaré tus datos solo para responderte. Responsable: Julián Camilo Blandón Taba. El formulario lo gestiona Formspree (EE. UU.). Puedes acceder, rectificar o suprimir tus datos escribiéndome.",
+    "privacy_link": "Más información en la política de privacidad."
   },
   "footer": {
-    "rights": "Todos los derechos reservados.",
-    "tagline": "Desarrollador Laravel & PHP: construyo backends fiables y los productos que los rodean.",
-    "nav_heading": "Navegación",
-    "connect_heading": "Conecta",
-    "location": "Alicante, España · Disponible en remoto",
-    "built_with": "Hecho con Astro y Tailwind CSS",
+    "tagline": "Desarrollador Laravel y PHP · Web y móvil",
+    "location": "Orihuela, Alicante",
     "back_to_top": "Volver arriba",
-    "aria_github": "Visitar perfil de GitHub de Camilo Taba",
-    "aria_linkedin": "Visitar perfil de LinkedIn de Camilo Taba",
-    "aria_email": "Enviar email a Camilo Taba",
-    "aria_top": "Volver arriba",
-    "sr_github": "Ir al repositorio de Camilo Taba en GitHub",
-    "sr_linkedin": "Seguir a Camilo en LinkedIn"
+    "legal": "Aviso legal",
+    "privacy": "Privacidad"
   }
 }
