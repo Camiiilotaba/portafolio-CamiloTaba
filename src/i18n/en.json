@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Camilo Taba – Laravel & PHP Developer · Web & Mobile",
-    "description": "Laravel & PHP developer building enterprise SaaS, with full-stack web (Vue and TypeScript) and Flutter mobile apps. Based in Alicante, Spain.",
+    "title": "Camilo Taba · Laravel & PHP Developer in Alicante, Spain",
+    "description": "Laravel & PHP developer for management applications and SaaS, with Vue and TypeScript on the web and Flutter mobile apps. Based in Orihuela, Alicante, Spain.",
     "skip": "Skip to content"
   },
   "nav": {
@@ -14,9 +14,9 @@
     "aria_toggle": "Open or close the menu"
   },
   "home": {
-    "greeting": "Hi, I'm Camilo Taba",
+    "greeting": "Camilo Taba",
     "role": "Laravel & PHP Developer",
-    "lead": "I build management applications with Laravel: backends, APIs and web dashboards. I also develop mobile apps with Flutter.",
+    "lead": "I build management applications with Laravel: the backend, the API and the admin panel. And Flutter mobile apps when a project needs them.",
     "context": "Currently at FleetX · Orihuela, Alicante (Spain)",
     "cta_projects": "See projects",
     "cta_cv": "Download CV",
@@ -28,13 +28,13 @@
   },
   "projects": {
     "heading": "Projects",
-    "intro": "Two projects of my own, live in production, that you can try right now.",
+    "intro": "Two projects of my own, in production. You can try both.",
     "aria_section": "Projects",
     "aria_stack": "Technologies used",
     "truekapp": {
       "kind": "Own product · In production",
       "summary": "A platform for swapping items without money, with live chat between users and an AI assistant that searches the published listings.",
-      "detail": "It started as my final-year project. I developed the complete application and run it on my own server, with automated tests on every change. You can try it without signing up; the demo resets daily.",
+      "detail": "It started as a final-year project with two classmates. I then took that base and rebuilt it so I could deploy and maintain it myself on my own server; every change goes through the tests before it ships. You can get in without signing up: the demo resets every day.",
       "link_demo": "Try the demo",
       "img_alt": "Truekapp chat between two users negotiating a swap",
       "note": "The code is private; the demo shows the full application."
@@ -49,9 +49,9 @@
   },
   "expertise": {
     "heading": "Areas of expertise",
-    "intro": "My work focuses on Laravel and PHP backends, from business logic to APIs. I also build interfaces with JavaScript, TypeScript and Vue, and mobile apps with Flutter.",
+    "intro": "Most of my work is Laravel and PHP backends: business logic, databases and APIs. I also build interfaces with JavaScript, TypeScript and Vue, and mobile apps with Flutter.",
     "aria_section": "Areas of expertise",
-    "cta": "See projects",
+    "cta": "Let's talk",
     "areas": {
       "backend": {
         "title": "Laravel backends and APIs",
@@ -59,11 +59,11 @@
       },
       "platforms": {
         "title": "Management applications and SaaS",
-        "body": "Admin panels, reports and multi-tenant applications for organising processes and data."
+        "body": "Admin panels, reports and multi-tenant applications, where each client company sees only its own data."
       },
       "frontend": {
         "title": "JavaScript, TypeScript and Vue",
-        "body": "Web interfaces connected to the backend for browsing information, managing data and carrying out everyday tasks."
+        "body": "Screens wired to the backend: lists, forms and dashboards people use every day at work."
       },
       "mobile": {
         "title": "Flutter mobile applications",
@@ -80,7 +80,7 @@
       "location": "Orihuela Costa, Spain — Norwegian company",
       "period": "January 2026 — Present",
       "description": "Multi-tenant logistics SaaS for transport companies.",
-      "highlight1": "Built the drivers’ timesheet end to end: an offline-capable Flutter app, approval in Vue and a Laravel backend connected to the digital tachograph and payroll.",
+      "highlight1": "Built the drivers' timesheet, all of it: an offline-capable Flutter app, approval in Vue and a Laravel backend connected to the digital tachograph and payroll.",
       "highlight2": "Designed and built per-shipment emissions calculation (CO₂e, NOx, PM, CO and HC) following GLEC v3.2 and aligned with ISO 14083, with every factor traceable to its published source.",
       "highlight3": "Built route profitability calculations combining fuel consumption, driver salary and overtime."
     },
@@ -109,10 +109,10 @@
     "message_label": "Message",
     "message_placeholder": "Write your message here...",
     "sending": "Sending...",
-    "success": "Message sent successfully! I'll get back to you soon.",
-    "error": "Error sending message. Please try again or send an email directly.",
+    "success": "Sent. I'll reply soon.",
+    "error": "The message didn't go through. Try again or email me directly.",
     "heading": "Let's talk",
-    "subtitle": "Get in touch to talk about my work or exchange ideas.",
+    "subtitle": "If you want to ask me anything about my work, send me a message.",
     "direct_heading": "Or email me directly at",
     "copy": "Copy",
     "copied": "Copied",

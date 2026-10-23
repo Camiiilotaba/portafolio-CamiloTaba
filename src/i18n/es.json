@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Camilo Taba – Desarrollador Laravel & PHP · Web y Móvil",
-    "description": "Desarrollador Laravel y PHP especializado en SaaS empresarial, con desarrollo web full-stack (Vue y TypeScript) y apps móviles en Flutter. En Alicante, España.",
+    "title": "Camilo Taba · Desarrollador Laravel y PHP en Alicante",
+    "description": "Desarrollador Laravel y PHP para aplicaciones de gestión y SaaS, con web en Vue y TypeScript y apps móviles en Flutter. En Orihuela, Alicante.",
     "skip": "Saltar al contenido"
   },
   "nav": {
@@ -14,9 +14,9 @@
     "aria_toggle": "Abrir o cerrar el menú"
   },
   "home": {
-    "greeting": "Hola, soy Camilo Taba",
+    "greeting": "Camilo Taba",
     "role": "Desarrollador Laravel y PHP",
-    "lead": "Desarrollo aplicaciones de gestión con Laravel: backend, APIs y paneles web. También desarrollo aplicaciones móviles con Flutter.",
+    "lead": "Hago aplicaciones de gestión con Laravel: el backend, la API y el panel de administración. Y apps móviles con Flutter cuando el proyecto las necesita.",
     "context": "Actualmente en FleetX · Orihuela, Alicante",
     "cta_projects": "Ver proyectos",
     "cta_cv": "Descargar CV",
@@ -28,13 +28,13 @@
   },
   "projects": {
     "heading": "Proyectos",
-    "intro": "Dos proyectos propios en producción que puedes probar ahora mismo.",
+    "intro": "Dos proyectos propios, en producción. Puedes probar los dos.",
     "aria_section": "Proyectos",
     "aria_stack": "Tecnologías usadas",
     "truekapp": {
       "kind": "Proyecto propio · En producción",
       "summary": "Una plataforma para intercambiar objetos sin dinero, con chat en directo entre usuarios y un asistente con IA que busca entre los anuncios publicados.",
-      "detail": "Nació como mi proyecto de fin de grado. Desarrollé la aplicación completa y la mantengo en mi propio servidor, con tests automatizados en cada cambio. Puedes probarla sin registrarte; la demo se reinicia cada día.",
+      "detail": "Empezó como proyecto de fin de grado con dos compañeros. Después partí de esa base y la rehíce para poder desplegarla y mantenerla yo en un servidor propio; cada cambio pasa por los tests antes de subirse. Puedes entrar sin registrarte: la demo se reinicia cada día.",
       "link_demo": "Probar la demo",
       "img_alt": "Chat de Truekapp entre dos usuarios negociando un trueque",
       "note": "El código es privado; la demo muestra la aplicación completa."
@@ -49,9 +49,9 @@
   },
   "expertise": {
     "heading": "Áreas de especialización",
-    "intro": "Mi trabajo se centra en el backend con Laravel y PHP, desde la lógica de negocio hasta las APIs. También desarrollo interfaces con JavaScript, TypeScript y Vue, y aplicaciones móviles en Flutter.",
+    "intro": "Lo que más hago es backend con Laravel y PHP: lógica de negocio, bases de datos y APIs. También interfaces con JavaScript, TypeScript y Vue, y apps móviles con Flutter.",
     "aria_section": "Áreas de especialización",
-    "cta": "Ver proyectos",
+    "cta": "Hablemos",
     "areas": {
       "backend": {
         "title": "Backend y APIs con Laravel",
@@ -59,11 +59,11 @@
       },
       "platforms": {
         "title": "Aplicaciones de gestión y SaaS",
-        "body": "Paneles de administración, informes y aplicaciones multi-tenant para organizar procesos y datos."
+        "body": "Paneles de administración, informes y aplicaciones multi-tenant, donde cada empresa cliente ve solo sus datos."
       },
       "frontend": {
         "title": "JavaScript, TypeScript y Vue",
-        "body": "Interfaces web conectadas al backend para consultar información, gestionar datos y realizar tareas del día a día."
+        "body": "Pantallas conectadas al backend: listados, formularios y paneles que la gente usa cada día en su trabajo."
       },
       "mobile": {
         "title": "Aplicaciones móviles con Flutter",
@@ -80,7 +80,7 @@
       "location": "Orihuela Costa, España — Empresa noruega",
       "period": "Enero 2026 — Presente",
       "description": "SaaS de logística multi-tenant para empresas de transporte.",
-      "highlight1": "Construí el parte de horas de los conductores de principio a fin: app Flutter sin conexión, aprobación en Vue y backend Laravel conectado al tacógrafo digital y a la nómina.",
+      "highlight1": "Construí el parte de horas de los conductores completo: app Flutter que funciona sin conexión, aprobación en Vue y backend Laravel conectado al tacógrafo digital y a la nómina.",
       "highlight2": "Diseñé y desarrollé el cálculo de emisiones por envío (CO₂e, NOx, PM, CO y HC) según GLEC v3.2 y alineado con ISO 14083, con cada factor trazable a su fuente publicada.",
       "highlight3": "Desarrollé la rentabilidad por ruta, que combina consumo de combustible, salario y horas extra del conductor."
     },
@@ -109,10 +109,10 @@
     "message_label": "Mensaje",
     "message_placeholder": "Escribe tu mensaje aquí...",
     "sending": "Enviando...",
-    "success": "¡Mensaje enviado con éxito! Te responderé pronto.",
-    "error": "Error al enviar el mensaje. Por favor, intenta de nuevo o envía un email directamente.",
+    "success": "Mensaje enviado. Te contesto pronto.",
+    "error": "No se ha podido enviar. Prueba otra vez o escríbeme directamente por email.",
     "heading": "Hablemos",
-    "subtitle": "Si quieres hablar sobre mi trabajo o intercambiar ideas, escríbeme.",
+    "subtitle": "Si quieres preguntarme algo sobre mi trabajo, escríbeme.",
     "direct_heading": "O escríbeme directamente a",
     "copy": "Copiar",
     "copied": "Copiado",

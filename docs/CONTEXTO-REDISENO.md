@@ -1,6 +1,6 @@
 # Contexto del rediseño (rama `redesign`)
 
-Última actualización: 23-10-2026. Resumen de las decisiones tomadas con Claude para poder continuar el trabajo
+Última actualización: 23-10-2026. Los pendientes están en `TODO.md`, en esta misma carpeta. Resumen de las decisiones tomadas con Claude para poder continuar el trabajo
 desde cualquier equipo. Para seguir: `git checkout redesign`, abrir Claude Code en esta carpeta y pedirle que lea este archivo.
 
 ## Decisiones tomadas
@@ -8,13 +8,13 @@ desde cualquier equipo. Para seguir: `git checkout redesign`, abrir Claude Code 
 - **Base:** se mantiene el código original (Astro 5 + Tailwind 4, i18n ES/EN, datos en `src/data`, SEO/JSON-LD). Nada de rehacer desde cero ni diseños excéntricos; todo el rediseño sale de una investigación en foros y estudios de usabilidad (NN/g, Hacker News, hiring managers).
 - **Estilo:** oscuro con un solo acento verde. Fondo `#0b0f0d`, acento `#45c690`, Bricolage Grotesque (títulos) + Inter (texto). Sin desenfoques (`backdrop-blur`), sin capas fijas de fondo, sin animaciones de aparición ni infinitas: eran la causa de los tirones al hacer scroll.
 - **Una sola página**, en este orden: Portada → Proyectos → Especialización → Experiencia → Contacto.
-- **Portada:** hero compacto, no a pantalla completa (NN/g: que asome la siguiente sección). Titular grande = oficio ("Desarrollador Laravel y PHP"); el nombre encima, legible, en verde ("Hola, soy Camilo Taba"); una frase de qué construye; línea de contexto; botones "Ver proyectos" y "Descargar CV"; foto.
+- **Portada:** hero compacto, no a pantalla completa (NN/g: que asome la siguiente sección). Titular grande = oficio ("Desarrollador Laravel y PHP"); el nombre encima, legible, en verde (solo "Camilo Taba", sin saludo); una frase de qué construye; línea de contexto; botones "Ver proyectos" y "Descargar CV"; foto.
 - **Cabecera:** barra fija a lo ancho, logo "C T" (`public/ct-mark.svg`) con `aria-label`, sin desenfoque. El nombre no se repite en la cabecera porque ya está en la portada.
 - **Proyectos:** solo Truekapp y VALO·DEX, con capturas reales (`src/assets/web/`). ManagePoint no va como proyecto (no hay material público); queda dentro de Experiencia. Truekapp lleva la nota "El código es privado; la demo muestra la aplicación completa".
 - **Experiencia:** por puesto, una línea de qué es + 2-3 puntos que empiezan con verbo + máx. 5 tecnologías. "Diseñé y desarrollé" solo donde Camilo fue autor de principio a fin; "Desarrollé" cuando construyó sobre una base existente.
 - **Especialización:** sustituye a la antigua sección de servicios freelance. La web se presenta como personal, sin oferta comercial explícita. Se mantiene completa.
 - **Claro/oscuro:** no se añade selector; el diseño es oscuro a propósito.
-- **Textos:** nada de frases genéricas; datos concretos y verificables. Sin métricas inventadas.
+- **Textos:** nada de frases genéricas; datos concretos y verificables. Sin métricas inventadas. Pasada anti IA hecha (skill humanizer) el 23-10-2026: sin saludos de plantilla, sin "no X sino Y", sin tríos forzados ni muletillas ("a medida", "de principio a fin", "día a día"). Los detectores de IA (GPTZero y similares) no sirven para textos cortos; lo que funciona es la lista de señales y añadir datos que solo Camilo sabe.
 - **CV:** se genera desde `cv/content.json` + `cv/styles.css` con `npm run cv:build`. La web y el CV deben decir lo mismo.
 
 ## Qué se puede publicar de FleetX
@@ -40,13 +40,7 @@ Móvil y escritorio: 100 rendimiento · 100 accesibilidad · 100 SEO. Buenas pr�
 
 ## Pendientes
 
-1. Botón de "Especialización": cambiar "Ver proyectos" por "Hablemos" (→ contacto).
-2. Igualar `cv/content.json` con la web en FleetX (tres puntos, mismo orden, quitar el punto vago sobre Firestore) y regenerar los PDF.
-3. Título de la página con ciudad: "Camilo Taba · Desarrollador Laravel y PHP en Alicante".
-4. Quitar ManagePoint de `public/llms.txt`.
-5. Probar la web en móvil y portátil reales haciendo scroll (comprobar que no hay tirones).
-6. Decidir si se vuelve a mencionar que se aceptan proyectos freelance (ahora no se dice).
-7. Cuando esté revisado: PR de `redesign` → `master` y desplegar.
+Ver `docs/TODO.md`.
 
 ## Cómo verlo en local
 
